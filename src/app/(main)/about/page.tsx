@@ -1,0 +1,269 @@
+"use client";
+
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  Award,
+  HandHeart,
+  HeartHandshake,
+  LockKeyhole,
+  MapPin,
+  Sparkles,
+  UsersRound,
+} from "lucide-react";
+
+import { CTABanner } from "@/components/home/CTABanner";
+import { PageHero } from "@/components/shared/PageHero";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { DELIVERY_TYPES } from "@/lib/constants";
+import { fadeInUp } from "@/lib/animations";
+
+const values = [
+  {
+    title: "Compassion",
+    description: "We meet every person with warmth, patience and understanding.",
+    icon: HandHeart,
+  },
+  {
+    title: "Confidentiality",
+    description: "Your privacy and dignity are protected at every step.",
+    icon: LockKeyhole,
+  },
+  {
+    title: "Inclusion",
+    description: "Everyone is welcomed, respected and supported without judgement.",
+    icon: UsersRound,
+  },
+  {
+    title: "Excellence",
+    description: "We bring specialist knowledge and high standards to every case.",
+    icon: Award,
+  },
+  {
+    title: "Empowerment",
+    description: "We help you make informed choices and move forward with confidence.",
+    icon: Sparkles,
+  },
+  {
+    title: "Community",
+    description: "We build stronger local connections so nobody faces difficulty alone.",
+    icon: HeartHandshake,
+  },
+];
+
+const processSteps = [
+  "First Contact",
+  "Assessment",
+  "Support Plan",
+  "Review",
+];
+
+export default function AboutPage() {
+  return (
+    <>
+      <PageHero
+        title="About I-Care Services ICC"
+        subtitle="A community-rooted hub built on compassion, trust, and specialist expertise"
+      />
+
+      <section className="bg-white">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20 lg:px-8 lg:py-28">
+          <AnimatedSection variant="slideInLeft">
+            <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-coral">
+              Our story
+            </p>
+            <h2 className="mt-4 font-heading text-4xl font-extrabold tracking-[-0.04em] text-navy sm:text-5xl">
+              Built Around People, Not Systems
+            </h2>
+            <div className="mt-7 space-y-5 text-base leading-8 text-text-secondary">
+              <p>
+                I-Care Services ICC was founded on a simple belief: everyone
+                deserves support, regardless of their circumstances, background
+                or ability to navigate complex services alone.
+              </p>
+              <p>
+                What began as a commitment to helping people find the right
+                guidance has grown into a specialist community hub in Stanmore,
+                supporting individuals and families across London with health,
+                housing, welfare and emotional wellbeing.
+              </p>
+              <p>
+                Our promise remains unchanged. We are always confidential,
+                always free to access and always on your side, helping you take
+                the next step with dignity and confidence.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection
+            variant="slideInRight"
+            className="rounded-[2rem] bg-cream p-6 shadow-[var(--shadow-soft)] sm:p-8"
+          >
+            {[
+              ["Founded with purpose", "Support shaped by real community needs"],
+              ["Rooted in Stanmore", "Local, approachable and easy to reach"],
+              ["Serving all of London", "Inclusive guidance across the capital"],
+            ].map(([title, description], index) => (
+              <div
+                key={title}
+                className={`flex gap-4 py-5 ${
+                  index > 0 ? "border-t border-cream-dark" : ""
+                }`}
+              >
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-purple/10 font-heading text-lg font-extrabold text-purple">
+                  0{index + 1}
+                </span>
+                <div>
+                  <h3 className="font-heading text-lg font-extrabold text-navy">
+                    {title}
+                  </h3>
+                  <p className="mt-1 text-sm leading-6 text-text-secondary">
+                    {description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </AnimatedSection>
+        </div>
+      </section>
+
+      <section className="bg-cream-dark">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <AnimatedSection className="mx-auto max-w-2xl text-center">
+            <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-coral">
+              Our values
+            </p>
+            <h2 className="mt-4 font-heading text-4xl font-extrabold tracking-[-0.04em] text-navy sm:text-5xl">
+              What We Stand For
+            </h2>
+          </AnimatedSection>
+          <AnimatedSection
+            variant="staggerContainer"
+            className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {values.map(({ title, description, icon: Icon }) => (
+              <motion.article
+                key={title}
+                variants={fadeInUp}
+                className="interactive-card rounded-3xl bg-white p-7"
+              >
+                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange/15 text-coral">
+                  <Icon size={25} aria-hidden="true" />
+                </span>
+                <h3 className="mt-5 font-heading text-xl font-extrabold text-navy">
+                  {title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-text-secondary">
+                  {description}
+                </p>
+              </motion.article>
+            ))}
+          </AnimatedSection>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto max-w-7xl space-y-20 px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
+            <AnimatedSection
+              variant="slideInLeft"
+              className="relative min-h-80 overflow-hidden rounded-[2rem] bg-cream"
+            >
+              <div className="absolute left-[12%] top-[14%] h-48 w-48 rounded-[56%_44%_62%_38%] bg-orange" />
+              <div className="absolute bottom-[12%] right-[10%] h-52 w-52 rounded-[40%_60%_46%_54%] bg-purple" />
+              <div className="absolute left-[36%] top-[34%] flex h-32 w-32 items-center justify-center rounded-full border-[22px] border-white/70">
+                <HeartHandshake
+                  className="text-navy"
+                  size={36}
+                  aria-hidden="true"
+                />
+              </div>
+            </AnimatedSection>
+            <AnimatedSection variant="slideInRight">
+              <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-coral">
+                Our approach
+              </p>
+              <h2 className="mt-4 font-heading text-4xl font-extrabold tracking-[-0.04em] text-navy">
+                Person-Centred From Day One
+              </h2>
+              <p className="mt-5 leading-8 text-text-secondary">
+                We begin by listening carefully, understanding the whole
+                situation and agreeing a plan that reflects your priorities.
+              </p>
+              <ol className="mt-8 grid gap-3 sm:grid-cols-2">
+                {processSteps.map((step, index) => (
+                  <li
+                    key={step}
+                    className="flex items-center gap-3 rounded-2xl bg-cream px-4 py-4 font-heading text-sm font-bold text-navy"
+                  >
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-purple text-xs text-white">
+                      {index + 1}
+                    </span>
+                    {step}
+                  </li>
+                ))}
+              </ol>
+            </AnimatedSection>
+          </div>
+
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
+            <AnimatedSection variant="slideInLeft" className="lg:order-1">
+              <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-coral">
+                Ongoing support
+              </p>
+              <h2 className="mt-4 font-heading text-4xl font-extrabold tracking-[-0.04em] text-navy">
+                Always in Your Corner
+              </h2>
+              <p className="mt-5 leading-8 text-text-secondary">
+                Support should feel consistent, not fragmented. We stay
+                connected, review what is working and adjust the plan when your
+                needs or circumstances change.
+              </p>
+              <p className="mt-4 leading-8 text-text-secondary">
+                When another specialist service is needed, we help make that
+                connection clear and manageable so you are never left wondering
+                what happens next.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection
+              variant="slideInRight"
+              className="relative min-h-80 overflow-hidden rounded-[2rem] bg-navy lg:order-2"
+            >
+              <div className="absolute -left-16 bottom-4 h-64 w-64 rounded-full border-[48px] border-purple" />
+              <div className="absolute right-[8%] top-[13%] h-44 w-44 rounded-[62%_38%_45%_55%] bg-coral" />
+              <div className="absolute bottom-[18%] right-[28%] flex h-24 w-24 items-center justify-center rounded-full bg-white text-purple shadow-xl">
+                <MapPin size={34} aria-hidden="true" />
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-navy text-white">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+          <AnimatedSection className="text-center">
+            <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-orange">
+              Flexible by design
+            </p>
+            <h2 className="mt-4 font-heading text-4xl font-extrabold tracking-[-0.04em] sm:text-5xl">
+              Ways We Support You
+            </h2>
+            <div className="mt-9 flex flex-wrap justify-center gap-3">
+              {DELIVERY_TYPES.map((type) => (
+                <span
+                  key={type}
+                  className="interactive-button inline-flex min-h-12 items-center gap-2 rounded-full border border-white/25 px-5 py-3 text-sm font-bold hover:border-orange hover:bg-orange hover:text-navy"
+                >
+                  {type}
+                  <ArrowRight size={16} aria-hidden="true" />
+                </span>
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      <CTABanner />
+    </>
+  );
+}
