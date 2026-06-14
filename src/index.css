@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --color-navy: #1a3a6b;
+  --color-navy-dark: #122a52;
+  --color-navy-light: #2a4f8f;
+  --color-gold: #c9932a;
+  --color-gold-light: #e0b050;
+  --color-offwhite: #f8faff;
+  --color-slate: #f1f4fb;
+  --color-surface: #ffffff;
+  --color-text: #1f2937;
+}
+
+.dark {
+  color-scheme: dark;
+  --color-surface: #1a2d52;
+  --color-text: #f3f4f6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--color-offwhite);
+  color: var(--color-text);
+  font-family: Inter, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 6vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+p,
+li,
+label,
+span,
+button {
+  font-family: Inter, sans-serif;
+}
+
+p {
+  line-height: 1.75;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.focus-visible\:ring-gold:focus-visible {
+  --tw-ring-color: var(--color-gold);
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+::selection {
+  background: var(--color-gold-light);
+  color: var(--color-navy-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
