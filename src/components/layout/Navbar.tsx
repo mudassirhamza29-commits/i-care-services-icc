@@ -62,12 +62,12 @@ export function Navbar() {
           aria-label="I-Care Services ICC home"
         >
           <Image
-            src="/brand/i-care-logo.jpeg"
+            src="/brand/i-care-logo.png"
             alt=""
-            width={247}
-            height={127}
+            width={673}
+            height={673}
             priority
-            className="h-12 w-auto shrink-0 rounded-xl object-contain sm:h-14"
+            className="h-12 w-12 shrink-0 object-contain sm:h-14 sm:w-14"
           />
           <span className="max-w-40 font-heading text-base font-extrabold leading-tight text-navy sm:max-w-none sm:text-lg">
             I-Care Services ICC

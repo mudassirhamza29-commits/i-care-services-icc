@@ -33,11 +33,11 @@ export function Footer() {
         <div>
           <div className="flex items-center gap-3">
             <Image
-              src="/brand/i-care-logo.jpeg"
+              src="/brand/i-care-logo.png"
               alt=""
-              width={247}
-              height={127}
-              className="h-14 w-auto rounded-xl object-contain"
+              width={673}
+              height={673}
+              className="h-14 w-14 object-contain"
             />
             <span className="font-heading text-xl font-extrabold">
               I-Care Services ICC

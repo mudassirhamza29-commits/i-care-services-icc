@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   description:
     "Community-based health, welfare, housing and family support in Stanmore, London.",
   icons: {
-    icon: "/icon.jpeg",
-    apple: "/icon.jpeg",
+    icon: "/icon.png",
+    apple: "/icon.png",
   },
 };
 
