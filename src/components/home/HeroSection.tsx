@@ -39,7 +39,7 @@ export function HeroSection() {
       <div className="mx-auto grid w-full max-w-7xl items-center gap-14 px-4 py-16 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10 lg:px-8 lg:py-20">
         <motion.div
           variants={staggerContainer}
-          initial={shouldReduceMotion ? false : "hidden"}
+          initial={false}
           animate="visible"
           className="relative z-10"
         >
@@ -102,7 +102,7 @@ export function HeroSection() {
 
         <motion.div
           variants={slideInRight}
-          initial={shouldReduceMotion ? false : "hidden"}
+          initial={false}
           animate="visible"
           className="relative mx-auto min-h-[430px] w-full max-w-[550px] sm:min-h-[540px]"
           aria-label="A warm abstract illustration representing people connected in a supportive community"
@@ -153,7 +153,7 @@ export function HeroSection() {
           {statChips.map(({ label, icon: Icon, position }, index) => (
             <motion.div
               key={label}
-              initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.9 }}
+              initial={false}
               animate={{ opacity: 1, scale: 1 }}
               transition={{
                 duration: shouldReduceMotion ? 0 : 0.45,

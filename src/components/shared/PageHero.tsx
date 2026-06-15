@@ -1,4 +1,3 @@
-import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import Link from "next/link";
 
 interface PageHeroProps {
@@ -33,7 +32,7 @@ export function PageHero({
         style={{ backgroundColor: `${accentColor}40` }}
       />
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
-        <AnimatedSection className="max-w-4xl">
+        <div className="max-w-4xl">
           {breadcrumb && (
             <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/65">
               <Link href="/" className="hover:text-white">
@@ -57,7 +56,7 @@ export function PageHero({
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/75 sm:text-xl sm:leading-9">
             {subtitle}
           </p>
-        </AnimatedSection>
+        </div>
       </div>
     </section>
   );

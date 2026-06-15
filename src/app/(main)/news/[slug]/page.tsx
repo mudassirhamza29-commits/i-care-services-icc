@@ -5,6 +5,8 @@ import { PageHero } from "@/components/shared/PageHero";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { ALL_NEWS_POSTS } from "@/lib/news";
 
+export const revalidate = 3600;
+
 export function generateStaticParams() {
   return ALL_NEWS_POSTS.map((post) => ({ slug: post.slug }));
 }
