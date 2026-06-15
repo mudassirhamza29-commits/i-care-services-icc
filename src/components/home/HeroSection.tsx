@@ -14,7 +14,7 @@ const trustPoints = [
 
 const statChips = [
   { label: "500+ People Supported", icon: UsersRound, position: "left-0 top-8" },
-  { label: "7 Services", icon: HeartHandshake, position: "right-0 top-1/2" },
+  { label: "9 Services", icon: HeartHandshake, position: "right-0 top-1/2" },
   {
     label: "100% Confidential",
     icon: ShieldCheck,
@@ -48,7 +48,7 @@ export function HeroSection() {
             className="mb-5 inline-flex items-center gap-2 rounded-full border border-purple/15 bg-white/70 px-4 py-2 text-sm font-bold text-purple shadow-sm backdrop-blur"
           >
             <span className="h-2 w-2 rounded-full bg-orange" />
-            Community support in Stanmore, London
+            Community support that meets you where you are
           </motion.p>
           <motion.h1
             variants={fadeInUp}
@@ -64,11 +64,17 @@ export function HeroSection() {
           </motion.p>
           <motion.p
             variants={fadeInUp}
+            className="mt-5 inline-flex rounded-full border border-orange/30 bg-orange/15 px-4 py-2 text-sm font-extrabold italic text-coral"
+          >
+            We Speak Your Language
+          </motion.p>
+          <motion.p
+            variants={fadeInUp}
             className="mt-7 max-w-2xl text-base leading-8 text-text-secondary sm:text-lg"
           >
-            I-Care Services ICC is a specialist community support hub in
-            Stanmore, London, offering confidential, person-centred support
-            across health, housing, mental wellbeing, family, and more.
+            I-Care Services ICC is a specialist community support hub offering
+            confidential, person-centred support across health, housing, mental
+            wellbeing, family, and more.
           </motion.p>
           <motion.div
             variants={fadeInUp}

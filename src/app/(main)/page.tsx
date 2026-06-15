@@ -8,9 +8,9 @@ import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { WhyICareSection } from "@/components/home/WhyICareSection";
 
 export const metadata: Metadata = {
-  title: "Community Support in Stanmore",
+  title: "Community Support",
   description:
-    "Confidential, person-centred support across health, housing, mental wellbeing, family support and social care in Stanmore, London.",
+    "Confidential, person-centred support across health, housing, mental wellbeing, family support and social care.",
 };
 
 export default function HomePage() {

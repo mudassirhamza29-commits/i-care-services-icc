@@ -8,7 +8,7 @@ import { fadeInUp } from "@/lib/animations";
 
 const stats = [
   { value: 500, suffix: "+", label: "People Supported" },
-  { value: 7, suffix: "", label: "Services" },
+  { value: 9, suffix: "", label: "Services" },
   { value: 5, suffix: "+", label: "Years" },
   { value: 100, suffix: "%", label: "Confidential" },
 ];

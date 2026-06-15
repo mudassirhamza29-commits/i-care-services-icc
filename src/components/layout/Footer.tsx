@@ -5,7 +5,6 @@ import {
   Instagram,
   Linkedin,
   Mail,
-  MapPin,
   Phone,
 } from "lucide-react";
 
@@ -46,9 +45,8 @@ export function Footer() {
             </span>
           </div>
           <p className="mt-5 max-w-sm text-sm leading-7 text-white/75">
-            A community-based support hub helping people in Stanmore and across
-            London find practical guidance, compassionate care and a clearer
-            way forward.
+            A community-based support hub helping people find practical
+            guidance, compassionate care and a clearer way forward.
           </p>
           <div className="mt-6 flex gap-3">
             {socialLinks.map(({ label, href, icon: Icon }) => (
@@ -102,19 +100,6 @@ export function Footer() {
           <h2 className="font-heading text-base font-bold">Get in touch</h2>
           <address className="mt-5 space-y-4 not-italic">
             <a
-              href="https://maps.google.com/?q=48+Bellamy+Drive+Stanmore+London+HA7+2DB"
-              className="flex gap-3 text-sm leading-6 text-white/70 transition-colors hover:text-orange"
-              rel="noreferrer"
-              target="_blank"
-            >
-              <MapPin
-                size={18}
-                className="mt-1 shrink-0 text-orange"
-                aria-hidden="true"
-              />
-              {CONTACT_INFO.address}
-            </a>
-            <a
               href="tel:+442080400433"
               className="flex items-center gap-3 text-sm text-white/70 transition-colors hover:text-orange"
             >
@@ -149,8 +134,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 text-xs leading-5 text-white/55 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
           <p>
-            Company Limited by Guarantee Reg No: {CONTACT_INFO.regNumber} |
-            Registered in England and Wales
+            Company Limited by Guarantee Reg No: {CONTACT_INFO.regNumber}
           </p>
           <p>&copy; {new Date().getFullYear()} I-Care Services ICC</p>
         </div>

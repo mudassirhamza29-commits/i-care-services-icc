@@ -1,16 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CalendarDays, Mail, MapPin, Phone, XCircle } from "lucide-react";
+import { CalendarDays, Mail, Phone, XCircle } from "lucide-react";
 
 import { ContactForm } from "@/components/forms/ContactForm";
 import { PageHero } from "@/components/shared/PageHero";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { CONTACT_INFO } from "@/lib/constants";
 import { scaleIn } from "@/lib/animations";
-
-const mapUrl =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2479.5!2d-0.3167!3d51.6167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDM3JzAwLjAiTiAwwrAxOScwMC4wIlc!5e0!3m2!1sen!2suk!4v1234567890";
 
 export default function ContactPage() {
   return (
@@ -30,7 +27,7 @@ export default function ContactPage() {
           </AnimatedSection>
           <AnimatedSection
             variant="staggerContainer"
-            className="mt-12 grid gap-6 lg:grid-cols-3"
+            className="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2"
           >
             {[
               {
@@ -51,15 +48,6 @@ export default function ContactPage() {
                 href: `mailto:${CONTACT_INFO.email}`,
                 style: "bg-purple text-white",
               },
-              {
-                icon: MapPin,
-                title: "Find Us",
-                detail: CONTACT_INFO.address,
-                sub: "By appointment only",
-                label: "Get Directions",
-                href: "https://maps.google.com/?q=48+Bellamy+Drive+Stanmore+London+HA7+2DB",
-                style: "bg-navy text-white",
-              },
             ].map((card) => (
               <motion.article
                 key={card.title}
@@ -76,8 +64,6 @@ export default function ContactPage() {
                 <p className="mt-2 text-sm text-text-secondary">{card.sub}</p>
                 <a
                   href={card.href}
-                  target={card.title === "Find Us" ? "_blank" : undefined}
-                  rel={card.title === "Find Us" ? "noreferrer" : undefined}
                   className={`interactive-button mt-6 rounded-full px-5 py-3 text-sm font-extrabold ${card.style}`}
                 >
                   {card.label}
@@ -89,23 +75,9 @@ export default function ContactPage() {
       </section>
 
       <section className="bg-cream">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-24">
-          <AnimatedSection variant="slideInLeft">
+        <div className="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+          <AnimatedSection>
             <ContactForm />
-          </AnimatedSection>
-          <AnimatedSection
-            variant="slideInRight"
-            className="min-h-[500px] overflow-hidden rounded-2xl border-4 border-navy bg-cream-dark"
-          >
-            <iframe
-              src={mapUrl}
-              title="Map showing I-Care Services ICC at 48 Bellamy Drive, Stanmore"
-              width="100%"
-              height="100%"
-              className="min-h-[570px]"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
           </AnimatedSection>
         </div>
       </section>
@@ -156,8 +128,6 @@ export default function ContactPage() {
           <div className="mt-5 space-y-2 text-white/70">
             <p>Company Limited by Guarantee</p>
             <p>Registration Number: {CONTACT_INFO.regNumber}</p>
-            <p>Registered in England and Wales</p>
-            <p>{CONTACT_INFO.address}</p>
           </div>
         </AnimatedSection>
       </section>

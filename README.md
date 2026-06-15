@@ -1,6 +1,6 @@
 # I-Care Services ICC Website
 
-A responsive community support website for I-Care Services ICC in Stanmore, London.
+A responsive community support website for I-Care Services ICC.
 
 ## Tech Stack
 
@@ -25,7 +25,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 - Home
 - About
-- Services overview and seven specialist service pages
+- Services overview and nine specialist service pages
 - Get Support
 - For Professionals
 - Resources

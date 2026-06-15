@@ -8,10 +8,10 @@ type Category = "All Resources" | "Health" | "Housing" | "Mental Health" | "Welf
 interface Resource { title: string; type: string; category: Exclude<Category, "All Resources">; description: string; }
 
 const resources: Resource[] = [
-  { title: "How to Register With a GP in London", type: "Guide", category: "Health", description: "The documents, choices and steps involved in joining a GP practice." },
+  { title: "How to Register With a GP", type: "Guide", category: "Health", description: "The documents, choices and steps involved in joining a GP practice." },
   { title: "Understanding Your NHS Rights", type: "Information Sheet", category: "Health", description: "A clear overview of access, consent, choice and complaints." },
   { title: "Managing Long-Term Health Conditions", type: "Guide", category: "Health", description: "Practical ways to prepare for appointments and manage ongoing care." },
-  { title: "Your Rights as a Tenant in England", type: "Guide", category: "Housing", description: "Key protections relating to repairs, deposits and your tenancy." },
+  { title: "Understanding Your Rights as a Tenant", type: "Guide", category: "Housing", description: "Key protections relating to repairs, deposits and your tenancy." },
   { title: "What to Do If You're Facing Eviction", type: "Information Sheet", category: "Housing", description: "Immediate actions to take when you receive an eviction notice." },
   { title: "How to Apply for Council Housing", type: "Step-by-Step Guide", category: "Housing", description: "How housing registers, priority bands and evidence usually work." },
   { title: "Understanding Anxiety: A Beginner's Guide", type: "Guide", category: "Mental Health", description: "Common signs of anxiety and practical routes to support." },

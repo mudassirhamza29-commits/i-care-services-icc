@@ -7,7 +7,9 @@ export type ServiceIconName =
   | "HeartPulse"
   | "Brain"
   | "UsersRound"
-  | "ShieldCheck";
+  | "ShieldCheck"
+  | "Palette"
+  | "HandHelping";
 
 export interface Service {
   id: number;
@@ -26,7 +28,6 @@ export interface NavLink {
 }
 
 export interface ContactInfo {
-  address: string;
   phone: string;
   email: string;
   website: string;

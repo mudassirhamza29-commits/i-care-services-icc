@@ -71,6 +71,26 @@ export const SERVICES: Service[] = [
     color: "#F4845F",
     isSensitive: true,
   },
+  {
+    id: 8,
+    title: "Art Therapy",
+    slug: "art-therapy",
+    description:
+      "Person-centred creative support for emotional expression and healing.",
+    icon: "Palette",
+    color: "#5B3FA6",
+    isSensitive: false,
+  },
+  {
+    id: 9,
+    title: "Additional Support",
+    slug: "additional-support",
+    description:
+      "Flexible guidance for needs that do not fit neatly within a single service.",
+    icon: "HandHelping",
+    color: "#F4845F",
+    isSensitive: false,
+  },
 ];
 
 export const NAV_LINKS: NavLink[] = [
@@ -88,7 +108,6 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export const CONTACT_INFO: ContactInfo = {
-  address: "48 Bellamy Drive, Stanmore, London, HA7 2DB",
   phone: "020 8040 0433",
   email: "i-caree@outlook.com",
   website: "www.icaree.co.uk",

@@ -22,11 +22,11 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.icaree.co.uk"),
   title: {
-    default: "I-Care Services ICC | Community Support in Stanmore",
+    default: "I-Care Services ICC | Community Support",
     template: "%s | I-Care Services ICC",
   },
   description:
-    "Community-based health, welfare, housing and family support in Stanmore, London.",
+    "Community-based health, welfare, housing and family support.",
   icons: {
     icon: "/icon.png",
     apple: "/icon.png",

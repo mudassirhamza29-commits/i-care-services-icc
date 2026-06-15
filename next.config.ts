@@ -9,7 +9,7 @@ const contentSecurityPolicy = [
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
   `connect-src 'self'${isDevelopment ? " ws: wss:" : ""}`,
-  "frame-src https://www.google.com",
+  "frame-src 'none'",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "object-src 'none'",

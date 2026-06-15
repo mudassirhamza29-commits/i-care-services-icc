@@ -8,9 +8,11 @@ import {
   Check,
   HeartHandshake,
   HeartPulse,
+  HandHelping,
   House,
   Landmark,
   LockKeyhole,
+  Palette,
   ShieldCheck,
   UsersRound,
 } from "lucide-react";
@@ -30,6 +32,8 @@ const serviceIcons = {
   Brain,
   UsersRound,
   ShieldCheck,
+  Palette,
+  HandHelping,
 } satisfies Record<ServiceIconName, typeof HeartHandshake>;
 
 const trustPoints = ["Free", "Confidential", "No Referral Needed"];
@@ -159,6 +163,23 @@ export default function ServicesPage() {
                 </motion.article>
               );
             })}
+          </AnimatedSection>
+          <AnimatedSection className="mt-8 rounded-3xl border border-purple/25 bg-purple/5 p-6 sm:p-8">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-purple text-white">
+                <HandHelping size={24} aria-hidden="true" />
+              </span>
+              <div>
+                <h3 className="font-heading text-xl font-extrabold text-navy">
+                  Advocacy &amp; Support Across All Services
+                </h3>
+                <p className="mt-2 leading-7 text-text-secondary">
+                  Our team advocates on your behalf across every service we
+                  offer, ensuring your voice is heard and your rights are
+                  upheld.
+                </p>
+              </div>
+            </div>
           </AnimatedSection>
         </div>
       </section>

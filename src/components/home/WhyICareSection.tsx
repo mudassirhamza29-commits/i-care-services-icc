@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { HandHeart, MapPin, ShieldCheck, Sparkles } from "lucide-react";
+import { HandHeart, HeartHandshake, ShieldCheck, Sparkles } from "lucide-react";
 
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { fadeInUp } from "@/lib/animations";
@@ -9,8 +9,8 @@ import { fadeInUp } from "@/lib/animations";
 const features = [
   {
     title: "Community-Based",
-    description: "Local knowledge and support rooted in the community we serve.",
-    icon: MapPin,
+    description: "Support rooted in the needs and strengths of each community.",
+    icon: HeartHandshake,
     color: "bg-orange/15 text-coral",
   },
   {

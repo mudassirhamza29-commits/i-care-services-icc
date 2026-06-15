@@ -9,9 +9,9 @@ export interface NewsPost {
 }
 
 export const FEATURED_POST: NewsPost = {
-  slug: "expands-mental-health-provision-stanmore",
+  slug: "expands-mental-health-provision",
   category: "Community News",
-  title: "I-Care Services ICC Expands Mental Health Provision in Stanmore",
+  title: "I-Care Services ICC Expands Mental Health Provision",
   excerpt:
     "We're proud to announce the expansion of our mental health services, bringing qualified counselling and psychological support to more members of our community than ever before.",
   date: "10 June 2025",
@@ -25,7 +25,7 @@ export const NEWS_POSTS: NewsPost[] = [
     category: "Housing",
     title: "Know Your Rights: Tenant Protections in 2025",
     excerpt:
-      "A comprehensive guide to your rights as a tenant in England and Wales, including repairs, notices and deposits.",
+      "A comprehensive guide to tenant rights, including repairs, notices and deposits.",
     date: "15 May 2025",
     author: "I-Care Housing Team",
     color: "#E8574A",
@@ -53,7 +53,7 @@ export const NEWS_POSTS: NewsPost[] = [
   {
     slug: "peer-support-groups-one-year",
     category: "Community",
-    title: "Celebrating 1 Year of Peer Support Groups in Stanmore",
+    title: "Celebrating 1 Year of Peer Support Groups",
     excerpt:
       "Our peer support groups have transformed lives over the past year through connection and shared understanding.",
     date: "5 April 2025",

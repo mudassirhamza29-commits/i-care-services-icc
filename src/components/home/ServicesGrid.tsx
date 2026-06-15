@@ -8,7 +8,9 @@ import {
   HeartHandshake,
   HeartPulse,
   House,
+  HandHelping,
   Landmark,
+  Palette,
   ShieldCheck,
   UsersRound,
 } from "lucide-react";
@@ -26,6 +28,8 @@ const serviceIcons = {
   Brain,
   UsersRound,
   ShieldCheck,
+  Palette,
+  HandHelping,
 } satisfies Record<ServiceIconName, typeof HeartHandshake>;
 
 export function ServicesGrid() {

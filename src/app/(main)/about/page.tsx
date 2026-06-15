@@ -7,7 +7,7 @@ import {
   HandHeart,
   HeartHandshake,
   LockKeyhole,
-  MapPin,
+  HandHelping,
   Sparkles,
   UsersRound,
 } from "lucide-react";
@@ -83,9 +83,9 @@ export default function AboutPage() {
               </p>
               <p>
                 What began as a commitment to helping people find the right
-                guidance has grown into a specialist community hub in Stanmore,
-                supporting individuals and families across London with health,
-                housing, welfare and emotional wellbeing.
+                guidance has grown into a specialist community hub supporting
+                individuals and families with health, housing, welfare and
+                emotional wellbeing.
               </p>
               <p>
                 Our promise remains unchanged. We are always confidential,
@@ -101,8 +101,8 @@ export default function AboutPage() {
           >
             {[
               ["Founded with purpose", "Support shaped by real community needs"],
-              ["Rooted in Stanmore", "Local, approachable and easy to reach"],
-              ["Serving all of London", "Inclusive guidance across the capital"],
+              ["Community-rooted", "Approachable and easy to reach"],
+              ["Open to everyone", "Inclusive guidance without barriers"],
             ].map(([title, description], index) => (
               <div
                 key={title}
@@ -232,7 +232,7 @@ export default function AboutPage() {
               <div className="absolute -left-16 bottom-4 h-64 w-64 rounded-full border-[48px] border-purple" />
               <div className="absolute right-[8%] top-[13%] h-44 w-44 rounded-[62%_38%_45%_55%] bg-coral" />
               <div className="absolute bottom-[18%] right-[28%] flex h-24 w-24 items-center justify-center rounded-full bg-white text-purple shadow-xl">
-                <MapPin size={34} aria-hidden="true" />
+                <HandHelping size={34} aria-hidden="true" />
               </div>
             </AnimatedSection>
           </div>
