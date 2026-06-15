@@ -32,13 +32,15 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_1fr_1.2fr] lg:px-8 lg:py-18">
         <div>
           <div className="flex items-center gap-3">
-            <Image
-              src="/brand/i-care-logo.png"
-              alt=""
-              width={673}
-              height={673}
-              className="h-14 w-14 object-contain"
-            />
+            <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-cream p-1.5 shadow-sm">
+              <Image
+                src="/brand/i-care-logo.png"
+                alt=""
+                width={673}
+                height={673}
+                className="h-full w-full object-contain"
+              />
+            </span>
             <span className="font-heading text-xl font-extrabold">
               I-Care Services ICC
             </span>
