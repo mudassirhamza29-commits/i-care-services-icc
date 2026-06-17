@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowRight, PhoneCall } from "lucide-react";
 
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
@@ -9,16 +10,16 @@ export function CTABanner() {
     <section className="bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <AnimatedSection
         variant="scaleIn"
-        className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-navy via-navy to-purple px-6 py-14 text-center text-white shadow-[var(--shadow-hover)] sm:px-10 lg:py-20"
+        className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] px-6 py-14 text-center text-white shadow-[var(--shadow-hover)] sm:px-10 lg:py-20"
       >
-        <div
-          aria-hidden="true"
-          className="absolute -left-20 -top-24 h-64 w-64 rounded-full border-[45px] border-orange/15"
+        <Image
+          src="/images/cta-bg.jpg"
+          alt=""
+          fill
+          sizes="(min-width: 1280px) 1280px, 100vw"
+          className="absolute inset-0 -z-20 object-cover"
         />
-        <div
-          aria-hidden="true"
-          className="absolute -bottom-32 -right-16 h-80 w-80 rounded-full border-[55px] border-white/5"
-        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/94 via-navy/84 to-purple/78" />
         <div className="relative z-10 mx-auto max-w-3xl">
           <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-orange">
             We are here to listen
@@ -26,7 +27,7 @@ export function CTABanner() {
           <h2 className="mt-4 font-heading text-4xl font-extrabold tracking-[-0.04em] sm:text-5xl lg:text-6xl">
             Ready to Take the First Step?
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
             You do not need to have everything figured out. Tell us what is
             happening, and we will help you understand what support is
             available.
@@ -46,7 +47,7 @@ export function CTABanner() {
           </div>
           <a
             href="tel:+442080400433"
-            className="interactive-button mt-7 inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-white/80 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+            className="interactive-button mt-7 inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-white/82 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
           >
             <PhoneCall size={17} aria-hidden="true" />
             Or call us on {CONTACT_INFO.phone}

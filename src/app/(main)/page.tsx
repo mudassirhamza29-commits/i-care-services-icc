@@ -1,11 +1,27 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 
-import { CTABanner } from "@/components/home/CTABanner";
 import { HeroSection } from "@/components/home/HeroSection";
-import { ServicesGrid } from "@/components/home/ServicesGrid";
-import { StatsSection } from "@/components/home/StatsSection";
-import { TestimonialsSection } from "@/components/home/TestimonialsSection";
-import { WhyICareSection } from "@/components/home/WhyICareSection";
+
+const ServicesGrid = dynamic(() =>
+  import("@/components/home/ServicesGrid").then((module) => module.ServicesGrid),
+);
+const StatsSection = dynamic(() =>
+  import("@/components/home/StatsSection").then((module) => module.StatsSection),
+);
+const WhyICareSection = dynamic(() =>
+  import("@/components/home/WhyICareSection").then(
+    (module) => module.WhyICareSection,
+  ),
+);
+const TestimonialsSection = dynamic(() =>
+  import("@/components/home/TestimonialsSection").then(
+    (module) => module.TestimonialsSection,
+  ),
+);
+const CTABanner = dynamic(() =>
+  import("@/components/home/CTABanner").then((module) => module.CTABanner),
+);
 
 export const metadata: Metadata = {
   title: "Community Support",

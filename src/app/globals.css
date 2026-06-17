@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-navy: #2e3250;
-  --color-orange: #f4845f;
-  --color-coral: #e8574a;
-  --color-purple: #5b3fa6;
-  --color-cream: #faf8f4;
-  --color-cream-dark: #f0ece4;
+  --color-navy: #1a1a2e;
+  --color-orange: #f4a261;
+  --color-coral: #f4a261;
+  --color-purple: #2a7f6f;
+  --color-cream: #fafafa;
+  --color-cream-dark: #eaf7f4;
   --color-text-primary: #1a1a2e;
-  --color-text-secondary: #4a4a6a;
-  --font-heading: var(--font-plus-jakarta), sans-serif;
+  --color-text-secondary: #3f4357;
+  --font-heading: var(--font-inter), sans-serif;
   --font-body: var(--font-inter), sans-serif;
   --radius-sm: 8px;
   --radius-md: 16px;
@@ -17,21 +17,21 @@
 }
 
 :root {
-  --color-navy: #2e3250;
-  --color-orange: #f4845f;
-  --color-coral: #e8574a;
-  --color-purple: #5b3fa6;
-  --color-cream: #faf8f4;
-  --color-cream-dark: #f0ece4;
+  --color-navy: #1a1a2e;
+  --color-orange: #f4a261;
+  --color-coral: #f4a261;
+  --color-purple: #2a7f6f;
+  --color-cream: #fafafa;
+  --color-cream-dark: #eaf7f4;
   --color-text-primary: #1a1a2e;
-  --color-text-secondary: #4a4a6a;
-  --font-heading: var(--font-plus-jakarta), sans-serif;
+  --color-text-secondary: #3f4357;
+  --font-heading: var(--font-inter), sans-serif;
   --font-body: var(--font-inter), sans-serif;
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;
-  --shadow-soft: 0 4px 24px rgba(46, 50, 80, 0.08);
-  --shadow-hover: 0 12px 40px rgba(46, 50, 80, 0.15);
+  --shadow-soft: 0 4px 24px rgba(26, 26, 46, 0.08);
+  --shadow-hover: 0 12px 40px rgba(26, 26, 46, 0.15);
   --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
