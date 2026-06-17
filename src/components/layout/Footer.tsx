@@ -4,6 +4,16 @@ import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react
 
 import { CONTACT_INFO, SERVICES } from "@/lib/constants";
 
+const companyLinks = [
+  { label: "About us", href: "/about" },
+  { label: "Our team", href: "/team" },
+  { label: "Get support", href: "/get-support" },
+  { label: "Refer a client", href: "/for-professionals" },
+  { label: "Resources", href: "/resources" },
+  { label: "Blog / News", href: "/news" },
+  { label: "Contact", href: "/contact" },
+];
+
 const socialLinks = [
   { label: "Facebook", href: "https://www.facebook.com/", icon: Facebook },
   { label: "Instagram", href: "https://www.instagram.com/", icon: Instagram },
@@ -13,7 +23,7 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="bg-navy text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.15fr_1fr_1fr] lg:px-8 lg:py-16">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-[1.15fr_0.85fr_1fr_1fr] lg:px-8 lg:py-16">
         <div>
           <div className="flex items-center gap-3">
             <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white p-1.5 shadow-sm">
@@ -50,8 +60,24 @@ export function Footer() {
         </div>
 
         <div>
+          <h2 className="font-heading text-base font-bold">Explore</h2>
+          <ul className="mt-5 space-y-3">
+            {companyLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-sm text-white/70 transition-colors hover:text-orange focus-visible:text-orange focus-visible:outline-none"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
           <h2 className="font-heading text-base font-bold">Services</h2>
-          <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+          <ul className="mt-5 space-y-3">
             {SERVICES.map((service) => (
               <li key={service.slug}>
                 <Link

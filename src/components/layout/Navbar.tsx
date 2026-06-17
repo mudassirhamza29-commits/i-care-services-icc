@@ -5,16 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Menu, PhoneCall, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 
-import { CONTACT_INFO } from "@/lib/constants";
-
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-];
+import { NAV_LINKS } from "@/lib/constants";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -55,7 +48,7 @@ export function Navbar() {
     >
       <nav
         aria-label="Primary navigation"
-        className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8"
+        className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-5 px-4 sm:px-6 lg:px-8"
       >
         <Link
           href="/"
@@ -70,38 +63,84 @@ export function Navbar() {
             priority
             className="h-11 w-11 shrink-0 object-contain sm:h-12 sm:w-12"
           />
-          <span className="font-heading text-base font-extrabold leading-tight text-navy sm:text-lg">
+          <span className="max-w-36 font-heading text-base font-extrabold leading-tight text-navy sm:max-w-none sm:text-lg">
             I-Care Services ICC
           </span>
         </Link>
 
-        <div className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`nav-link py-2 text-sm font-bold ${
-                isActive(link.href)
-                  ? "text-purple after:scale-x-100"
-                  : "text-text-secondary hover:text-navy"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+        <div className="hidden items-center gap-5 xl:flex">
+          {NAV_LINKS.map((link) =>
+            link.children ? (
+              <div
+                key={link.href}
+                className="group/services relative flex h-20 items-center"
+              >
+                <Link
+                  href={link.href}
+                  aria-haspopup="menu"
+                  className={`nav-link flex items-center gap-1 py-2 text-sm font-bold ${
+                    isActive(link.href)
+                      ? "text-purple after:scale-x-100"
+                      : "text-text-secondary hover:text-navy"
+                  }`}
+                >
+                  {link.label}
+                  <ChevronDown
+                    size={15}
+                    className="transition-transform duration-200 group-hover/services:rotate-180"
+                    aria-hidden="true"
+                  />
+                </Link>
+                <div
+                  role="menu"
+                  className="pointer-events-none invisible absolute left-1/2 top-[calc(100%-4px)] w-76 -translate-x-1/2 translate-y-2 rounded-2xl border border-cream-dark bg-white p-2 opacity-0 shadow-[var(--shadow-hover)] transition-all duration-200 group-focus-within/services:pointer-events-auto group-focus-within/services:visible group-focus-within/services:translate-y-0 group-focus-within/services:opacity-100 group-hover/services:pointer-events-auto group-hover/services:visible group-hover/services:translate-y-0 group-hover/services:opacity-100"
+                >
+                  {link.children.map((service) => (
+                    <Link
+                      key={service.slug}
+                      href={`/services/${service.slug}`}
+                      role="menuitem"
+                      className="block rounded-xl px-4 py-2.5 text-sm font-semibold text-text-secondary transition-colors hover:bg-cream-dark hover:text-purple focus-visible:bg-cream-dark focus-visible:text-purple focus-visible:outline-none"
+                    >
+                      {service.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`nav-link py-2 text-sm font-bold ${
+                  isActive(link.href)
+                    ? "text-purple after:scale-x-100"
+                    : "text-text-secondary hover:text-navy"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ),
+          )}
         </div>
 
-        <a
-          href="tel:+442080400433"
-          className="interactive-button hidden items-center gap-2 rounded-full bg-orange px-5 py-3 text-sm font-extrabold text-navy shadow-sm hover:bg-purple hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple lg:inline-flex"
-        >
-          <PhoneCall size={17} aria-hidden="true" />
-          Call Us
-        </a>
+        <div className="hidden shrink-0 items-center gap-3 xl:flex">
+          <Link
+            href="/for-professionals"
+            className="interactive-button rounded-full border-2 border-purple px-4 py-2.5 text-sm font-extrabold text-purple hover:bg-purple hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple"
+          >
+            Refer a Client
+          </Link>
+          <Link
+            href="/get-support"
+            className="interactive-button rounded-full bg-orange px-5 py-3 text-sm font-extrabold text-navy shadow-sm hover:bg-purple hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple"
+          >
+            Get Support
+          </Link>
+        </div>
 
         <button
           type="button"
-          className="interactive-button flex h-11 w-11 items-center justify-center rounded-full border border-cream-dark bg-white text-navy shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple lg:hidden"
+          className="interactive-button flex h-11 w-11 items-center justify-center rounded-full border border-cream-dark bg-white text-navy shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple xl:hidden"
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
           aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -123,27 +162,48 @@ export function Navbar() {
                 : { opacity: 0, height: 0 }
             }
             transition={{ duration: shouldReduceMotion ? 0 : 0.3 }}
-            className="overflow-y-auto border-t border-cream-dark bg-white lg:hidden"
+            className="overflow-y-auto border-t border-cream-dark bg-white xl:hidden"
           >
             <div className="mx-auto flex max-w-7xl flex-col px-4 py-6 sm:px-6">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`border-b border-cream-dark/70 py-4 font-heading text-lg font-bold ${
-                    isActive(link.href) ? "text-purple" : "text-navy"
-                  }`}
-                >
-                  {link.label}
-                </Link>
+              {NAV_LINKS.map((link) => (
+                <div key={link.href} className="border-b border-cream-dark/70">
+                  <Link
+                    href={link.href}
+                    className={`flex min-h-12 items-center py-3 font-heading text-base font-bold ${
+                      isActive(link.href) ? "text-purple" : "text-navy"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                  {link.children ? (
+                    <div className="grid gap-1 pb-4 sm:grid-cols-2">
+                      {link.children.map((service) => (
+                        <Link
+                          key={service.slug}
+                          href={`/services/${service.slug}`}
+                          className="rounded-xl px-3 py-2.5 text-sm font-semibold text-text-secondary hover:bg-cream-dark hover:text-purple focus-visible:bg-cream-dark focus-visible:text-purple focus-visible:outline-2 focus-visible:outline-purple"
+                        >
+                          {service.title}
+                        </Link>
+                      ))}
+                    </div>
+                  ) : null}
+                </div>
               ))}
-              <a
-                href="tel:+442080400433"
-                className="interactive-button mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-orange px-5 py-3 text-center text-sm font-extrabold text-navy"
-              >
-                <PhoneCall size={17} aria-hidden="true" />
-                Call {CONTACT_INFO.phone}
-              </a>
+              <div className="grid gap-3 pt-6 sm:grid-cols-2">
+                <Link
+                  href="/for-professionals"
+                  className="interactive-button rounded-full border-2 border-purple px-5 py-3 text-center text-sm font-extrabold text-purple"
+                >
+                  Refer a Client
+                </Link>
+                <Link
+                  href="/get-support"
+                  className="interactive-button rounded-full bg-orange px-5 py-3 text-center text-sm font-extrabold text-navy"
+                >
+                  Get Support
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}
