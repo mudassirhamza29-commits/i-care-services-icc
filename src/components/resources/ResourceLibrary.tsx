@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Download } from "lucide-react";
+import Link from "next/link";
 
 type Category = "All Resources" | "Health" | "Housing" | "Mental Health" | "Welfare";
 interface Resource { title: string; type: string; category: Exclude<Category, "All Resources">; description: string; }
@@ -35,7 +35,8 @@ export function ResourceLibrary() {
           {visible.map((resource)=><motion.article layout key={resource.title} initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: .96 }} className="interactive-card flex flex-col rounded-3xl border border-cream-dark bg-white p-6">
             <div className="flex flex-wrap gap-2"><span className={`rounded-full px-3 py-1 text-xs font-bold ${colors[resource.category]}`}>{resource.category}</span><span className="rounded-full bg-cream-dark px-3 py-1 text-xs font-bold text-text-secondary">{resource.type}</span></div>
             <h3 className="mt-5 font-heading text-xl font-extrabold text-navy">{resource.title}</h3><p className="mt-3 flex-1 text-sm leading-7 text-text-secondary">{resource.description}</p>
-            <a href="/downloads/community-resource-guide.pdf" download className="interactive-button mt-6 inline-flex w-fit items-center gap-2 rounded-full border-2 border-navy px-4 py-2 text-sm font-bold text-navy"><Download size={16} />Download</a>
+            <p className="mt-5 text-xs font-semibold text-text-secondary">HTML guidance is being reviewed. PDFs will only be published once approved and accessible.</p>
+            <Link href="/contact" className="interactive-button mt-4 inline-flex w-fit rounded-full border-2 border-navy px-4 py-2 text-sm font-bold text-navy">Ask for guidance</Link>
           </motion.article>)}
         </AnimatePresence>
       </motion.div>

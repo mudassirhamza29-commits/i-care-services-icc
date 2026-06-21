@@ -1,41 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { CheckCircle2, LoaderCircle } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import {
+  selfReferralSchema,
+  type SelfReferralSubmission,
+} from "@/lib/formSchemas";
 import { SERVICES } from "@/lib/constants";
 
-const ukPhone = /^(?:(?:\+44\s?\d{4}|0\d{4})\s?\d{6}|(?:\+44\s?\d{3}|0\d{3})\s?\d{3}\s?\d{4})$/;
-const ukPostcode = /^[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}$/i;
-
-const schema = z.object({
-  firstName: z.string().trim().min(1, "First name is required"),
-  lastName: z.string().trim().min(1, "Last name is required"),
-  dateOfBirth: z.string().min(1, "Date of birth is required"),
-  gender: z.string().optional(),
-  ethnicity: z.string().optional(),
-  phone: z.string().trim().regex(ukPhone, "Enter a valid UK phone number"),
-  email: z.union([z.literal(""), z.string().email("Enter a valid email address")]),
-  postcode: z.string().trim().regex(ukPostcode, "Enter a valid UK postcode"),
-  services: z.array(z.string()).min(1, "Select at least one service"),
-  supportMethods: z.array(z.string()).optional(),
-  urgency: z.string().optional(),
-  supportDetails: z
-    .string()
-    .trim()
-    .min(20, "Please provide at least 20 characters")
-    .max(1000, "Please keep this to 1000 characters"),
-  accurate: z.literal(true, { error: "Please confirm the information is accurate" }),
-  dataConsent: z.literal(true, { error: "Consent is required to submit" }),
-  phoneConsent: z.boolean().optional(),
-});
-
-type FormData = z.infer<typeof schema>;
+type FormData = SelfReferralSubmission;
 
 const ethnicities = [
   "English, Welsh, Scottish, Northern Irish or British",
@@ -64,34 +41,56 @@ const inputClass =
   "mt-2 w-full rounded-xl border border-navy/15 bg-white px-4 py-3 text-navy outline-none transition focus:border-purple focus:ring-2 focus:ring-purple/15";
 
 export function SelfReferralForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [reference, setReference] = useState<string | null>(null);
+  const [formError, setFormError] = useState<string | null>(null);
+  const [startedAt] = useState(() => Date.now());
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(selfReferralSchema),
     mode: "onBlur",
     defaultValues: {
       email: "",
       services: [],
       supportMethods: [],
       phoneConsent: false,
+      crisisConfirmation: false,
+      website: "",
+      startedAt,
     },
   });
   const details = watch("supportDetails") ?? "";
+  const urgency = watch("urgency");
 
-  const onSubmit = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    setSubmitted(true);
+  const onSubmit = async (data: FormData) => {
+    setFormError(null);
+    const response = await fetch("/api/referrals/self", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    const payload = (await response.json().catch(() => null)) as {
+      reference?: string;
+      error?: string;
+    } | null;
+
+    if (!response.ok || !payload?.reference) {
+      setFormError(
+        payload?.error ?? "We could not submit your referral. Please try again.",
+      );
+      return;
+    }
+
+    setReference(payload.reference);
   };
 
-  if (submitted) {
+  if (reference) {
     return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
+      <div
         className="mx-auto max-w-2xl rounded-[2rem] bg-white p-8 text-center shadow-[var(--shadow-soft)] sm:p-12"
         role="status"
       >
@@ -100,27 +99,45 @@ export function SelfReferralForm() {
           Thank You!
         </h3>
         <p className="mt-4 leading-8 text-text-secondary">
-          We&apos;ve received your referral and will be in touch within 48 hours.
+          We&apos;ve received your referral. Your reference is{" "}
+          <strong>{reference}</strong>. We aim to review requests promptly.
         </p>
-      </motion.div>
+      </div>
     );
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-8">
+      {formError ? (
+        <div
+          className="rounded-2xl border border-red-300 bg-red-50 p-4 text-sm font-semibold text-red-800"
+          role="alert"
+        >
+          {formError}
+        </div>
+      ) : null}
+      <input type="hidden" {...register("startedAt", { valueAsNumber: true })} />
+      <input
+        type="text"
+        {...register("website")}
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        aria-hidden="true"
+      />
       <AnimatedSection className="rounded-[2rem] bg-white p-6 shadow-sm sm:p-8">
         <h3 className="font-heading text-2xl font-extrabold text-navy">
           Personal Details
         </h3>
         <div className="mt-6 grid gap-5 sm:grid-cols-2">
           <Field label="First Name" required error={errors.firstName?.message}>
-            <input {...register("firstName")} className={inputClass} />
+            <input {...register("firstName")} autoComplete="given-name" className={inputClass} />
           </Field>
           <Field label="Last Name" required error={errors.lastName?.message}>
-            <input {...register("lastName")} className={inputClass} />
+            <input {...register("lastName")} autoComplete="family-name" className={inputClass} />
           </Field>
           <Field label="Date of Birth" required error={errors.dateOfBirth?.message}>
-            <input type="date" {...register("dateOfBirth")} className={inputClass} />
+            <input type="date" {...register("dateOfBirth")} autoComplete="bday" className={inputClass} />
           </Field>
           <Field label="Gender">
             <select {...register("gender")} className={inputClass}>
@@ -137,13 +154,13 @@ export function SelfReferralForm() {
             </select>
           </Field>
           <Field label="Phone Number" required error={errors.phone?.message}>
-            <input type="tel" {...register("phone")} className={inputClass} placeholder="020 8040 0433" />
+            <input type="tel" {...register("phone")} autoComplete="tel" className={inputClass} placeholder="020 8040 0433" />
           </Field>
           <Field label="Email Address" error={errors.email?.message}>
-            <input type="email" {...register("email")} className={inputClass} />
+            <input type="email" {...register("email")} autoComplete="email" className={inputClass} />
           </Field>
           <Field label="Postcode" required error={errors.postcode?.message}>
-            <input {...register("postcode")} className={inputClass} placeholder="HA7 2DB" />
+            <input {...register("postcode")} autoComplete="postal-code" className={inputClass} placeholder="Postcode" />
           </Field>
         </div>
       </AnimatedSection>
@@ -161,6 +178,20 @@ export function SelfReferralForm() {
           </div>
           <ErrorText message={errors.services?.message} />
         </fieldset>
+        {urgency === "Crisis" ? (
+          <div className="mt-5 rounded-2xl border border-red-300 bg-red-50 p-4 text-sm leading-6 text-red-900">
+            <p className="font-extrabold">This form is not for emergencies.</p>
+            <p>
+              If there is immediate danger, call 999. If you need urgent mental
+              health support, contact NHS 111 or Samaritans on 116 123.
+            </p>
+            <Consent
+              label="I understand this is not an emergency service and I have read the crisis guidance *"
+              register={register("crisisConfirmation")}
+              error={errors.crisisConfirmation?.message}
+            />
+          </div>
+        ) : null}
         <fieldset className="mt-7">
           <legend className="font-bold text-navy">How would you prefer to receive support?</legend>
           <div className="mt-3 grid gap-3 sm:grid-cols-2">
@@ -190,7 +221,7 @@ export function SelfReferralForm() {
         <h3 className="font-heading text-2xl font-extrabold text-navy">Consent</h3>
         <div className="mt-5 space-y-4">
           <Consent label="I confirm the information provided is accurate *" register={register("accurate")} error={errors.accurate?.message} />
-          <Consent label="I consent to I-Care Services ICC storing my data in accordance with their privacy policy *" register={register("dataConsent")} error={errors.dataConsent?.message} />
+          <Consent label="I consent to I-Care Services using this information to assess my request. I understand it may include sensitive information and will be handled under the privacy, safeguarding and data protection policies. *" register={register("dataConsent")} error={errors.dataConsent?.message} />
           <Consent label="I am happy to be contacted by phone" register={register("phoneConsent")} />
         </div>
       </AnimatedSection>

@@ -14,6 +14,16 @@ const companyLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
+const legalLinks = [
+  { label: "Privacy", href: "/privacy-policy" },
+  { label: "Cookies", href: "/cookies" },
+  { label: "Accessibility", href: "/accessibility-statement" },
+  { label: "Safeguarding", href: "/safeguarding" },
+  { label: "Complaints", href: "/complaints" },
+  { label: "Terms", href: "/terms" },
+  { label: "Data protection", href: "/data-protection" },
+];
+
 const socialLinks = [
   { label: "Facebook", href: "https://www.facebook.com/", icon: Facebook },
   { label: "Instagram", href: "https://www.instagram.com/", icon: Instagram },
@@ -131,6 +141,18 @@ export function Footer() {
           >
             {CONTACT_INFO.website}
           </a>
+          <ul className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
+            {legalLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-xs font-semibold text-white/60 transition-colors hover:text-orange focus-visible:text-orange focus-visible:outline-none"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 

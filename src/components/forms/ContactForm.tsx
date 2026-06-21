@@ -1,54 +1,57 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { CheckCircle2, LoaderCircle } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 
-const schema = z.object({
-  name: z.string().trim().min(2, "Please enter your full name"),
-  email: z.string().trim().email("Please enter a valid email address"),
-  phone: z.string().trim().optional(),
-  subject: z.string().min(1, "Please select a subject"),
-  message: z
-    .string()
-    .trim()
-    .min(20, "Please provide at least 20 characters")
-    .max(1000, "Please keep your message to 1000 characters"),
-  consent: z.literal(true, { error: "Consent is required to send your enquiry" }),
-});
+import { contactSchema, type ContactSubmission } from "@/lib/formSchemas";
 
-type ContactData = z.infer<typeof schema>;
+type ContactData = ContactSubmission;
 
 const inputClass =
   "mt-2 w-full rounded-xl border border-navy/15 bg-white px-4 py-3 text-navy outline-none transition focus:border-purple focus:ring-2 focus:ring-purple/15";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
+  const [startedAt] = useState(() => Date.now());
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors, isSubmitting },
   } = useForm<ContactData>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(contactSchema),
     mode: "onBlur",
-    defaultValues: { phone: "" },
+    defaultValues: { phone: "", website: "", startedAt },
   });
   const message = watch("message") ?? "";
 
-  const onSubmit = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 750));
+  const onSubmit = async (data: ContactData) => {
+    setFormError(null);
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      const payload = (await response.json().catch(() => null)) as {
+        error?: string;
+      } | null;
+      setFormError(
+        payload?.error ?? "We could not send your message. Please try again.",
+      );
+      return;
+    }
+
     setSent(true);
   };
 
   if (sent) {
     return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
+      <div
         className="flex min-h-[570px] flex-col items-center justify-center rounded-[2rem] bg-white p-8 text-center shadow-sm"
         role="status"
       >
@@ -57,9 +60,9 @@ export function ContactForm() {
           Thank you!
         </h3>
         <p className="mt-4 leading-8 text-text-secondary">
-          We&apos;ll be in touch within 24 hours.
+          Your message has been received. We aim to respond as soon as we can.
         </p>
-      </motion.div>
+      </div>
     );
   }
 
@@ -72,15 +75,32 @@ export function ContactForm() {
       <h3 className="font-heading text-2xl font-extrabold text-navy">
         Send Us a Message
       </h3>
+      {formError ? (
+        <div
+          className="mt-5 rounded-2xl border border-red-300 bg-red-50 p-4 text-sm font-semibold text-red-800"
+          role="alert"
+        >
+          {formError}
+        </div>
+      ) : null}
+      <input type="hidden" {...register("startedAt", { valueAsNumber: true })} />
+      <input
+        type="text"
+        {...register("website")}
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        aria-hidden="true"
+      />
       <div className="mt-6 space-y-5">
         <Field label="Full Name" error={errors.name?.message}>
-          <input {...register("name")} className={inputClass} />
+          <input {...register("name")} autoComplete="name" className={inputClass} />
         </Field>
         <Field label="Email Address" error={errors.email?.message}>
-          <input type="email" {...register("email")} className={inputClass} />
+          <input type="email" {...register("email")} autoComplete="email" className={inputClass} />
         </Field>
         <Field label="Phone Number" required={false}>
-          <input type="tel" {...register("phone")} className={inputClass} />
+          <input type="tel" {...register("phone")} autoComplete="tel" className={inputClass} />
         </Field>
         <Field label="Subject" error={errors.subject?.message}>
           <select {...register("subject")} className={inputClass}>
@@ -116,7 +136,16 @@ export function ContactForm() {
               className="mt-1 h-4 w-4 accent-purple"
             />
             <span className="text-sm leading-6 text-text-secondary">
-              I consent to my data being stored for the purpose of this enquiry *
+              I consent to I-Care Services using this information to respond to
+              my enquiry. I understand it will be handled under the{" "}
+              <a className="font-bold text-purple underline" href="/privacy-policy">
+                privacy policy
+              </a>{" "}
+              and{" "}
+              <a className="font-bold text-purple underline" href="/data-protection">
+                data protection policy
+              </a>
+              . *
             </span>
           </span>
           <ErrorText message={errors.consent?.message} />

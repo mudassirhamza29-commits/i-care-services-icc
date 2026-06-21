@@ -43,7 +43,7 @@ export default function ContactPage() {
                 icon: Mail,
                 title: "Email Us",
                 detail: CONTACT_INFO.email,
-                sub: "We respond within 24 hours",
+                sub: "We aim to respond promptly",
                 label: "Send Email",
                 href: `mailto:${CONTACT_INFO.email}`,
                 style: "bg-purple text-white",

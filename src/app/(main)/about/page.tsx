@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
+import type { Metadata } from "next";
 import {
   ArrowRight,
   Award,
@@ -16,7 +14,12 @@ import { CTABanner } from "@/components/home/CTABanner";
 import { PageHero } from "@/components/shared/PageHero";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { DELIVERY_TYPES } from "@/lib/constants";
-import { fadeInUp } from "@/lib/animations";
+
+export const metadata: Metadata = {
+  title: "About I-Care Services",
+  description:
+    "Learn about I-Care Services, our values, approach, and person-centred community support model.",
+};
 
 const values = [
   {
@@ -88,9 +91,9 @@ export default function AboutPage() {
                 emotional wellbeing.
               </p>
               <p>
-                Our promise remains unchanged. We are always confidential,
-                always free to access and always on your side, helping you take
-                the next step with dignity and confidence.
+                Our promise remains unchanged. We treat information with care,
+                explain safeguarding exceptions clearly and help you take the
+                next step with dignity and confidence.
               </p>
             </div>
           </AnimatedSection>
@@ -142,9 +145,8 @@ export default function AboutPage() {
             className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
           >
             {values.map(({ title, description, icon: Icon }) => (
-              <motion.article
+              <article
                 key={title}
-                variants={fadeInUp}
                 className="interactive-card rounded-3xl bg-white p-7"
               >
                 <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange/15 text-coral">
@@ -156,7 +158,7 @@ export default function AboutPage() {
                 <p className="mt-3 text-sm leading-7 text-text-secondary">
                   {description}
                 </p>
-              </motion.article>
+              </article>
             ))}
           </AnimatedSection>
         </div>

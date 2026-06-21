@@ -13,7 +13,7 @@ export const FEATURED_POST: NewsPost = {
   category: "Community News",
   title: "I-Care Services ICC Expands Mental Health Provision",
   excerpt:
-    "We're proud to announce the expansion of our mental health services, bringing qualified counselling and psychological support to more members of our community than ever before.",
+    "We're reviewing and improving our mental health support pathways so people can understand the options available and how to ask for help safely.",
   date: "10 June 2025",
   author: "David Okonkwo",
   color: "#F4845F",

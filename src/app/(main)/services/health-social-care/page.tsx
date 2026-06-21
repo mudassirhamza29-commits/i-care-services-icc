@@ -28,7 +28,7 @@ export default function HealthSocialCarePage() {
       faqs={[
         { question: "Do I need a GP referral?", answer: "No. You can contact I-Care directly without a GP or professional referral." },
         { question: "Is the service free?", answer: "Yes. Our community support is free to access." },
-        { question: "How quickly will you respond?", answer: "We aim to make initial contact within 48 hours during normal working periods." },
+        { question: "How quickly will you respond?", answer: "We aim to review requests promptly during normal working periods." },
       ]}
       isSensitive={false}
     />

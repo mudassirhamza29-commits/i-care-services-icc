@@ -21,7 +21,7 @@ export default function MentalHealthPage() {
         { question: "What should I do in a crisis?", answer: "If there is immediate danger, call 999. You can also contact Samaritans free on 116 123 at any time." },
       ]}
       isSensitive
-      confidentialityNote="We maintain full confidentiality. It is only broken where there is an immediate safety risk, and this will always be discussed with you first whenever possible."
+      confidentialityNote="We handle information carefully and explain confidentiality limits, including safeguarding or immediate safety risks."
     />
   );
 }

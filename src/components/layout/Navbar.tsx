@@ -13,6 +13,7 @@ export function Navbar() {
   const pathname = usePathname();
   const shouldReduceMotion = useReducedMotion();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
@@ -26,7 +27,20 @@ export function Navbar() {
 
   useEffect(() => {
     setIsMenuOpen(false);
+    setIsServicesOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+        setIsServicesOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
@@ -71,13 +85,14 @@ export function Navbar() {
         <div className="hidden items-center gap-5 xl:flex">
           {NAV_LINKS.map((link) =>
             link.children ? (
-              <div
-                key={link.href}
-                className="group/services relative flex h-20 items-center"
-              >
-                <Link
-                  href={link.href}
+              <div key={link.href} className="relative flex h-20 items-center">
+                <button
+                  type="button"
                   aria-haspopup="menu"
+                  aria-expanded={isServicesOpen}
+                  aria-controls="services-menu"
+                  onClick={() => setIsServicesOpen((open) => !open)}
+                  onFocus={() => setIsServicesOpen(true)}
                   className={`nav-link flex items-center gap-1 py-2 text-sm font-bold ${
                     isActive(link.href)
                       ? "text-purple after:scale-x-100"
@@ -87,14 +102,30 @@ export function Navbar() {
                   {link.label}
                   <ChevronDown
                     size={15}
-                    className="transition-transform duration-200 group-hover/services:rotate-180"
+                    className={`transition-transform duration-200 ${
+                      isServicesOpen ? "rotate-180" : ""
+                    }`}
                     aria-hidden="true"
                   />
-                </Link>
+                </button>
                 <div
+                  id="services-menu"
                   role="menu"
-                  className="pointer-events-none invisible absolute left-1/2 top-[calc(100%-4px)] w-76 -translate-x-1/2 translate-y-2 rounded-2xl border border-cream-dark bg-white p-2 opacity-0 shadow-[var(--shadow-hover)] transition-all duration-200 group-focus-within/services:pointer-events-auto group-focus-within/services:visible group-focus-within/services:translate-y-0 group-focus-within/services:opacity-100 group-hover/services:pointer-events-auto group-hover/services:visible group-hover/services:translate-y-0 group-hover/services:opacity-100"
+                  onMouseEnter={() => setIsServicesOpen(true)}
+                  onMouseLeave={() => setIsServicesOpen(false)}
+                  className={`absolute left-1/2 top-[calc(100%-4px)] w-76 -translate-x-1/2 rounded-2xl border border-cream-dark bg-white p-2 shadow-[var(--shadow-hover)] transition-all duration-200 ${
+                    isServicesOpen
+                      ? "pointer-events-auto visible translate-y-0 opacity-100"
+                      : "pointer-events-none invisible translate-y-2 opacity-0"
+                  }`}
                 >
+                  <Link
+                    href="/services"
+                    role="menuitem"
+                    className="block rounded-xl px-4 py-2.5 text-sm font-extrabold text-purple transition-colors hover:bg-cream-dark focus-visible:bg-cream-dark focus-visible:outline-none"
+                  >
+                    All services
+                  </Link>
                   {link.children.map((service) => (
                     <Link
                       key={service.slug}

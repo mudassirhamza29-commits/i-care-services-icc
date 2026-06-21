@@ -64,7 +64,7 @@ export function ServicesGrid() {
                   className="interactive-button mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-purple px-5 py-2.5 text-sm font-bold text-white hover:bg-orange hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple"
                   aria-label={`Learn more about ${service.title}`}
                 >
-                  Learn More
+                  Learn about {service.title}
                   <ArrowUpRight
                     size={17}
                     className="transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1"

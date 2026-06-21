@@ -111,7 +111,7 @@ export function HeroSection() {
                 <HeartHandshake size={24} />
               </span>
               <div>
-                <p className="text-3xl font-black text-white">500+</p>
+                <p className="text-3xl font-black text-white">Many</p>
                 <p className="text-sm font-semibold text-white/72">
                   People Supported
                 </p>
@@ -124,9 +124,9 @@ export function HeroSection() {
                 <ShieldCheck size={24} />
               </span>
               <div>
-                <p className="text-3xl font-black text-white">100%</p>
+                <p className="text-3xl font-black text-white">Careful</p>
                 <p className="text-sm font-semibold text-white/72">
-                  Confidential
+                  Data Handling
                 </p>
               </div>
             </div>

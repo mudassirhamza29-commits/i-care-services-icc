@@ -20,7 +20,7 @@ export default function FamilySupportPage() {
         { question: "Can I receive support without the whole family attending?", answer: "Yes. Individual support can be provided where joint family work is not appropriate or possible." },
       ]}
       isSensitive
-      confidentialityNote="Our family support is strictly confidential and provides a safe, respectful environment for every family member."
+      confidentialityNote="Family support is handled carefully in a safe, respectful environment, with safeguarding exceptions explained."
     />
   );
 }

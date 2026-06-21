@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
-import { PageTransition } from "@/components/layout/PageTransition";
 
 import "./globals.css";
 
@@ -66,20 +65,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link
-          rel="preload"
-          as="image"
-          href="/images/hero-bg.jpg"
-          fetchPriority="high"
-        />
-      </head>
       <body className={`${inter.variable} flex min-h-screen flex-col`}>
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
         <Navbar />
-        <PageTransition>{children}</PageTransition>
+        {children}
         <Footer />
       </body>
     </html>
