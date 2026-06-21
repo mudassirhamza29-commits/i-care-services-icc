@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
+import { CookieSettingsLink } from "@/components/cookies/CookieSettingsLink";
 import { CONTACT_INFO, SERVICES } from "@/lib/constants";
 
 const companyLinks = [
@@ -16,7 +17,7 @@ const companyLinks = [
 
 const legalLinks = [
   { label: "Privacy", href: "/privacy-policy" },
-  { label: "Cookies", href: "/cookies" },
+  { label: "Cookie Policy", href: "/cookies" },
   { label: "Accessibility", href: "/accessibility-statement" },
   { label: "Safeguarding", href: "/safeguarding" },
   { label: "Complaints", href: "/complaints" },
@@ -152,6 +153,9 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <CookieSettingsLink />
+            </li>
           </ul>
         </div>
       </div>

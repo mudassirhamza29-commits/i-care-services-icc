@@ -117,6 +117,22 @@ button {
   transform-origin: left;
 }
 
+.route-transition {
+  animation: route-fade-slide 120ms ease-out both;
+}
+
+@keyframes route-fade-slide {
+  from {
+    opacity: 0.94;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (hover: hover) {
   button:hover,
   .interactive-button:hover {
@@ -141,5 +157,9 @@ button {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .route-transition {
+    animation: none !important;
   }
 }
