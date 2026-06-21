@@ -10,16 +10,16 @@ export function CTABanner() {
     <section className="bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <AnimatedSection
         variant="scaleIn"
-        className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] px-6 py-14 text-center text-white shadow-[var(--shadow-hover)] sm:px-10 lg:py-20"
+        className="relative isolate mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-navy px-6 py-14 text-center text-white shadow-[var(--shadow-hover)] sm:px-10 lg:py-20"
       >
         <Image
           src="/images/cta-bg.jpg"
           alt=""
           fill
           sizes="(min-width: 1280px) 1280px, 100vw"
-          className="absolute inset-0 -z-20 object-cover"
+          className="absolute inset-0 z-0 object-cover"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/94 via-navy/84 to-purple/78" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-navy/94 via-navy/84 to-purple/78" />
         <div className="relative z-10 mx-auto max-w-3xl">
           <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-orange">
             We are here to listen
