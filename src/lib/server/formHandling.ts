@@ -89,6 +89,12 @@ export function referralReference(prefix: "SELF" | "PRO") {
     .toUpperCase()}`;
 }
 
+export function contactReference() {
+  return `IC-CONTACT-${new Date().getFullYear()}-${randomUUID()
+    .slice(0, 8)
+    .toUpperCase()}`;
+}
+
 export function auditSubmission(event: string, metadata: Record<string, string>) {
   console.info(
     JSON.stringify({

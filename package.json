@@ -7,13 +7,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/**/*.test.ts",
+    "security": "npm audit --omit=dev"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
     "framer-motion": "^11.18.2",
     "lucide-react": "^0.468.0",
-    "next": "^15.5.7",
+    "next": "^16.2.9",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-hook-form": "^7.78.0",
@@ -24,10 +26,14 @@
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.3",
     "@types/react-dom": "^19.0.2",
-    "eslint": "^8.57.1",
-    "eslint-config-next": "^15.5.7",
-    "postcss": "^8.4.49",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.9",
+    "postcss": "^8.5.15",
     "tailwindcss": "^4.1.10",
+    "tsx": "^4.20.6",
     "typescript": "^5.7.2"
+  },
+  "overrides": {
+    "postcss": "^8.5.15"
   }
 }

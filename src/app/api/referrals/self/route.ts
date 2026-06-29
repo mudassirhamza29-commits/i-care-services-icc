@@ -6,6 +6,10 @@ import {
   parseAndValidate,
   referralReference,
 } from "@/lib/server/formHandling";
+import {
+  deliverSubmission,
+  publicDeliveryError,
+} from "@/lib/server/submissionDelivery";
 
 export async function POST(request: NextRequest) {
   const result = await parseAndValidate(request, selfReferralSchema);
@@ -14,11 +18,39 @@ export async function POST(request: NextRequest) {
   const data = result.data;
   const reference = referralReference("SELF");
 
-  auditSubmission("self_referral.submitted", {
-    reference,
-    serviceCount: String(data.services.length),
-    urgency: data.urgency ?? "not-provided",
-  });
+  try {
+    const delivery = await deliverSubmission({
+      kind: "self-referral",
+      reference,
+      submittedAt: new Date().toISOString(),
+      payload: data,
+      metadata: {
+        serviceCount: String(data.services.length),
+        urgency: data.urgency ?? "not-provided",
+      },
+    });
 
-  return NextResponse.json({ ok: true, reference });
+    auditSubmission("self_referral.delivered", {
+      reference,
+      provider: delivery.provider,
+      status: String(delivery.status),
+      serviceCount: String(data.services.length),
+      urgency: data.urgency ?? "not-provided",
+    });
+
+    return NextResponse.json({ ok: true, reference });
+  } catch (error) {
+    const publicError = publicDeliveryError(error);
+    auditSubmission("self_referral.delivery_failed", {
+      reference,
+      code: publicError.code,
+      serviceCount: String(data.services.length),
+      urgency: data.urgency ?? "not-provided",
+    });
+
+    return NextResponse.json(
+      { error: publicError.message, code: publicError.code },
+      { status: publicError.status },
+    );
+  }
 }
