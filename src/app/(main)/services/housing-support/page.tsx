@@ -13,7 +13,33 @@ export default function HousingSupportPage() {
       title="Housing Support"
       color="#E8574A"
       description="Early, practical housing guidance to help you protect your home and move towards safe accommodation."
-      whatWeOffer={["Homelessness prevention", "Council housing support", "Landlord dispute guidance", "Temporary accommodation support", "Housing pathway planning"]}
+      whatWeOffer={[
+        {
+          title: "Homelessness Prevention",
+          description:
+            "Early guidance to understand notices, risk factors and the next practical steps to protect housing stability.",
+        },
+        {
+          title: "Council Housing Support",
+          description:
+            "Help understanding housing applications, evidence requests and communication with housing teams.",
+        },
+        {
+          title: "Landlord Dispute Guidance",
+          description:
+            "Support organising the facts, records and questions before contacting appropriate housing advice routes.",
+        },
+        {
+          title: "Temporary Accommodation Support",
+          description:
+            "Guidance for people trying to understand temporary accommodation processes and available signposting.",
+        },
+        {
+          title: "Housing Pathway Planning",
+          description:
+            "A clear look at possible next steps, documents to gather and services that may need to be involved.",
+        },
+      ]}
       whoIsItFor={["People at risk of homelessness or eviction", "Tenants experiencing landlord disputes", "Anyone living in unsafe or unsuitable accommodation"]}
       whatToExpect={[
         { step: 1, title: "Assess Risk", description: "We establish what is happening and how urgent it is." },

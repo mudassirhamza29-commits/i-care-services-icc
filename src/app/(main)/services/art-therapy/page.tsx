@@ -14,11 +14,31 @@ export default function ArtTherapyPage() {
       color="#5B3FA6"
       description="Person-centred creative activities for emotional expression, reflection and wellbeing."
       whatWeOffer={[
-        "Guided creative activities",
-        "Emotional expression through creative work",
-        "Confidence and self-esteem support",
-        "Reflective one-to-one guidance",
-        "Signposting to regulated therapy where needed",
+        {
+          title: "Guided Creative Activities",
+          description:
+            "Gentle creative exercises that help people reflect, slow down and express what may be hard to put into words.",
+        },
+        {
+          title: "Emotional Expression Through Creative Work",
+          description:
+            "Support using drawing, colour, collage or other accessible methods as a way into conversation and reflection.",
+        },
+        {
+          title: "Confidence and Self-Esteem Support",
+          description:
+            "Activities focused on recognising strengths, building confidence and exploring personal goals.",
+        },
+        {
+          title: "Reflective One-to-One Guidance",
+          description:
+            "A supportive space to talk through what comes up during creative work and decide useful next steps.",
+        },
+        {
+          title: "Regulated Therapy Signposting",
+          description:
+            "Signposting to regulated therapy routes where a clinical or specialist therapeutic service is needed.",
+        },
       ]}
       whoIsItFor={[
         "People who find it difficult to express feelings through words",

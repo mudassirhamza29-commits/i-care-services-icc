@@ -13,7 +13,33 @@ export default function WelfareSupportPage() {
       title="Welfare Support"
       color="#5B3FA6"
       description="Clear guidance with benefits, appeals and urgent welfare concerns when finances feel uncertain."
-      whatWeOffer={["Benefits checks", "PIP and Universal Credit support", "Appeal preparation", "Debt guidance", "Emergency welfare support"]}
+      whatWeOffer={[
+        {
+          title: "Benefits Checks",
+          description:
+            "A first look at possible entitlement routes and what information may be needed before making or reviewing a claim.",
+        },
+        {
+          title: "PIP and Universal Credit Support",
+          description:
+            "Guidance with forms, evidence preparation and understanding letters or decisions.",
+        },
+        {
+          title: "Appeal Preparation",
+          description:
+            "Support organising decision letters, timelines and evidence before seeking formal appeal advice where needed.",
+        },
+        {
+          title: "Debt Guidance",
+          description:
+            "Practical signposting around priority bills, support routes and free specialist debt advice services.",
+        },
+        {
+          title: "Emergency Welfare Signposting",
+          description:
+            "Help identifying urgent welfare routes when essential needs cannot wait.",
+        },
+      ]}
       whoIsItFor={["People unsure which benefits they can claim", "Anyone facing benefit reductions or sanctions", "Individuals and families in financial crisis"]}
       whatToExpect={[
         { step: 1, title: "Review", description: "We look at your income, circumstances and current claims." },

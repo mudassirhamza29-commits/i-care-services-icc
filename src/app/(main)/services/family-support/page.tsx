@@ -13,7 +13,33 @@ export default function FamilySupportPage() {
       title="Family Support"
       color="#E8574A"
       description="A calm, non-judgemental service for families navigating conflict, change and caring pressures."
-      whatWeOffer={["Family communication guidance", "Parenting support information", "Domestic situation signposting", "Child and young person support routes", "Crisis signposting"]}
+      whatWeOffer={[
+        {
+          title: "Family Communication Guidance",
+          description:
+            "Support thinking through difficult conversations and identifying what needs to be handled safely.",
+        },
+        {
+          title: "Parenting Support Information",
+          description:
+            "Practical information and signposting for parents or carers managing pressure at home.",
+        },
+        {
+          title: "Domestic Situation Signposting",
+          description:
+            "Careful signposting when home circumstances feel unsafe, pressured or difficult to talk about.",
+        },
+        {
+          title: "Child and Young Person Support Routes",
+          description:
+            "Information about appropriate routes for children and young people, subject to confirmed safeguarding processes.",
+        },
+        {
+          title: "Crisis Signposting",
+          description:
+            "Clear emergency and safeguarding routes when immediate safety concerns are present.",
+        },
+      ]}
       whoIsItFor={["Families experiencing conflict or communication difficulties", "Parents struggling with pressure or caring responsibilities", "Families facing separation, divorce or crisis", "Young people who need to be heard"]}
       whatToExpect={[
         { step: 1, title: "Listen Safely", description: "We understand each person's concerns and immediate needs." },

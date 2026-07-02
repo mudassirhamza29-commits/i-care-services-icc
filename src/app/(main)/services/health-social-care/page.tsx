@@ -14,11 +14,31 @@ export default function HealthSocialCarePage() {
       color="#F4845F"
       description="Practical support to understand services, coordinate care and make sure your voice is heard."
       whatWeOffer={[
-        "NHS navigation",
-        "Social care process guidance",
-        "Care coordination",
-        "Health advocacy",
-        "Specialist signposting",
+        {
+          title: "NHS Navigation",
+          description:
+            "Help understanding appointments, letters, services and the questions to ask when speaking with health teams.",
+        },
+        {
+          title: "Social Care Process Guidance",
+          description:
+            "Plain-English information about social care routes, assessments and what evidence may be useful.",
+        },
+        {
+          title: "Care Coordination",
+          description:
+            "Support to organise information and make conversations between services easier to follow.",
+        },
+        {
+          title: "Health Advocacy",
+          description:
+            "Help preparing what you want to say so your concerns, preferences and questions are clearly heard.",
+        },
+        {
+          title: "Appropriate Signposting",
+          description:
+            "Guidance towards relevant services when another route is better placed to help.",
+        },
       ]}
       whoIsItFor={[
         "Adults navigating health or social care services",

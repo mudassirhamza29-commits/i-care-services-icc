@@ -40,16 +40,12 @@ interface ServicePageTemplateProps {
   title: string;
   color: string;
   description: string;
-  whatWeOffer: string[] | OfferItem[];
+  whatWeOffer: OfferItem[];
   whoIsItFor: string[];
   whatToExpect: ExpectationStep[];
   faqs: FAQ[];
   isSensitive: boolean;
   confidentialityNote?: string;
-}
-
-function isOfferItem(item: string | OfferItem): item is OfferItem {
-  return typeof item !== "string";
 }
 
 export function ServicePageTemplate({
@@ -75,7 +71,7 @@ export function ServicePageTemplate({
       <PageHero
         title={title}
         subtitle={description}
-        eyebrow="Specialist community support"
+        eyebrow="Community support"
         accentColor={color}
       />
 
@@ -105,10 +101,8 @@ export function ServicePageTemplate({
             className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
           >
             {whatWeOffer.map((offer) => {
-              const titleText = isOfferItem(offer) ? offer.title : offer;
-              const descriptionText = isOfferItem(offer)
-                ? offer.description
-                : `Clear, person-centred guidance with ${offer.toLowerCase()}.`;
+              const titleText = offer.title;
+              const descriptionText = offer.description;
 
               return (
                 <motion.article
@@ -253,7 +247,7 @@ export function ServicePageTemplate({
               </h2>
               <p className="mt-3 leading-7 text-white/75">
                 {confidentialityNote ??
-                  "Your conversations are treated in strict confidence and handled with care."}
+                  "Information is handled carefully, with safeguarding and immediate safety limits explained."}
               </p>
             </div>
           </AnimatedSection>

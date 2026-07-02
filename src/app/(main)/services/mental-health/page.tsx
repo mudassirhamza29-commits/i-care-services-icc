@@ -13,7 +13,33 @@ export default function MentalHealthPage() {
       title="Mental Health Support"
       color="#5B3FA6"
       description="A confidential, compassionate space for emotional wellbeing, recovery and connection to appropriate support."
-      whatWeOffer={["Listening support", "Wellbeing information", "Anxiety and low-mood guidance", "Trauma-informed signposting", "Crisis signposting"]}
+      whatWeOffer={[
+        {
+          title: "Listening Support",
+          description:
+            "A calm first conversation to understand what is happening and what kind of next step may feel manageable.",
+        },
+        {
+          title: "Wellbeing Information",
+          description:
+            "Plain-English information about common support routes and how to ask for help safely.",
+        },
+        {
+          title: "Anxiety and Low-Mood Guidance",
+          description:
+            "Support identifying practical coping steps, trusted information and appropriate onward routes.",
+        },
+        {
+          title: "Trauma-Informed Signposting",
+          description:
+            "Careful signposting that avoids pressure and recognises the need for safety, choice and control.",
+        },
+        {
+          title: "Crisis Signposting",
+          description:
+            "Clear emergency and crisis routes when immediate or urgent support is needed.",
+        },
+      ]}
       whoIsItFor={["Anyone living with anxiety, depression or trauma", "People feeling overwhelmed or unable to cope", "Anyone needing a safe, private space to talk"]}
       whatToExpect={[
         { step: 1, title: "Safe Conversation", description: "We listen without judgement and understand what you need." },

@@ -13,7 +13,33 @@ export default function GeneralHealthPage() {
       title="General Health"
       color="#F4845F"
       description="Accessible health guidance that helps you understand care, access the NHS and manage your wellbeing."
-      whatWeOffer={["GP registration", "Health screening guidance", "Chronic condition support", "Medication guidance", "Health literacy support"]}
+      whatWeOffer={[
+        {
+          title: "GP Registration",
+          description:
+            "Help understanding registration steps, common barriers and what information a GP practice may ask for.",
+        },
+        {
+          title: "Health Screening Guidance",
+          description:
+            "Plain-English information about screening invitations, questions to ask and where to find official guidance.",
+        },
+        {
+          title: "Long-Term Condition Support",
+          description:
+            "Support preparing for appointments, keeping track of concerns and understanding care conversations.",
+        },
+        {
+          title: "Medication Guidance",
+          description:
+            "Help organising medication questions for a pharmacist, GP or other qualified health professional.",
+        },
+        {
+          title: "Health Literacy Support",
+          description:
+            "Help making letters, forms and health information easier to understand before taking the next step.",
+        },
+      ]}
       whoIsItFor={["People struggling to understand health access routes", "Anyone preparing questions about a long-term health condition", "People who need health information explained in plain English"]}
       whatToExpect={[
         { step: 1, title: "Understand", description: "We listen to your health access concerns and priorities." },

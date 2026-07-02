@@ -14,11 +14,31 @@ export default function AdditionalSupportPage() {
       color="#F4845F"
       description="Flexible guidance for needs that do not fit neatly within a single service."
       whatWeOffer={[
-        "Needs-led guidance",
-        "Practical problem solving",
-        "Service coordination",
-        "Advocacy and signposting",
-        "Ongoing check-ins",
+        {
+          title: "Needs-Led Guidance",
+          description:
+            "A flexible first conversation when the issue does not fit neatly into one service area.",
+        },
+        {
+          title: "Practical Problem Solving",
+          description:
+            "Help breaking a situation into smaller steps and deciding what needs attention first.",
+        },
+        {
+          title: "Service Coordination",
+          description:
+            "Support organising information when several services, forms or conversations are involved.",
+        },
+        {
+          title: "Advocacy and Signposting",
+          description:
+            "Help preparing questions, explaining concerns and identifying appropriate support routes.",
+        },
+        {
+          title: "Follow-Up Planning",
+          description:
+            "A clearer plan for what happens next, including what information to gather before follow-up.",
+        },
       ]}
       whoIsItFor={[
         "Anyone unsure which service is right for them",

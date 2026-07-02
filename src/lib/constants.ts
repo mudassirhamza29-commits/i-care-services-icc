@@ -6,7 +6,7 @@ export const SERVICES: Service[] = [
     title: "Health & Social Care",
     slug: "health-social-care",
     description:
-      "Practical, person-centred guidance to help people understand and access health and social care services.",
+      "Practical information and advocacy to help people understand health and social care routes.",
     icon: "HeartHandshake",
     color: "#F4845F",
     isSensitive: false,

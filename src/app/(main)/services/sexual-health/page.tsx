@@ -13,7 +13,33 @@ export default function SexualHealthPage() {
       title="Sexual Health"
       color="#F4845F"
       description="Inclusive, judgement-free information and support focused on safety, dignity and healthy relationships."
-      whatWeOffer={["Sexual health information", "STI testing and clinic signposting", "Relationship support", "LGBTQ+ inclusive guidance", "Contraception information"]}
+      whatWeOffer={[
+        {
+          title: "Sexual Health Information",
+          description:
+            "Respectful information that helps people understand questions, concerns and possible next steps.",
+        },
+        {
+          title: "STI Testing and Clinic Signposting",
+          description:
+            "Guidance towards appropriate testing, clinic or official health information routes.",
+        },
+        {
+          title: "Relationship Support Signposting",
+          description:
+            "Support identifying safe, respectful routes for relationship concerns or difficult conversations.",
+        },
+        {
+          title: "LGBTQ+ Information Routes",
+          description:
+            "Signposting to inclusive information and services, with final wording pending organisational confirmation.",
+        },
+        {
+          title: "Contraception Information",
+          description:
+            "Plain-English information and signposting to qualified health services for contraception advice.",
+        },
+      ]}
       whoIsItFor={["Anyone with questions or concerns about sexual health", "LGBTQ+ individuals seeking inclusive information", "Young people needing clear, respectful signposting", "Anyone who needs a judgement-free first conversation"]}
       whatToExpect={[
         { step: 1, title: "Private Contact", description: "You choose how much you want to share initially." },
