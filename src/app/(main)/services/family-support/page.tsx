@@ -48,8 +48,8 @@ export default function FamilySupportPage() {
         { step: 4, title: "Review Progress", description: "We adapt support as family circumstances change." },
       ]}
       faqs={[
-        { question: "Can children and young people be involved?", answer: "【CONTENT NEEDED: confirm child and young-person support scope, consent process and safeguarding lead】" },
-        { question: "Can I receive support without the whole family attending?", answer: "【CONTENT NEEDED: confirm whether individual family support is available and any eligibility limits】" },
+        { question: "Can children and young people be involved?", answer: "If a child or young person may need support, contact us first so we can explain the appropriate safeguarding and consent route." },
+        { question: "Can I receive support without the whole family attending?", answer: "Contact us to discuss the situation, and we will explain whether individual or family support routes are appropriate." },
       ]}
       isSensitive
       confidentialityNote="Family support is handled carefully in a safe, respectful environment, with safeguarding exceptions explained."

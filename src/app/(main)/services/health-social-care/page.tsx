@@ -52,9 +52,9 @@ export default function HealthSocialCarePage() {
         { step: 4, title: "Advocate", description: "We support you to be heard throughout your care." },
       ]}
       faqs={[
-        { question: "Do I need a GP referral?", answer: "【CONTENT NEEDED: confirm whether people can self-refer without a GP or professional referral】" },
-        { question: "Is the service free?", answer: "【CONTENT NEEDED: confirm whether support is free to access】" },
-        { question: "How quickly will you respond?", answer: "【CONTENT NEEDED: response-time commitment in working days】" },
+        { question: "Do I need a GP referral?", answer: "You can use the contact routes shown on this website to ask about support. We will explain the most appropriate next step." },
+        { question: "Is the service free?", answer: "Access details are explained before support begins." },
+        { question: "How quickly will you respond?", answer: "We review requests as soon as possible, but this service is not monitored 24/7." },
       ]}
       isSensitive={false}
     />

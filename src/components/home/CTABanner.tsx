@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ArrowRight, PhoneCall } from "lucide-react";
 
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
@@ -12,14 +11,9 @@ export function CTABanner() {
         variant="scaleIn"
         className="relative isolate mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-navy px-6 py-14 text-center text-white shadow-[var(--shadow-hover)] sm:px-10 lg:py-20"
       >
-        <Image
-          src="/images/cta-bg.jpg"
-          alt=""
-          fill
-          sizes="(min-width: 1280px) 1280px, 100vw"
-          className="absolute inset-0 z-0 object-cover"
-        />
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-navy/94 via-navy/84 to-purple/78" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-navy via-navy to-purple" />
+        <div className="absolute -left-24 -top-24 z-0 h-64 w-64 rounded-full border-[44px] border-orange/20" />
+        <div className="absolute -bottom-28 right-10 z-0 h-72 w-72 rounded-[44%_56%_60%_40%] bg-coral/18" />
         <div className="relative z-10 mx-auto max-w-3xl">
           <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-orange">
             We are here to listen

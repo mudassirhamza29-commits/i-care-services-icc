@@ -12,7 +12,8 @@ const steps = [
   },
   {
     title: "We review the request",
-    description: "【CONTENT NEEDED: response-time commitment in working days】",
+    description:
+      "We review requests as soon as possible, but this service is not monitored 24/7.",
     icon: ClipboardCheck,
   },
   {

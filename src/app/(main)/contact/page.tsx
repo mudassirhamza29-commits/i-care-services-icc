@@ -34,7 +34,7 @@ export default function ContactPage() {
                 icon: Phone,
                 title: "Call Us",
                 detail: CONTACT_INFO.phone,
-                sub: "【CONTENT NEEDED: confirmed phone opening hours】",
+                sub: "Opening hours are being confirmed",
                 label: "Call Now",
                 href: "tel:+442080400433",
                 style: "bg-orange text-navy",
@@ -43,7 +43,7 @@ export default function ContactPage() {
                 icon: Mail,
                 title: "Email Us",
                 detail: CONTACT_INFO.email,
-                sub: "【CONTENT NEEDED: response-time commitment in working days】",
+                sub: "Not monitored for emergencies",
                 label: "Send Email",
                 href: `mailto:${CONTACT_INFO.email}`,
                 style: "bg-purple text-white",
@@ -90,8 +90,8 @@ export default function ContactPage() {
             </h2>
             <div className="mt-9 overflow-hidden rounded-3xl bg-white text-left shadow-sm">
               {[
-                ["Phone line", "【CONTENT NEEDED: confirmed phone opening hours】", CalendarDays, "text-purple"],
-                ["Appointments", "【CONTENT NEEDED: appointment availability】", CalendarDays, "text-orange"],
+                ["Phone line", "Opening hours are being confirmed", CalendarDays, "text-purple"],
+                ["Appointments", "Availability is confirmed during first contact", CalendarDays, "text-orange"],
                 ["Out of hours", "Not monitored 24/7", XCircle, "text-coral"],
                 ["Emergency support", "Use emergency and crisis routes", XCircle, "text-coral"],
               ].map(([day, hours, Icon, color], index) => {

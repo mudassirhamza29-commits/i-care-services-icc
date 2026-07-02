@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Check, HeartHandshake, Languages, ShieldAlert, ShieldCheck } from "lucide-react";
 
@@ -17,17 +16,9 @@ const trustPoints = [
 export function HeroSection() {
   return (
     <section className="relative isolate flex min-h-[calc(100svh-5rem)] items-center overflow-hidden bg-navy text-white">
-      <Image
-        src="/images/hero-bg.jpg"
-        alt=""
-        fill
-        priority
-        fetchPriority="high"
-        sizes="100vw"
-        className="absolute inset-0 -z-20 object-cover"
-      />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy/95 via-navy/82 to-navy/35" />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_20%,rgba(42,127,111,0.35),transparent_32%),radial-gradient(circle_at_70%_70%,rgba(244,162,97,0.22),transparent_28%)]" />
+      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_18%_18%,rgba(244,132,95,0.28),transparent_30%),radial-gradient(circle_at_78%_22%,rgba(91,63,166,0.24),transparent_28%),linear-gradient(135deg,#2E3250_0%,#242844_56%,#5B3FA6_100%)]" />
+      <div className="absolute -right-24 top-24 -z-10 h-80 w-80 rounded-full border-[48px] border-orange/20" />
+      <div className="absolute bottom-8 left-1/2 -z-10 h-56 w-56 rounded-[40%_60%_58%_42%] bg-coral/20 blur-sm" />
 
       <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
         <motion.div
@@ -60,7 +51,7 @@ export function HeroSection() {
             className="mt-5 inline-flex items-center gap-2 rounded-full border border-orange/40 bg-orange/20 px-4 py-2 text-sm font-extrabold italic text-orange backdrop-blur"
           >
             <Languages size={17} aria-hidden="true" />
-            Language support: 【CONTENT NEEDED: confirmed languages offered】
+            Ask us about language and communication support
           </motion.p>
           <motion.p
             variants={fadeInUp}

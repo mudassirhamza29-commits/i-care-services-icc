@@ -49,7 +49,7 @@ export default function GeneralHealthPage() {
       ]}
       faqs={[
         { question: "Can you help me register with a GP?", answer: "Yes. We can explain the registration process and help you address common access barriers." },
-        { question: "Is interpretation support available?", answer: "【CONTENT NEEDED: confirmed languages and interpretation support available】" },
+        { question: "Is interpretation support available?", answer: "Tell us about any communication needs when you contact us, and we will explain what support may be available." },
       ]}
       isSensitive={false}
     />

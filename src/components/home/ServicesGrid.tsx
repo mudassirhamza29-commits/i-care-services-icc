@@ -1,13 +1,36 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, ShieldCheck } from "lucide-react";
+import {
+  ArrowUpRight,
+  Brain,
+  HandHelping,
+  HeartHandshake,
+  HeartPulse,
+  House,
+  Landmark,
+  Palette,
+  ShieldCheck,
+  UsersRound,
+} from "lucide-react";
 
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SERVICES } from "@/lib/constants";
 import { fadeInUp } from "@/lib/animations";
+import type { ServiceIconName } from "@/types";
+
+const serviceIcons = {
+  HeartHandshake,
+  Landmark,
+  House,
+  HeartPulse,
+  Brain,
+  UsersRound,
+  ShieldCheck,
+  Palette,
+  HandHelping,
+} satisfies Record<ServiceIconName, typeof HeartHandshake>;
 
 export function ServicesGrid() {
   return (
@@ -30,21 +53,33 @@ export function ServicesGrid() {
           variant="staggerContainer"
           className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
         >
-          {SERVICES.map((service, index) => (
-            <motion.article
-              key={service.id}
-              variants={fadeInUp}
-              className="interactive-card group overflow-hidden rounded-[1.75rem] border border-cream-dark bg-white hover:-translate-y-1.5"
-            >
-              <div className="relative aspect-[16/9] overflow-hidden bg-cream-dark">
-                <Image
-                  src={`/images/services/${service.slug}.jpg`}
-                  alt=""
-                  fill
-                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  priority={index < 3}
-                />
+          {SERVICES.map((service) => {
+            const Icon = serviceIcons[service.icon];
+
+            return (
+              <motion.article
+                key={service.id}
+                variants={fadeInUp}
+                className="interactive-card group overflow-hidden rounded-[1.75rem] border border-cream-dark bg-white hover:-translate-y-1.5"
+              >
+                <div className="relative aspect-[16/9] overflow-hidden bg-cream-dark">
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background: `radial-gradient(circle at 25% 20%, ${service.color}33, transparent 34%), radial-gradient(circle at 78% 72%, ${service.color}22, transparent 32%), linear-gradient(135deg, #FAF8F4, #F0ECE4)`,
+                    }}
+                  />
+                  <div
+                    className="absolute left-6 top-6 flex h-16 w-16 items-center justify-center rounded-3xl bg-white shadow-sm"
+                    style={{ color: service.color }}
+                  >
+                    <Icon size={32} aria-hidden="true" />
+                  </div>
+                  <div
+                    className="absolute -bottom-8 right-6 h-28 w-28 rounded-full border-[24px]"
+                    style={{ borderColor: `${service.color}33` }}
+                    aria-hidden="true"
+                  />
                 {service.isSensitive ? (
                   <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-navy/90 px-3 py-1 text-xs font-bold text-white backdrop-blur">
                     <ShieldCheck size={14} aria-hidden="true" />
@@ -73,7 +108,8 @@ export function ServicesGrid() {
                 </Link>
               </div>
             </motion.article>
-          ))}
+            );
+          })}
         </AnimatedSection>
       </div>
     </section>

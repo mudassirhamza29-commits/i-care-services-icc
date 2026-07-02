@@ -34,10 +34,6 @@ export default function NewsPage() {
               News and guidance posts will appear here when they have a real
               title, date, author, reviewed content and approval to publish.
             </p>
-            <p className="mt-5 rounded-2xl border border-orange/30 bg-white p-4 text-sm font-semibold leading-6 text-navy">
-              【CONTENT NEEDED: approved news/blog posts with title, date,
-              author, body copy and last-reviewed date】
-            </p>
             <Button href="/contact" className="mt-8 px-7 text-base">
               Contact Us
             </Button>

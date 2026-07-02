@@ -72,7 +72,7 @@ export function ProfessionalReferralForm() {
         <p className="mt-3 font-bold text-purple">Reference: {reference}</p>
         <p className="mt-4 text-text-secondary">
           The referral has been received for first-contact review.
-          【CONTENT NEEDED: response-time commitment in working days】
+          This is not an emergency pathway and is not monitored 24/7.
         </p>
       </div>
     );
@@ -154,8 +154,9 @@ export function ProfessionalReferralForm() {
       </FormSection>
       <FormSection title="Professional Declarations">
         <p className="mb-5 text-sm leading-6 text-text-secondary">
-          Confidentiality applies within safeguarding limits. Retention period:
-          【CONTENT NEEDED: retention period】.
+          Confidentiality applies within safeguarding limits. Retention periods
+          are being finalised and will be published in the data protection
+          policy.
         </p>
         <Consent label="I confirm I am making this referral in a professional capacity and in good faith." register={register("professionalDeclaration")} error={errors.professionalDeclaration?.message} />
         <Consent label="I confirm consent or another lawful basis has been considered, and that this form is not being used for an emergency." register={register("consentDeclaration")} error={errors.consentDeclaration?.message} />

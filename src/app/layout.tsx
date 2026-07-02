@@ -33,10 +33,10 @@ export const metadata: Metadata = {
       "Community-based health, welfare, housing and family support.",
     images: [
       {
-        url: "/images/hero-bg.jpg",
+        url: "/brand/i-care-logo.png",
         width: 1200,
         height: 630,
-        alt: "A warm support conversation at I-Care Services CIC",
+        alt: "I-Care Services CIC logo",
       },
     ],
   },
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "I-Care Services CIC | Community Support",
     description:
       "Community-based health, welfare, housing and family support.",
-    images: ["/images/hero-bg.jpg"],
+    images: ["/brand/i-care-logo.png"],
   },
   icons: {
     icon: "/icon.png",

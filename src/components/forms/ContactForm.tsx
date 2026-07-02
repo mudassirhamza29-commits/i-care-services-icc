@@ -78,7 +78,8 @@ export function ContactForm() {
         </h3>
         <p className="mt-4 leading-8 text-text-secondary">
           Your message has been received. We will use your preferred contact
-          method to follow up. 【CONTENT NEEDED: response-time commitment in working days】
+          method to follow up. This service is not monitored 24/7, so urgent
+          issues should use the emergency and crisis routes.
         </p>
       </div>
     );
@@ -166,7 +167,7 @@ export function ContactForm() {
           </span>
         </Field>
         <Consent
-          label="I consent to I-Care Services CIC using this information to respond to my enquiry. I understand this form is not monitored 24/7 and retention is subject to 【CONTENT NEEDED: retention period】."
+          label="I consent to I-Care Services CIC using this information to respond to my enquiry. I understand this form is not monitored 24/7 and data storage timeframes will be published in the data protection policy once finalised."
           register={register("consent")}
           error={errors.consent?.message}
         />

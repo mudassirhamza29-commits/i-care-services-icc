@@ -39,7 +39,7 @@ const serviceIcons = {
 const trustPoints = [
   "Confidential within safeguarding limits",
   "Self-referral and professional routes",
-  "Access policy: 【CONTENT NEEDED: confirm cost/free access】",
+  "Access details are explained before support begins",
 ];
 const process = [
   {

@@ -49,8 +49,8 @@ export default function SexualHealthPage() {
       ]}
       faqs={[
         { question: "Is the service completely confidential?", answer: "Information is handled carefully, but confidentiality has safeguarding and immediate safety limits. We explain those limits clearly." },
-        { question: "Is the service LGBTQ+ inclusive?", answer: "【CONTENT NEEDED: confirm LGBTQ+ inclusion statement and any staff training or policy wording】" },
-        { question: "Can I engage anonymously?", answer: "【CONTENT NEEDED: confirm whether anonymous initial engagement is operationally available】" },
+        { question: "Is the service LGBTQ+ inclusive?", answer: "We aim to provide respectful, non-judgemental information and signposting for everyone who contacts us." },
+        { question: "Can I engage anonymously?", answer: "You can ask general questions before sharing detailed personal information. We will explain when details are needed to provide support." },
       ]}
       isSensitive
       confidentialityNote="Your information is handled carefully. Safeguarding or immediate safety concerns may limit confidentiality."

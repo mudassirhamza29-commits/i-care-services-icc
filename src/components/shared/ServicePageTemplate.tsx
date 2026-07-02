@@ -211,7 +211,7 @@ export function ServicePageTemplate({
             },
             {
               title: "After You Contact Us",
-              body: "We review your first-contact request and agree next steps. 【CONTENT NEEDED: response-time commitment in working days】",
+              body: "We review first-contact requests as soon as possible, but this service is not monitored 24/7.",
             },
           ].map((item) => (
             <AnimatedSection

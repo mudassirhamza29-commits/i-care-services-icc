@@ -76,7 +76,8 @@ export function SelfReferralForm() {
         <p className="mt-4 leading-8 text-text-secondary">
           We have received your first-contact request. Your reference is{" "}
           <strong>{reference}</strong>. We will use your preferred contact
-          method to follow up. 【CONTENT NEEDED: response-time commitment in working days】
+          method to follow up. This service is not monitored 24/7, so urgent
+          issues should use the emergency and crisis routes.
         </p>
       </div>
     );
@@ -170,8 +171,9 @@ export function SelfReferralForm() {
           Consent and Privacy
         </h3>
         <p className="mt-3 text-sm leading-6 text-text-secondary">
-          Confidentiality applies within safeguarding limits. Retention period:
-          【CONTENT NEEDED: retention period】.
+          Confidentiality applies within safeguarding limits. Retention periods
+          are being finalised and will be published in the data protection
+          policy.
         </p>
         <Consent
           label="I consent to I-Care Services CIC using this information to contact me about support. I understand this website is not an emergency service and is not monitored 24/7."

@@ -32,12 +32,7 @@ export default function TeamPage() {
             <p className="mt-6 text-base leading-8 text-text-secondary sm:text-lg">
               We will publish team names, roles, qualifications, registrations
               and profile links only after internal approval. This avoids
-              showing placeholder staff details or unverified professional
-              claims.
-            </p>
-            <p className="mt-5 rounded-2xl border border-orange/30 bg-white p-4 text-sm font-semibold leading-6 text-navy">
-              【CONTENT NEEDED: approved team member names, roles, biographies,
-              qualifications or registrations, and any approved profile links】
+              showing unverified staff details or professional claims.
             </p>
             <Button href="/contact" className="mt-8 gap-2 px-7 text-base">
               Contact Us

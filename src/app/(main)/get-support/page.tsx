@@ -17,7 +17,7 @@ const accessOptions = [
   {
     icon: Phone,
     title: "Speak to Someone Now",
-    body: "Pick up the phone and speak directly with our team. Available Monday-Friday, 9am-5pm.",
+    body: "Call the team using the published contact number. Opening hours are being confirmed and the service is not monitored 24/7.",
     label: CONTACT_INFO.phone,
     href: "tel:+442080400433",
     button: "bg-orange text-navy",
@@ -33,7 +33,7 @@ const accessOptions = [
   {
     icon: Mail,
     title: "Send Us a Message",
-    body: `Prefer to write? Email us at ${CONTACT_INFO.email} and our team will respond as soon as possible.`,
+    body: `Prefer to write? Email us at ${CONTACT_INFO.email}. This inbox is not monitored for emergencies.`,
     label: CONTACT_INFO.email,
     href: `mailto:${CONTACT_INFO.email}`,
     button: "bg-purple text-white",
@@ -117,7 +117,7 @@ export default function GetSupportPage() {
           <AnimatedSection variant="staggerContainer" className="mt-12 grid gap-6 md:grid-cols-3">
             {[
               ["We Receive Your Request", "Your form is sent through the configured secure submission route."],
-              ["Review & Follow-Up", "【CONTENT NEEDED: response-time commitment in working days】"],
+              ["Review & Follow-Up", "We review requests as soon as possible, but this service is not monitored 24/7."],
               ["Next Steps", "We agree what information is needed and what support options may fit."],
             ].map(([title, body], index) => (
               <article key={title} className="rounded-3xl border border-white/10 bg-white/5 p-7 text-center">
