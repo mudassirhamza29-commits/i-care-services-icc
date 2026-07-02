@@ -26,7 +26,8 @@ export async function POST(request: NextRequest) {
       payload: data,
       metadata: {
         subject: data.subject,
-        emailDomain: data.email.split("@")[1] ?? "unknown",
+        contactMethod: data.contactMethod,
+        serviceArea: data.serviceArea,
       },
     });
 
@@ -35,7 +36,8 @@ export async function POST(request: NextRequest) {
       provider: delivery.provider,
       status: String(delivery.status),
       subject: data.subject,
-      emailDomain: data.email.split("@")[1] ?? "unknown",
+      contactMethod: data.contactMethod,
+      serviceArea: data.serviceArea,
     });
 
     return NextResponse.json({ ok: true, reference });

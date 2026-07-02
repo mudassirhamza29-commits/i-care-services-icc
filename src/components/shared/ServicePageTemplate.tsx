@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 
 import { CTABanner } from "@/components/home/CTABanner";
+import { CrisisNotice } from "@/components/shared/CrisisNotice";
 import { PageHero } from "@/components/shared/PageHero";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SERVICES } from "@/lib/constants";
@@ -77,6 +78,14 @@ export function ServicePageTemplate({
         eyebrow="Specialist community support"
         accentColor={color}
       />
+
+      {isSensitive ? (
+        <section className="bg-white px-4 py-10 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <CrisisNotice />
+          </div>
+        </section>
+      ) : null}
 
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
@@ -192,6 +201,37 @@ export function ServicePageTemplate({
               </motion.article>
             ))}
           </AnimatedSection>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto grid max-w-7xl gap-6 px-4 py-20 sm:px-6 lg:grid-cols-3 lg:px-8 lg:py-24">
+          {[
+            {
+              title: "What We Cannot Do",
+              body: "We are not an emergency service and cannot replace statutory, clinical, legal or regulated advice. Where specialist or emergency support is needed, we help identify appropriate routes.",
+            },
+            {
+              title: "What To Prepare",
+              body: "Bring only what you feel comfortable sharing at first contact. Useful basics may include your preferred contact method, the service area you are interested in and a short summary of what is happening.",
+            },
+            {
+              title: "After You Contact Us",
+              body: "We review your first-contact request and agree next steps. 【CONTENT NEEDED: response-time commitment in working days】",
+            },
+          ].map((item) => (
+            <AnimatedSection
+              key={item.title}
+              className="rounded-3xl border border-cream-dark bg-cream/40 p-6"
+            >
+              <h2 className="font-heading text-2xl font-extrabold text-navy">
+                {item.title}
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-text-secondary">
+                {item.body}
+              </p>
+            </AnimatedSection>
+          ))}
         </div>
       </section>
 

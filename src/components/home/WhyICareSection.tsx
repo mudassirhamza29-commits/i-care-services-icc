@@ -14,8 +14,8 @@ const features = [
     icon: HeartHandshake,
   },
   {
-    title: "Fully Confidential",
-    description: "Your privacy, dignity and trust guide every conversation.",
+    title: "Confidential Within Limits",
+    description: "We explain safeguarding limits and handle information carefully.",
     icon: ShieldCheck,
   },
   {
@@ -24,8 +24,8 @@ const features = [
     icon: HandHeart,
   },
   {
-    title: "Free to Access",
-    description: "Clear, compassionate guidance without cost being a barrier.",
+    title: "Access Policy Under Review",
+    description: "【CONTENT NEEDED: confirm whether support is free to access】",
     icon: Sparkles,
   },
 ];

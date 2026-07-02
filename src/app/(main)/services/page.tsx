@@ -36,15 +36,19 @@ const serviceIcons = {
   HandHelping,
 } satisfies Record<ServiceIconName, typeof HeartHandshake>;
 
-const trustPoints = ["Free", "Confidential", "No Referral Needed"];
+const trustPoints = [
+  "Confidential within safeguarding limits",
+  "Self-referral and professional routes",
+  "Access policy: 【CONTENT NEEDED: confirm cost/free access】",
+];
 const process = [
   {
     title: "Reach Out",
     description: "Call, email or complete our support form.",
   },
   {
-    title: "Initial Assessment",
-    description: "We listen and understand what is happening.",
+    title: "First Contact",
+    description: "We listen and identify what information is needed next.",
   },
   {
     title: "Support Plan",
@@ -52,7 +56,7 @@ const process = [
   },
   {
     title: "Ongoing Support",
-    description: "We stay connected and review your progress.",
+    description: "Follow-up depends on the agreed support route.",
   },
 ];
 

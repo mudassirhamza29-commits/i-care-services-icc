@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Cookie Policy",
   description:
     "How I-Care Services uses cookies, current cookie categories, consent choices and how to change preferences.",
+  robots: { index: false, follow: false },
   alternates: {
     canonical: "/cookies",
   },

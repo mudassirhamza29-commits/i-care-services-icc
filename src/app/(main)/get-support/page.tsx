@@ -5,11 +5,10 @@ import {
   Mail,
   Phone,
   PoundSterling,
-  ShieldAlert,
-  Zap,
 } from "lucide-react";
 
 import { SelfReferralForm } from "@/components/forms/SelfReferralForm";
+import { CrisisNotice } from "@/components/shared/CrisisNotice";
 import { PageHero } from "@/components/shared/PageHero";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { CONTACT_INFO } from "@/lib/constants";
@@ -26,8 +25,8 @@ const accessOptions = [
   {
     icon: Clock3,
     title: "Fill In Our Online Form",
-    body: "Complete our self-referral form and our team will review your request as soon as possible.",
-    label: "Start Your Referral",
+    body: "Complete a short first-contact form. Sensitive details can be discussed later through a staffed conversation.",
+    label: "Request Contact",
     href: "#self-referral",
     button: "bg-navy text-white",
   },
@@ -58,14 +57,15 @@ export default function GetSupportPage() {
           <p className="mt-6 text-base leading-8 text-text-secondary sm:text-lg">
             Whatever you&apos;re going through, whether it&apos;s a housing crisis,
             struggles with your mental health, welfare concerns, or something
-            you can&apos;t quite name yet, I-Care Services ICC is here with
+            you can&apos;t quite name yet, I-Care Services CIC is here with
             non-judgemental guidance and clear next steps.
           </p>
+          <CrisisNotice className="mt-8" />
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {[
               [LockKeyhole, "Confidential with safeguarding exceptions"],
               [PoundSterling, "No cost to enquire"],
-              [Zap, "Prompt review"],
+              [Clock3, "Response time pending confirmation"],
               [Handshake, "Non-Judgmental"],
             ].map(([Icon, label]) => {
               const PillIcon = Icon as typeof LockKeyhole;
@@ -103,7 +103,7 @@ export default function GetSupportPage() {
         <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
           <AnimatedSection className="mb-10 text-center">
             <h2 className="font-heading text-4xl font-extrabold tracking-[-0.04em] text-navy sm:text-5xl">Self-Referral Form</h2>
-            <p className="mt-4 text-text-secondary">Information is handled carefully, with safeguarding exceptions explained in our policies.</p>
+            <p className="mt-4 text-text-secondary">This first-contact form collects the minimum information needed to get back to you.</p>
           </AnimatedSection>
           <SelfReferralForm />
         </div>
@@ -116,9 +116,9 @@ export default function GetSupportPage() {
           </AnimatedSection>
           <AnimatedSection variant="staggerContainer" className="mt-12 grid gap-6 md:grid-cols-3">
             {[
-              ["We Receive Your Referral", "Within minutes of submission"],
-              ["Review & Follow-Up", "We aim to review requests promptly"],
-              ["Your Support Begins", "A tailored plan is created together"],
+              ["We Receive Your Request", "Your form is sent through the configured secure submission route."],
+              ["Review & Follow-Up", "【CONTENT NEEDED: response-time commitment in working days】"],
+              ["Next Steps", "We agree what information is needed and what support options may fit."],
             ].map(([title, body], index) => (
               <article key={title} className="rounded-3xl border border-white/10 bg-white/5 p-7 text-center">
                 <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-orange font-heading font-extrabold text-navy">{index + 1}</span>
@@ -130,15 +130,9 @@ export default function GetSupportPage() {
         </div>
       </section>
 
-      <section className="bg-coral px-4 py-12 text-white sm:px-6 lg:px-8">
-        <AnimatedSection className="mx-auto flex max-w-5xl flex-col gap-5 sm:flex-row sm:items-start">
-          <ShieldAlert size={44} className="shrink-0" />
-          <div>
-            <h2 className="font-heading text-3xl font-extrabold">If You Are In Crisis Right Now</h2>
-            <p className="mt-4 whitespace-pre-line text-base leading-8 text-white/90">
-              {"If you or someone else is in immediate danger, please call 999.\nFor urgent mental health support: Samaritans 116 123 (free, 24/7)\nFor mental health crisis: NHS 111 (option 2)"}
-            </p>
-          </div>
+      <section className="bg-white px-4 py-12 sm:px-6 lg:px-8">
+        <AnimatedSection className="mx-auto max-w-5xl">
+          <CrisisNotice />
         </AnimatedSection>
       </section>
     </>

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
 import { CTABanner } from "@/components/home/CTABanner";
 import { PageHero } from "@/components/shared/PageHero";
@@ -6,6 +7,10 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { ALL_NEWS_POSTS } from "@/lib/news";
 
 export const revalidate = 3600;
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
 
 export function generateStaticParams() {
   return ALL_NEWS_POSTS.map((post) => ({ slug: post.slug }));
@@ -37,8 +42,8 @@ export default async function NewsArticlePage({
               Community support that responds to real needs
             </h2>
             <p className="mt-5 leading-8 text-text-secondary">
-              I-Care Services ICC brings practical guidance and compassionate
-              specialist support together in one accessible community setting.
+              I-Care Services CIC brings practical guidance and compassionate
+              practical support together in one accessible community setting.
               Our team works alongside individuals, families and professionals
               to make services easier to understand and reach.
             </p>

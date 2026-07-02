@@ -5,6 +5,7 @@ import { PolicyPage } from "@/components/shared/PolicyPage";
 export const metadata: Metadata = {
   title: "Terms",
   description: "Website terms and important limitations for I-Care Services.",
+  robots: { index: false, follow: false },
 };
 
 export default function TermsPage() {

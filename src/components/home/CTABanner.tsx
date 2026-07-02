@@ -3,7 +3,7 @@ import { ArrowRight, PhoneCall } from "lucide-react";
 
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { Button } from "@/components/ui/Button";
-import { CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO, CRISIS_NOTICE } from "@/lib/constants";
 
 export function CTABanner() {
   return (
@@ -52,6 +52,9 @@ export function CTABanner() {
             <PhoneCall size={17} aria-hidden="true" />
             Or call us on {CONTACT_INFO.phone}
           </a>
+          <p className="mx-auto mt-4 max-w-2xl text-xs font-semibold leading-5 text-white/70">
+            {CRISIS_NOTICE}
+          </p>
         </div>
       </AnimatedSection>
     </section>

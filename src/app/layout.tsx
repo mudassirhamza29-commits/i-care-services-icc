@@ -14,10 +14,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.icaree.co.uk"),
+  metadataBase: new URL("https://i-care-services-icc.vercel.app"),
   title: {
-    default: "I-Care Services ICC | Community Support",
-    template: "%s | I-Care Services ICC",
+    default: "I-Care Services CIC | Community Support",
+    template: "%s | I-Care Services CIC",
   },
   description:
     "Community-based health, welfare, housing and family support.",
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "/",
-    siteName: "I-Care Services ICC",
-    title: "I-Care Services ICC | Community Support",
+    siteName: "I-Care Services CIC",
+    title: "I-Care Services CIC | Community Support",
     description:
       "Community-based health, welfare, housing and family support.",
     images: [
@@ -36,13 +36,13 @@ export const metadata: Metadata = {
         url: "/images/hero-bg.jpg",
         width: 1200,
         height: 630,
-        alt: "A warm support conversation at I-Care Services ICC",
+        alt: "A warm support conversation at I-Care Services CIC",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "I-Care Services ICC | Community Support",
+    title: "I-Care Services CIC | Community Support",
     description:
       "Community-based health, welfare, housing and family support.",
     images: ["/images/hero-bg.jpg"],

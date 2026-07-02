@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Accessibility Statement",
   description:
     "Accessibility commitments and known limitations for the I-Care Services website.",
+  robots: { index: false, follow: false },
 };
 
 export default function AccessibilityStatementPage() {

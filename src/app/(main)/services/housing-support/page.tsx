@@ -1,4 +1,10 @@
 import { ServicePageTemplate } from "@/components/shared/ServicePageTemplate";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Housing Support",
+  description: "Practical housing guidance, signposting and first-contact support.",
+};
 
 export default function HousingSupportPage() {
   return (
@@ -16,7 +22,7 @@ export default function HousingSupportPage() {
         { step: 4, title: "Stay Connected", description: "We support you as your housing situation develops." },
       ]}
       faqs={[
-        { question: "Can you help if I am being evicted?", answer: "Yes. Contact us promptly so we can understand the notice, explain options and connect you with appropriate specialist help." },
+        { question: "Can you help if I am being evicted?", answer: "Contact us as early as you can so we can understand the notice, explain options and connect you with appropriate housing advice routes." },
         { question: "Can you find emergency accommodation?", answer: "We do not directly provide accommodation, but we can signpost emergency routes and help you approach the relevant council or service." },
       ]}
       isSensitive={false}

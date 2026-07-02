@@ -2,15 +2,16 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Check, HeartHandshake, Languages, ShieldCheck } from "lucide-react";
+import { Check, HeartHandshake, Languages, ShieldAlert, ShieldCheck } from "lucide-react";
 
 import { Button } from "@/components/ui/Button";
 import { fadeInUp, slideInRight, staggerContainer } from "@/lib/animations";
+import { CRISIS_NOTICE } from "@/lib/constants";
 
 const trustPoints = [
-  "Free to Access",
-  "Fully Confidential",
-  "No Referral Needed",
+  "Confidential within safeguarding limits",
+  "Self-referral and professional routes",
+  "Company number 16861714",
 ];
 
 export function HeroSection() {
@@ -59,13 +60,13 @@ export function HeroSection() {
             className="mt-5 inline-flex items-center gap-2 rounded-full border border-orange/40 bg-orange/20 px-4 py-2 text-sm font-extrabold italic text-orange backdrop-blur"
           >
             <Languages size={17} aria-hidden="true" />
-            We Speak Your Language
+            Language support: 【CONTENT NEEDED: confirmed languages offered】
           </motion.p>
           <motion.p
             variants={fadeInUp}
             className="mt-7 max-w-2xl text-base leading-8 text-white/78 sm:text-lg"
           >
-            I-Care Services ICC is a specialist community support hub offering
+            I-Care Services CIC is a community support hub offering
             confidential, person-centred support across health, housing, mental
             wellbeing, family, and more.
           </motion.p>
@@ -96,6 +97,13 @@ export function HeroSection() {
               </li>
             ))}
           </motion.ul>
+          <motion.p
+            variants={fadeInUp}
+            className="mt-6 flex max-w-2xl items-start gap-2 rounded-2xl border border-white/15 bg-white/10 p-4 text-sm font-semibold leading-6 text-white/82"
+          >
+            <ShieldAlert className="mt-0.5 shrink-0 text-orange" size={18} aria-hidden="true" />
+            {CRISIS_NOTICE}
+          </motion.p>
         </motion.div>
 
         <motion.div
@@ -111,9 +119,9 @@ export function HeroSection() {
                 <HeartHandshake size={24} />
               </span>
               <div>
-                <p className="text-3xl font-black text-white">Many</p>
+                <p className="text-3xl font-black text-white">First</p>
                 <p className="text-sm font-semibold text-white/72">
-                  People Supported
+                  Contact Support
                 </p>
               </div>
             </div>
@@ -124,9 +132,9 @@ export function HeroSection() {
                 <ShieldCheck size={24} />
               </span>
               <div>
-                <p className="text-3xl font-black text-white">Careful</p>
+                <p className="text-3xl font-black text-white">Confidential</p>
                 <p className="text-sm font-semibold text-white/72">
-                  Data Handling
+                  Within Safeguarding Limits
                 </p>
               </div>
             </div>

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Safeguarding",
   description:
     "Safeguarding boundaries, emergency guidance and information-sharing exceptions.",
+  robots: { index: false, follow: false },
 };
 
 export default function SafeguardingPage() {

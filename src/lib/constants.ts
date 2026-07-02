@@ -73,10 +73,10 @@ export const SERVICES: Service[] = [
   },
   {
     id: 8,
-    title: "Art Therapy",
+    title: "Creative Wellbeing Support",
     slug: "art-therapy",
     description:
-      "Person-centred creative support for emotional expression and healing.",
+      "Person-centred creative activities for emotional expression, reflection and wellbeing.",
     icon: "Palette",
     color: "#5B3FA6",
     isSensitive: false,
@@ -95,29 +95,44 @@ export const SERVICES: Service[] = [
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  { label: "Get Support", href: "/get-support" },
   {
     label: "Services",
     href: "/services",
     children: SERVICES.map(({ title, slug }) => ({ title, slug })),
   },
+  { label: "Professionals", href: "/for-professionals" },
   { label: "Resources", href: "/resources" },
-  { label: "News", href: "/news" },
-  { label: "Our Team", href: "/team" },
   { label: "Contact", href: "/contact" },
 ];
 
 export const CONTACT_INFO: ContactInfo = {
+  legalName: "I-CARE SERVICES CIC",
+  tradingName: "I-Care Services CIC",
+  companyType: "Community Interest Company (CIC)",
+  registeredOffice: "48 Bellamy Drive, Stanmore, England, HA7 2DB",
   phone: "020 8040 0433",
   email: "i-caree@outlook.com",
-  website: "www.icaree.co.uk",
+  website: "i-care-services-icc.vercel.app",
   regNumber: "16861714",
 };
+
+export const CRISIS_NOTICE =
+  "This website and our support service are not an emergency service and are not monitored 24/7.";
+
+export const CRISIS_RESOURCES = [
+  "Immediate danger / risk to life: call 999.",
+  "Urgent mental-health crisis (24/7, all ages): call NHS 111 and select the mental health option (option 2).",
+  "Emotional support (24/7): Samaritans — call 116 123 (free) or email jo@samaritans.org.",
+  "Crisis text support (24/7): text SHOUT to 85258.",
+  "Under 19: Childline — 0800 1111.",
+  "Under 35, suicidal thoughts: Papyrus HOPELINE247 — 0800 068 4141.",
+] as const;
 
 export const DELIVERY_TYPES = [
   "One-to-One Cases",
   "Peer Support",
-  "Counselling",
-  "Psychology",
+  "Guidance",
+  "Wellbeing Support",
   "Mentoring",
 ] as const;

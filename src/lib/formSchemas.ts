@@ -1,130 +1,91 @@
 import { z } from "zod";
 
-const ukPhone =
-  /^(?:(?:\+44\s?\d{4}|0\d{4})\s?\d{6}|(?:\+44\s?\d{3}|0\d{3})\s?\d{3}\s?\d{4})$/;
-const ukPostcode = /^[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}$/i;
-
 export const antiSpamSchema = z.object({
   website: z.string().max(0, "Spam protection failed").optional(),
   startedAt: z.number().int().positive(),
 });
 
-export const contactSchema = antiSpamSchema.extend({
-  name: z.string().trim().min(2, "Please enter your full name"),
-  email: z.string().trim().email("Please enter a valid email address"),
-  phone: z.string().trim().optional(),
-  subject: z.string().min(1, "Please select a subject"),
+const contactMethod = z.enum(["Phone", "Email"]);
+const emergencyStatus = z.enum(["No", "Yes"]);
+
+const minimumContactFields = {
+  name: z.string().trim().min(2, "Please enter your name"),
+  contactMethod,
+  contactDetail: z
+    .string()
+    .trim()
+    .min(5, "Please enter the phone number or email address we should use")
+    .max(120, "Please keep contact details brief"),
+  serviceArea: z.string().trim().min(1, "Please select a service area"),
   message: z
     .string()
     .trim()
-    .min(20, "Please provide at least 20 characters")
-    .max(1000, "Please keep your message to 1000 characters"),
+    .min(10, "Please provide at least 10 characters")
+    .max(700, "Please keep this to 700 characters"),
+  isEmergency: emergencyStatus,
   consent: z.literal(true, {
-    error: "Consent is required to send your enquiry",
+    error: "Consent is required to submit this form",
   }),
-});
+};
+
+function blockEmergencySubmission<T extends { isEmergency: "No" | "Yes" }>(
+  data: T,
+  ctx: z.RefinementCtx,
+) {
+  if (data.isEmergency === "Yes") {
+    ctx.addIssue({
+      code: "custom",
+      path: ["isEmergency"],
+      message:
+        "Please use the emergency and crisis guidance instead of submitting this form.",
+    });
+  }
+}
+
+export const contactSchema = antiSpamSchema
+  .extend({
+    ...minimumContactFields,
+    subject: z.string().trim().min(1, "Please select a subject"),
+  })
+  .superRefine(blockEmergencySubmission);
 
 export const selfReferralSchema = antiSpamSchema
   .extend({
-    firstName: z.string().trim().min(1, "First name is required"),
-    lastName: z.string().trim().min(1, "Last name is required"),
-    dateOfBirth: z.string().min(1, "Date of birth is required"),
-    gender: z.string().optional(),
-    ethnicity: z.string().optional(),
-    phone: z.string().trim().regex(ukPhone, "Enter a valid UK phone number"),
-    email: z.union([
-      z.literal(""),
-      z.string().email("Enter a valid email address"),
-    ]),
-    postcode: z.string().trim().regex(ukPostcode, "Enter a valid UK postcode"),
-    services: z.array(z.string()).min(1, "Select at least one service"),
-    supportMethods: z.array(z.string()).optional(),
-    urgency: z.string().optional(),
-    crisisConfirmation: z.boolean().optional(),
-    supportDetails: z
-      .string()
-      .trim()
-      .min(20, "Please provide at least 20 characters")
-      .max(1000, "Please keep this to 1000 characters"),
-    accurate: z.literal(true, {
-      error: "Please confirm the information is accurate",
-    }),
-    dataConsent: z.literal(true, { error: "Consent is required to submit" }),
-    phoneConsent: z.boolean().optional(),
+    ...minimumContactFields,
+    preferredName: z.string().trim().max(80).optional(),
   })
-  .superRefine((data, ctx) => {
-    if (data.urgency === "Crisis" && !data.crisisConfirmation) {
-      ctx.addIssue({
-        code: "custom",
-        path: ["crisisConfirmation"],
-        message:
-          "Please confirm you understand this form is not for emergencies.",
-      });
-    }
-  });
-
-const required = (label: string) =>
-  z.string().trim().min(1, `${label} is required`);
-const optionalEmail = z.union([
-  z.literal(""),
-  z.string().email("Enter a valid email"),
-]);
+  .superRefine(blockEmergencySubmission);
 
 export const professionalReferralSchema = antiSpamSchema
   .extend({
-    professionalName: required("Full name"),
-    role: required("Role"),
-    organisation: required("Organisation"),
-    organisationType: required("Organisation type"),
-    professionalEmail: z.string().email("Enter a valid professional email"),
-    professionalPhone: required("Direct phone number"),
-    clientFirstName: required("Client first name"),
-    clientLastName: required("Client last name"),
-    clientDob: required("Client date of birth"),
-    clientGender: z.string().optional(),
-    clientPhone: z.string().optional(),
-    clientEmail: optionalEmail,
-    clientPostcode: required("Client postcode"),
-    services: z.array(z.string()).min(1, "Select at least one service"),
-    urgency: required("Urgency level"),
-    emergencyConfirmation: z.boolean().optional(),
+    professionalName: z.string().trim().min(2, "Please enter your name"),
+    role: z.string().trim().min(2, "Please enter your role"),
+    organisation: z.string().trim().min(2, "Please enter your organisation"),
+    contactMethod,
+    contactDetail: z
+      .string()
+      .trim()
+      .min(5, "Please enter the phone number or email address we should use")
+      .max(120, "Please keep contact details brief"),
+    clientName: z.string().trim().max(120).optional(),
+    serviceArea: z.string().trim().min(1, "Please select a service area"),
     reason: z
       .string()
       .trim()
-      .min(50, "Please provide at least 50 characters")
-      .max(2000),
-    background: z.string().max(2000).optional(),
-    clientConsent: required("Client consent status"),
-    safeguarding: required("Safeguarding status"),
-    safeguardingDetails: z.string().optional(),
+      .min(10, "Please provide at least 10 characters")
+      .max(700, "Please keep this to 700 characters"),
+    isEmergency: emergencyStatus,
+    clientConsent: z.enum(["Yes", "No", "Client lacks capacity"], {
+      error: "Please confirm the consent position",
+    }),
     professionalDeclaration: z.literal(true, {
       error: "Confirmation is required",
     }),
-    consentDeclaration: z.literal(true, { error: "Confirmation is required" }),
+    consentDeclaration: z.literal(true, {
+      error: "Confirmation is required",
+    }),
   })
-  .superRefine((data, ctx) => {
-    if (
-      data.safeguarding === "Yes" &&
-      (!data.safeguardingDetails ||
-        data.safeguardingDetails.trim().length < 20)
-    ) {
-      ctx.addIssue({
-        code: "custom",
-        path: ["safeguardingDetails"],
-        message:
-          "Provide at least 20 characters about the safeguarding concern",
-      });
-    }
-
-    if (data.urgency === "Emergency" && !data.emergencyConfirmation) {
-      ctx.addIssue({
-        code: "custom",
-        path: ["emergencyConfirmation"],
-        message:
-          "Please confirm you understand emergency referrals must use emergency services.",
-      });
-    }
-  });
+  .superRefine(blockEmergencySubmission);
 
 export type ContactSubmission = z.infer<typeof contactSchema>;
 export type SelfReferralSubmission = z.infer<typeof selfReferralSchema>;

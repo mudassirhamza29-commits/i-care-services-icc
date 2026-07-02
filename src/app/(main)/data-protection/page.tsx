@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Data Protection",
   description:
     "How referral and enquiry data is handled, retained and protected by I-Care Services.",
+  robots: { index: false, follow: false },
 };
 
 export default function DataProtectionPage() {

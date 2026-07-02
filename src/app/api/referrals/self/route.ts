@@ -25,8 +25,8 @@ export async function POST(request: NextRequest) {
       submittedAt: new Date().toISOString(),
       payload: data,
       metadata: {
-        serviceCount: String(data.services.length),
-        urgency: data.urgency ?? "not-provided",
+        contactMethod: data.contactMethod,
+        serviceArea: data.serviceArea,
       },
     });
 
@@ -34,8 +34,8 @@ export async function POST(request: NextRequest) {
       reference,
       provider: delivery.provider,
       status: String(delivery.status),
-      serviceCount: String(data.services.length),
-      urgency: data.urgency ?? "not-provided",
+      contactMethod: data.contactMethod,
+      serviceArea: data.serviceArea,
     });
 
     return NextResponse.json({ ok: true, reference });
@@ -44,8 +44,7 @@ export async function POST(request: NextRequest) {
     auditSubmission("self_referral.delivery_failed", {
       reference,
       code: publicError.code,
-      serviceCount: String(data.services.length),
-      urgency: data.urgency ?? "not-provided",
+      serviceArea: data.serviceArea,
     });
 
     return NextResponse.json(

@@ -11,7 +11,7 @@ interface PageHeroProps {
 export function PageHero({
   title,
   subtitle,
-  eyebrow = "I-Care Services ICC",
+  eyebrow = "I-Care Services CIC",
   accentColor = "#F4845F",
   breadcrumb,
 }: PageHeroProps) {

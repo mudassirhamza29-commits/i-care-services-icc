@@ -1,4 +1,10 @@
 import { ServicePageTemplate } from "@/components/shared/ServicePageTemplate";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Welfare Support",
+  description: "Guidance with benefits, welfare concerns and practical next steps.",
+};
 
 export default function WelfareSupportPage() {
   return (

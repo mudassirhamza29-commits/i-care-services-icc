@@ -12,16 +12,7 @@ const staticRoutes = [
   "/get-support",
   "/for-professionals",
   "/resources",
-  "/news",
-  "/team",
   "/contact",
-  "/privacy-policy",
-  "/cookies",
-  "/accessibility-statement",
-  "/safeguarding",
-  "/complaints",
-  "/terms",
-  "/data-protection",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

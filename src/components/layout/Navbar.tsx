@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 
-import { NAV_LINKS } from "@/lib/constants";
+import { CONTACT_INFO, NAV_LINKS } from "@/lib/constants";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -67,7 +67,7 @@ export function Navbar() {
         <Link
           href="/"
           className="flex shrink-0 items-center gap-3 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple"
-          aria-label="I-Care Services ICC home"
+          aria-label="I-Care Services CIC home"
         >
           <Image
             src="/brand/i-care-logo.png"
@@ -78,7 +78,7 @@ export function Navbar() {
             className="h-11 w-11 shrink-0 object-contain sm:h-12 sm:w-12"
           />
           <span className="max-w-36 font-heading text-base font-extrabold leading-tight text-navy sm:max-w-none sm:text-lg">
-            I-Care Services ICC
+            {CONTACT_INFO.tradingName}
           </span>
         </Link>
 
@@ -155,6 +155,9 @@ export function Navbar() {
         </div>
 
         <div className="hidden shrink-0 items-center gap-3 xl:flex">
+          <span className="max-w-36 text-xs font-semibold leading-5 text-text-secondary">
+            Not an emergency service
+          </span>
           <Link
             href="/for-professionals"
             className="interactive-button rounded-full border-2 border-purple px-4 py-2.5 text-sm font-extrabold text-purple hover:bg-purple hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple"

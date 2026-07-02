@@ -1,4 +1,10 @@
 import { ServicePageTemplate } from "@/components/shared/ServicePageTemplate";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Additional Support",
+  description: "Flexible first-contact guidance for connected or unclear support needs.",
+};
 
 export default function AdditionalSupportPage() {
   return (

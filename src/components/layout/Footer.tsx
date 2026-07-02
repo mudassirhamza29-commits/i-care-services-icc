@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, ShieldAlert } from "lucide-react";
 
 import { CookieSettingsLink } from "@/components/cookies/CookieSettingsLink";
 import { CONTACT_INFO, SERVICES } from "@/lib/constants";
@@ -25,12 +25,6 @@ const legalLinks = [
   { label: "Data protection", href: "/data-protection" },
 ];
 
-const socialLinks = [
-  { label: "Facebook", href: "https://www.facebook.com/", icon: Facebook },
-  { label: "Instagram", href: "https://www.instagram.com/", icon: Instagram },
-  { label: "LinkedIn", href: "https://www.linkedin.com/", icon: Linkedin },
-];
-
 export function Footer() {
   return (
     <footer className="bg-navy text-white">
@@ -47,27 +41,16 @@ export function Footer() {
               />
             </span>
             <span className="font-heading text-xl font-extrabold">
-              I-Care Services ICC
+              {CONTACT_INFO.tradingName}
             </span>
           </div>
           <p className="mt-5 max-w-sm text-sm leading-7 text-white/75">
             A community-based support hub helping people find practical
             guidance, compassionate care and a clearer way forward.
           </p>
-          <div className="mt-6 flex gap-3">
-            {socialLinks.map(({ label, href, icon: Icon }) => (
-              <a
-                key={label}
-                href={href}
-                aria-label={label}
-                rel="noreferrer"
-                target="_blank"
-                className="interactive-button flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-orange hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
-              >
-                <Icon size={18} aria-hidden="true" />
-              </a>
-            ))}
-          </div>
+          <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-orange">
+            {CONTACT_INFO.legalName}
+          </p>
         </div>
 
         <div>
@@ -103,7 +86,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="font-heading text-base font-bold">Contact & Social</h2>
+          <h2 className="font-heading text-base font-bold">Contact</h2>
           <address className="mt-5 space-y-4 not-italic">
             <p className="flex items-center gap-3 text-sm text-white/70">
               <MapPin
@@ -111,7 +94,7 @@ export function Footer() {
                 className="shrink-0 text-orange"
                 aria-hidden="true"
               />
-              Address available on request
+              {CONTACT_INFO.registeredOffice}
             </p>
             <a
               href="tel:+442080400433"
@@ -142,6 +125,10 @@ export function Footer() {
           >
             {CONTACT_INFO.website}
           </a>
+          <p className="mt-5 flex gap-2 text-xs font-semibold leading-5 text-white/65">
+            <ShieldAlert size={16} className="mt-0.5 shrink-0 text-orange" aria-hidden="true" />
+            Not an emergency service and not monitored 24/7.
+          </p>
           <ul className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
             {legalLinks.map((link) => (
               <li key={link.href}>
@@ -162,8 +149,10 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 text-xs leading-5 text-white/55 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
-          <p>Company Limited by Guarantee Reg No: {CONTACT_INFO.regNumber}</p>
-          <p>&copy; {new Date().getFullYear()} I-Care Services ICC</p>
+          <p>
+            {CONTACT_INFO.companyType} | Company number: {CONTACT_INFO.regNumber}
+          </p>
+          <p>&copy; {new Date().getFullYear()} {CONTACT_INFO.legalName}</p>
         </div>
       </div>
     </footer>

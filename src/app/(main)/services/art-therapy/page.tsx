@@ -1,22 +1,28 @@
 import { ServicePageTemplate } from "@/components/shared/ServicePageTemplate";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Creative Wellbeing Support",
+  description: "Creative wellbeing activities for expression, reflection and support signposting.",
+};
 
 export default function ArtTherapyPage() {
   return (
     <ServicePageTemplate
       slug="art-therapy"
-      title="Art Therapy"
+      title="Creative Wellbeing Support"
       color="#5B3FA6"
-      description="Person-centred creative support for emotional expression and healing."
+      description="Person-centred creative activities for emotional expression, reflection and wellbeing."
       whatWeOffer={[
-        "Guided creative expression",
-        "Emotional exploration through art",
+        "Guided creative activities",
+        "Emotional expression through creative work",
         "Confidence and self-esteem support",
-        "Trauma-informed creative sessions",
-        "Reflective one-to-one support",
+        "Reflective one-to-one guidance",
+        "Signposting to regulated therapy where needed",
       ]}
       whoIsItFor={[
         "People who find it difficult to express feelings through words",
-        "Anyone seeking a gentle and creative therapeutic approach",
+        "Anyone seeking a gentle creative approach",
         "People working through stress, loss, trauma or emotional change",
       ]}
       whatToExpect={[
@@ -33,7 +39,7 @@ export default function ArtTherapyPage() {
         {
           step: 3,
           title: "Supported Expression",
-          description: "A practitioner helps you explore feelings at your pace.",
+          description: "A support worker helps you reflect at your pace.",
         },
         {
           step: 4,
@@ -45,7 +51,7 @@ export default function ArtTherapyPage() {
         {
           question: "Do I need artistic experience?",
           answer:
-            "No. Art therapy is about expression and reflection, not artistic skill or producing a finished piece.",
+            "No. Creative wellbeing support is about expression and reflection, not artistic skill or producing a finished piece.",
         },
         {
           question: "What materials are used?",
@@ -53,9 +59,9 @@ export default function ArtTherapyPage() {
             "Sessions may use drawing, painting, collage or other accessible creative materials based on your preferences.",
         },
         {
-          question: "Can I combine art therapy with other support?",
+          question: "Can I combine creative support with other support?",
           answer:
-            "Yes. Art therapy can complement counselling, mentoring and other person-centred support.",
+            "Yes. It can sit alongside mentoring, wellbeing guidance and signposting to regulated services where appropriate.",
         },
       ]}
       isSensitive={false}

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "How I-Care Services collects, uses, protects and shares personal information.",
+  robots: { index: false, follow: false },
 };
 
 export default function PrivacyPolicyPage() {

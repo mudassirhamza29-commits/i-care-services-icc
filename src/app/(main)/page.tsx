@@ -14,9 +14,9 @@ const WhyICareSection = dynamic(() =>
     (module) => module.WhyICareSection,
   ),
 );
-const TestimonialsSection = dynamic(() =>
-  import("@/components/home/TestimonialsSection").then(
-    (module) => module.TestimonialsSection,
+const ContactProcessSection = dynamic(() =>
+  import("@/components/home/ContactProcessSection").then(
+    (module) => module.ContactProcessSection,
   ),
 );
 const CTABanner = dynamic(() =>
@@ -36,7 +36,7 @@ export default function HomePage() {
       <ServicesGrid />
       <StatsSection />
       <WhyICareSection />
-      <TestimonialsSection />
+      <ContactProcessSection />
       <CTABanner />
     </>
   );

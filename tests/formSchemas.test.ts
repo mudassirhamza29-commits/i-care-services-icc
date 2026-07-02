@@ -9,13 +9,15 @@ import {
 
 const startedAt = Date.now() - 5000;
 
-test("contact schema accepts a valid enquiry", () => {
+test("contact schema accepts a valid minimised enquiry", () => {
   const result = contactSchema.safeParse({
     name: "Test User",
-    email: "test@example.com",
-    phone: "",
-    subject: "General Enquiry",
-    message: "This is a useful message with enough detail to submit.",
+    contactMethod: "Email",
+    contactDetail: "test@example.com",
+    subject: "General enquiry",
+    serviceArea: "Housing Support",
+    message: "Please contact me about support options.",
+    isEmergency: "No",
     consent: true,
     website: "",
     startedAt,
@@ -27,9 +29,12 @@ test("contact schema accepts a valid enquiry", () => {
 test("contact schema rejects honeypot spam", () => {
   const result = contactSchema.safeParse({
     name: "Spam User",
-    email: "spam@example.com",
-    subject: "General Enquiry",
+    contactMethod: "Email",
+    contactDetail: "spam@example.com",
+    subject: "General enquiry",
+    serviceArea: "Housing Support",
     message: "This is a spam message with enough detail to submit.",
+    isEmergency: "No",
     consent: true,
     website: "bot-site",
     startedAt,
@@ -38,20 +43,16 @@ test("contact schema rejects honeypot spam", () => {
   assert.equal(result.success, false);
 });
 
-test("self referral crisis requires emergency confirmation", () => {
+test("self referral blocks emergency submissions", () => {
   const result = selfReferralSchema.safeParse({
-    firstName: "A",
-    lastName: "Person",
-    dateOfBirth: "1990-01-01",
-    phone: "020 8040 0433",
-    email: "",
-    postcode: "HA7 2DB",
-    services: ["mental-health"],
-    urgency: "Crisis",
-    supportDetails:
-      "I need support and this text is long enough for validation to pass.",
-    accurate: true,
-    dataConsent: true,
+    name: "A Person",
+    preferredName: "",
+    contactMethod: "Phone",
+    contactDetail: "020 8040 0433",
+    serviceArea: "Mental Health",
+    message: "I need someone to contact me about support.",
+    isEmergency: "Yes",
+    consent: true,
     website: "",
     startedAt,
   });
@@ -59,29 +60,22 @@ test("self referral crisis requires emergency confirmation", () => {
   assert.equal(result.success, false);
   assert.match(
     JSON.stringify(result.error?.flatten().fieldErrors),
-    /not for emergencies/,
+    /emergency and crisis guidance/,
   );
 });
 
-test("professional emergency referral requires emergency confirmation", () => {
+test("professional referral blocks emergency submissions", () => {
   const result = professionalReferralSchema.safeParse({
     professionalName: "Professional User",
     role: "Support Worker",
     organisation: "Example Organisation",
-    organisationType: "Voluntary Sector",
-    professionalEmail: "pro@example.com",
-    professionalPhone: "020 8040 0433",
-    clientFirstName: "Client",
-    clientLastName: "Person",
-    clientDob: "1990-01-01",
-    clientEmail: "",
-    clientPostcode: "HA7 2DB",
-    services: ["housing-support"],
-    urgency: "Emergency",
-    reason:
-      "This referral reason is deliberately long enough to satisfy the minimum length requirement.",
+    contactMethod: "Email",
+    contactDetail: "pro@example.com",
+    clientName: "Client initials",
+    serviceArea: "Housing Support",
+    reason: "Please contact me to discuss a possible referral.",
+    isEmergency: "Yes",
     clientConsent: "Yes",
-    safeguarding: "No",
     professionalDeclaration: true,
     consentDeclaration: true,
     website: "",
@@ -91,6 +85,6 @@ test("professional emergency referral requires emergency confirmation", () => {
   assert.equal(result.success, false);
   assert.match(
     JSON.stringify(result.error?.flatten().fieldErrors),
-    /emergency referrals/,
+    /emergency and crisis guidance/,
   );
 });

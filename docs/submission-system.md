@@ -10,6 +10,12 @@ Each endpoint validates data server-side, applies spam controls, generates a
 reference number where appropriate, and delivers the submission to a configured
 HTTPS webhook or CRM endpoint.
 
+The public forms are currently minimised for first contact. They collect a
+name, preferred contact method and detail, service area, brief message, consent,
+and an emergency-boundary check. They do not collect date of birth, ethnicity,
+detailed health information, sexual-health detail, financial documents or
+safeguarding narratives through the public website.
+
 ## Required Environment Variables
 
 Set these in Vercel or the hosting platform:
@@ -54,5 +60,7 @@ The webhook receives:
 - Verify the HMAC signature at the receiving endpoint.
 - Restrict receiver access to authorised staff only.
 - Retain records according to the organisation's reviewed data protection policy.
+- If special-category collection is later required, complete the DPIA/provider
+  decision first and extend this document before collecting that data.
 
 This document is implementation guidance, not legal advice.

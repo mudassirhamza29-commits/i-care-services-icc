@@ -28,6 +28,10 @@ export interface NavLink {
 }
 
 export interface ContactInfo {
+  legalName: string;
+  tradingName: string;
+  companyType: string;
+  registeredOffice: string;
   phone: string;
   email: string;
   website: string;

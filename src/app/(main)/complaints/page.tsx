@@ -5,6 +5,7 @@ import { PolicyPage } from "@/components/shared/PolicyPage";
 export const metadata: Metadata = {
   title: "Complaints",
   description: "How to raise a complaint or concern with I-Care Services.",
+  robots: { index: false, follow: false },
 };
 
 export default function ComplaintsPage() {

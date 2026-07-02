@@ -34,7 +34,7 @@ export default function ContactPage() {
                 icon: Phone,
                 title: "Call Us",
                 detail: CONTACT_INFO.phone,
-                sub: "Monday - Friday, 9am - 5pm",
+                sub: "【CONTENT NEEDED: confirmed phone opening hours】",
                 label: "Call Now",
                 href: "tel:+442080400433",
                 style: "bg-orange text-navy",
@@ -43,7 +43,7 @@ export default function ContactPage() {
                 icon: Mail,
                 title: "Email Us",
                 detail: CONTACT_INFO.email,
-                sub: "We aim to respond promptly",
+                sub: "【CONTENT NEEDED: response-time commitment in working days】",
                 label: "Send Email",
                 href: `mailto:${CONTACT_INFO.email}`,
                 style: "bg-purple text-white",
@@ -86,14 +86,14 @@ export default function ContactPage() {
         <div className="mx-auto max-w-4xl px-4 py-20 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center">
             <h2 className="font-heading text-4xl font-extrabold text-navy">
-              Opening Hours
+              Contact Availability
             </h2>
             <div className="mt-9 overflow-hidden rounded-3xl bg-white text-left shadow-sm">
               {[
-                ["Monday - Friday", "9:00am - 5:00pm", CalendarDays, "text-purple"],
-                ["Saturday", "By Appointment Only", CalendarDays, "text-orange"],
-                ["Sunday", "Closed", XCircle, "text-coral"],
-                ["Bank Holidays", "Closed", XCircle, "text-coral"],
+                ["Phone line", "【CONTENT NEEDED: confirmed phone opening hours】", CalendarDays, "text-purple"],
+                ["Appointments", "【CONTENT NEEDED: appointment availability】", CalendarDays, "text-orange"],
+                ["Out of hours", "Not monitored 24/7", XCircle, "text-coral"],
+                ["Emergency support", "Use emergency and crisis routes", XCircle, "text-coral"],
               ].map(([day, hours, Icon, color], index) => {
                 const HoursIcon = Icon as typeof CalendarDays;
                 return (
@@ -113,8 +113,9 @@ export default function ContactPage() {
               })}
             </div>
             <p className="mt-6 font-semibold leading-7 text-text-secondary">
-              For urgent support outside office hours, please call Samaritans
-              on <a href="tel:116123" className="text-purple">116 123</a> (free, 24/7).
+              This website and our support service are not an emergency service
+              and are not monitored 24/7. Emotional support (24/7): Samaritans
+              — call <a href="tel:116123" className="text-purple">116 123</a> (free).
             </p>
           </AnimatedSection>
         </div>
@@ -123,7 +124,7 @@ export default function ContactPage() {
       <section className="bg-navy px-4 py-16 text-center text-cream sm:px-6 lg:px-8">
         <AnimatedSection>
           <h2 className="font-heading text-3xl font-extrabold">
-            I-Care Services ICC
+            I-Care Services CIC
           </h2>
           <div className="mt-5 space-y-2 text-white/70">
             <p>Company Limited by Guarantee</p>

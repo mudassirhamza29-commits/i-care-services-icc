@@ -1,4 +1,10 @@
 import { ServicePageTemplate } from "@/components/shared/ServicePageTemplate";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Health & Social Care Support",
+  description: "Guidance and signposting for health and social care services.",
+};
 
 export default function HealthSocialCarePage() {
   return (
@@ -9,7 +15,7 @@ export default function HealthSocialCarePage() {
       description="Practical support to understand services, coordinate care and make sure your voice is heard."
       whatWeOffer={[
         "NHS navigation",
-        "Social care assessments",
+        "Social care process guidance",
         "Care coordination",
         "Health advocacy",
         "Specialist signposting",
@@ -21,14 +27,14 @@ export default function HealthSocialCarePage() {
       ]}
       whatToExpect={[
         { step: 1, title: "Listen", description: "We understand your current care and concerns." },
-        { step: 2, title: "Map Services", description: "We identify the services and assessments you may need." },
+        { step: 2, title: "Map Services", description: "We identify services, processes and questions to raise." },
         { step: 3, title: "Coordinate", description: "We help connect professionals and clarify next steps." },
         { step: 4, title: "Advocate", description: "We support you to be heard throughout your care." },
       ]}
       faqs={[
-        { question: "Do I need a GP referral?", answer: "No. You can contact I-Care directly without a GP or professional referral." },
-        { question: "Is the service free?", answer: "Yes. Our community support is free to access." },
-        { question: "How quickly will you respond?", answer: "We aim to review requests promptly during normal working periods." },
+        { question: "Do I need a GP referral?", answer: "【CONTENT NEEDED: confirm whether people can self-refer without a GP or professional referral】" },
+        { question: "Is the service free?", answer: "【CONTENT NEEDED: confirm whether support is free to access】" },
+        { question: "How quickly will you respond?", answer: "【CONTENT NEEDED: response-time commitment in working days】" },
       ]}
       isSensitive={false}
     />

@@ -38,8 +38,8 @@ const values = [
     icon: UsersRound,
   },
   {
-    title: "Excellence",
-    description: "We bring specialist knowledge and high standards to every case.",
+    title: "Careful Practice",
+    description: "We work carefully, document what needs review and avoid overpromising.",
     icon: Award,
   },
   {
@@ -65,8 +65,8 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        title="About I-Care Services ICC"
-        subtitle="A community-rooted hub built on compassion, trust, and specialist expertise"
+        title="About I-Care Services CIC"
+        subtitle="A community-rooted hub built on compassion, trust, and practical support"
       />
 
       <section className="bg-white">
@@ -80,13 +80,13 @@ export default function AboutPage() {
             </h2>
             <div className="mt-7 space-y-5 text-base leading-8 text-text-secondary">
               <p>
-                I-Care Services ICC was founded on a simple belief: everyone
+                I-Care Services CIC was founded on a simple belief: everyone
                 deserves support, regardless of their circumstances, background
                 or ability to navigate complex services alone.
               </p>
               <p>
                 What began as a commitment to helping people find the right
-                guidance has grown into a specialist community hub supporting
+                guidance has grown into a community hub supporting
                 individuals and families with health, housing, welfare and
                 emotional wellbeing.
               </p>
@@ -222,7 +222,7 @@ export default function AboutPage() {
                 needs or circumstances change.
               </p>
               <p className="mt-4 leading-8 text-text-secondary">
-                When another specialist service is needed, we help make that
+                When another support route is needed, we help make that
                 connection clear and manageable so you are never left wondering
                 what happens next.
               </p>
