@@ -46,7 +46,7 @@ export const SERVICES: Service[] = [
     title: "Mental Health",
     slug: "mental-health",
     description:
-      "Confidential, compassionate support for emotional wellbeing, recovery and connection to specialist help.",
+      "One-to-one mental health first aid, initial needs assessment and referral to appropriate support.",
     icon: "Brain",
     color: "#5B3FA6",
     isSensitive: true,
@@ -142,3 +142,13 @@ export const DELIVERY_TYPES = [
   "Wellbeing Support",
   "Mentoring",
 ] as const;
+
+export const SUPPORTED_LANGUAGES = [
+  "Arabic",
+  "Urdu",
+  "Pashto",
+  "Punjabi",
+] as const;
+
+export const SUPPORTED_LANGUAGES_TEXT =
+  "Arabic, Urdu, Pashto and Punjabi";

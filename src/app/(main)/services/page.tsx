@@ -182,6 +182,10 @@ export default function ServicesPage() {
                   offer, ensuring your voice is heard and your rights are
                   upheld.
                 </p>
+                <p className="mt-2 text-sm font-semibold leading-6 text-text-secondary">
+                  Psychology and counselling are offered through independent
+                  third-party providers; I-Care can support the referral route.
+                </p>
               </div>
             </div>
           </AnimatedSection>

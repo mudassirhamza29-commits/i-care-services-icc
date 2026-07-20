@@ -77,6 +77,13 @@ export default function PrivacyPolicyPage() {
         organisations where the law permits or requires it, including where
         this is necessary to protect someone from serious harm.
       </p>
+      <p>
+        Where we help arrange psychology or counselling through an independent
+        third-party provider, we explain the proposed referral and share only
+        the information needed for that referral, normally with the person&apos;s
+        agreement. The provider is responsible for its own service and privacy
+        information.
+      </p>
 
       <h2>Confidentiality and safeguarding</h2>
       <p>

@@ -48,8 +48,8 @@ const teamFunctions = [
   {
     title: "Mental Wellbeing Support",
     description:
-      "Provides a calm first point of contact for emotional wellbeing and connects people to appropriate regulated or crisis support when needed.",
-    support: ["Listening support", "Wellbeing planning", "Crisis signposting"],
+      "Provides one-to-one mental health first aid, an initial needs and safety assessment, and referral to appropriate services. Psychology and counselling are provided by third parties.",
+    support: ["Mental health first aid", "Initial assessment", "Referral coordination"],
     icon: FileHeart,
   },
   {

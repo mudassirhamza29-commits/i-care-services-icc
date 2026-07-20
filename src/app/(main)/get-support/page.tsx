@@ -1,6 +1,7 @@
 import {
   Clock3,
   Handshake,
+  Languages,
   LockKeyhole,
   Mail,
   Phone,
@@ -11,7 +12,7 @@ import { SelfReferralForm } from "@/components/forms/SelfReferralForm";
 import { CrisisNotice } from "@/components/shared/CrisisNotice";
 import { PageHero } from "@/components/shared/PageHero";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO, SUPPORTED_LANGUAGES_TEXT } from "@/lib/constants";
 
 const accessOptions = [
   {
@@ -65,7 +66,7 @@ export default function GetSupportPage() {
             {[
               [LockKeyhole, "Confidential with safeguarding exceptions"],
               [PoundSterling, "Free to access"],
-              [Clock3, "Choose phone, email or form"],
+              [Languages, SUPPORTED_LANGUAGES_TEXT],
               [Handshake, "Non-Judgmental"],
             ].map(([Icon, label]) => {
               const PillIcon = Icon as typeof LockKeyhole;

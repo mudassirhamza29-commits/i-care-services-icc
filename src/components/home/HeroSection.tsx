@@ -5,7 +5,7 @@ import { Check, HeartHandshake, Languages, ShieldAlert, ShieldCheck } from "luci
 
 import { Button } from "@/components/ui/Button";
 import { fadeInUp, slideInRight, staggerContainer } from "@/lib/animations";
-import { CRISIS_NOTICE } from "@/lib/constants";
+import { CRISIS_NOTICE, SUPPORTED_LANGUAGES_TEXT } from "@/lib/constants";
 
 const trustPoints = [
   "Free to access",
@@ -52,7 +52,7 @@ export function HeroSection() {
             className="mt-5 inline-flex items-center gap-2 rounded-full border border-orange/40 bg-orange/20 px-4 py-2 text-sm font-extrabold italic text-orange backdrop-blur"
           >
             <Languages size={17} aria-hidden="true" />
-            Ask us about language and communication support
+            We speak your language: {SUPPORTED_LANGUAGES_TEXT}
           </motion.p>
           <motion.p
             variants={fadeInUp}

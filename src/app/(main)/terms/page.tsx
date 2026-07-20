@@ -30,6 +30,13 @@ export default function TermsPage() {
         Submitting a form does not guarantee acceptance, a particular service
         or an outcome. We explain available options after reviewing the request.
       </p>
+      <p>
+        One-to-one mental health first aid is an initial support, needs-assessment
+        and referral service. It is not diagnosis, psychology, counselling or
+        clinical treatment. Psychology and counselling services are offered by
+        independent third-party providers rather than directly by I-Care
+        Services CIC.
+      </p>
 
       <h2>Emergencies</h2>
       <p>

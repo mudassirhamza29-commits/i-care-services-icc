@@ -10,6 +10,11 @@ Last updated: 20 July 2026
 - Public phone and email in `CONTACT_INFO` are approved.
 - All listed support services are approved.
 - Support provided by I-Care Services CIC is free to access.
+- Language support is available in Arabic, Urdu, Pashto and Punjabi.
+- I-Care Services CIC provides one-to-one mental health first aid, initial
+  needs and safety assessment, and referral support.
+- Psychology and counselling are provided by independent third parties, not
+  directly by I-Care Services CIC.
 - No public response-time commitment or opening-hours claim is to be shown.
 - Team content uses role-based functions only; no names, photographs, titles,
   qualifications or registrations are published.
