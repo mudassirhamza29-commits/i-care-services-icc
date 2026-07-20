@@ -74,6 +74,7 @@ export function Navbar() {
             alt=""
             width={673}
             height={673}
+            sizes="48px"
             priority
             className="h-11 w-11 shrink-0 object-contain sm:h-12 sm:w-12"
           />

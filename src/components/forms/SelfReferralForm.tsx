@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { CheckCircle2, LoaderCircle } from "lucide-react";
-import { useForm, type UseFormRegisterReturn } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { CrisisNotice } from "@/components/shared/CrisisNotice";
+import { Consent, Field } from "@/components/forms/FormControls";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SERVICES } from "@/lib/constants";
 import {
@@ -39,6 +40,7 @@ export function SelfReferralForm() {
   });
   const details = watch("message") ?? "";
   const isEmergency = watch("isEmergency");
+  const contactMethod = watch("contactMethod");
 
   const onSubmit = async (data: FormData) => {
     setFormError(null);
@@ -127,7 +129,13 @@ export function SelfReferralForm() {
             </select>
           </Field>
           <Field label="Contact detail" help="Enter the phone number or email address we should use." error={errors.contactDetail?.message}>
-            <input {...register("contactDetail")} autoComplete="email tel" className={inputClass} aria-required="true" />
+            <input
+              {...register("contactDetail")}
+              autoComplete={contactMethod === "Email" ? "email" : "tel"}
+              inputMode={contactMethod === "Email" ? "email" : "tel"}
+              className={inputClass}
+              aria-required="true"
+            />
           </Field>
           <Field label="Service area of interest" error={errors.serviceArea?.message}>
             <select {...register("serviceArea")} className={inputClass} aria-required="true">
@@ -171,14 +179,15 @@ export function SelfReferralForm() {
           Consent and Privacy
         </h3>
         <p className="mt-3 text-sm leading-6 text-text-secondary">
-          Confidentiality applies within safeguarding limits. Retention periods
-          are being finalised and will be published in the data protection
-          policy.
+          Confidentiality applies within safeguarding limits. We collect only
+          the information needed for first contact and handle it as explained
+          in our Privacy Policy.
         </p>
         <Consent
-          label="I consent to I-Care Services CIC using this information to contact me about support. I understand this website is not an emergency service and is not monitored 24/7."
+          label="I explicitly consent to I-Care Services CIC using this information, including any service-area information that may reveal health or wellbeing needs, to contact me about support. I understand this website is not an emergency service and is not monitored 24/7."
           register={register("consent")}
           error={errors.consent?.message}
+          className="mt-5"
         />
       </AnimatedSection>
 
@@ -190,62 +199,5 @@ export function SelfReferralForm() {
         {isSubmitting ? "Submitting..." : "Request Contact"}
       </button>
     </form>
-  );
-}
-
-interface FieldProps {
-  label: string;
-  required?: boolean;
-  error?: string;
-  help?: string;
-  className?: string;
-  children: React.ReactNode;
-}
-
-function Field({
-  label,
-  required = true,
-  error,
-  help,
-  className = "",
-  children,
-}: FieldProps) {
-  return (
-    <label className={`block text-sm font-bold text-navy ${className}`}>
-      {label} {required ? <span className="font-normal">(required)</span> : null}
-      {help ? <span className="mt-1 block text-xs font-medium leading-5 text-text-secondary">{help}</span> : null}
-      {children}
-      <ErrorText message={error} />
-    </label>
-  );
-}
-
-function ErrorText({ message }: { message?: string }) {
-  return message ? (
-    <span className="mt-1.5 block text-sm font-semibold text-coral">
-      {message}
-    </span>
-  ) : null;
-}
-
-function Consent({
-  label,
-  register,
-  error,
-}: {
-  label: string;
-  register: UseFormRegisterReturn;
-  error?: string;
-}) {
-  return (
-    <label className="mt-5 block">
-      <span className="flex items-start gap-3">
-        <input type="checkbox" {...register} className="mt-1 h-4 w-4 accent-purple" aria-required="true" />
-        <span className="text-sm leading-6 text-text-secondary">
-          {label} <span className="font-semibold">(required)</span>
-        </span>
-      </span>
-      <ErrorText message={error} />
-    </label>
   );
 }

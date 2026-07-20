@@ -106,6 +106,12 @@ export const NAV_LINKS: NavLink[] = [
   { label: "Contact", href: "/contact" },
 ];
 
+const publicWebsite = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://i-care-services-icc.vercel.app"
+)
+  .replace(/^https?:\/\//, "")
+  .replace(/\/$/, "");
+
 export const CONTACT_INFO: ContactInfo = {
   legalName: "I-CARE SERVICES CIC",
   tradingName: "I-Care Services CIC",
@@ -113,7 +119,7 @@ export const CONTACT_INFO: ContactInfo = {
   registeredOffice: "48 Bellamy Drive, Stanmore, England, HA7 2DB",
   phone: "020 8040 0433",
   email: "i-caree@outlook.com",
-  website: "i-care-services-icc.vercel.app",
+  website: publicWebsite,
   regNumber: "16861714",
 };
 

@@ -37,9 +37,9 @@ const serviceIcons = {
 } satisfies Record<ServiceIconName, typeof HeartHandshake>;
 
 const trustPoints = [
+  "Free to access",
   "Confidential within safeguarding limits",
   "Self-referral and professional routes",
-  "Access details are explained before support begins",
 ];
 const process = [
   {

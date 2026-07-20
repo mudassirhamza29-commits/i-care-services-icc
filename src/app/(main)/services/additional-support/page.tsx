@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Additional Support",
   description: "Flexible first-contact guidance for connected or unclear support needs.",
+  alternates: { canonical: "/services/additional-support" },
 };
 
 export default function AdditionalSupportPage() {

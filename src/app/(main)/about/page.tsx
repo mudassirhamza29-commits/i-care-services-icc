@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   title: "About I-Care Services",
   description:
     "Learn about I-Care Services, our values, approach, and person-centred community support model.",
+  alternates: { canonical: "/about" },
 };
 
 const values = [

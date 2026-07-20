@@ -54,6 +54,11 @@ The webhook receives:
 
 ## Security Notes
 
+- Cross-site browser posts and oversized request bodies are rejected.
+- Honeypot, minimum-completion-time and per-instance rate-limit checks run
+  before delivery.
+- Application audit logs contain only event type, generated reference,
+  delivery result and error code; form answers are not logged.
 - Use a provider that is approved to receive the type of data being collected.
 - Do not send sensitive referral data to a personal inbox.
 - Use HTTPS only.

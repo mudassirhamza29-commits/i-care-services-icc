@@ -1,30 +1,53 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { PolicyPage } from "@/components/shared/PolicyPage";
 
 export const metadata: Metadata = {
   title: "Accessibility Statement",
   description:
-    "Accessibility commitments and known limitations for the I-Care Services website.",
-  robots: { index: false, follow: false },
+    "Accessibility approach, supported features and feedback route for the I-Care Services website.",
+  alternates: { canonical: "/accessibility-statement" },
 };
 
 export default function AccessibilityStatementPage() {
   return (
     <PolicyPage
       title="Accessibility Statement"
-      subtitle="Our commitment to an inclusive website"
+      subtitle="Our approach to an inclusive website"
     >
-      <p>Last reviewed: 21 June 2026.</p>
+      <p>Last reviewed: 20 July 2026.</p>
       <p>
-        We aim to meet WCAG 2.2 AA where possible. The site is designed to work
-        with keyboard navigation, screen readers, reduced-motion preferences and
-        responsive layouts.
+        I-Care Services CIC wants this website to be usable by as many people as
+        possible. We use WCAG 2.2 Level AA as our accessibility target and
+        review barriers as the website changes. This statement does not claim
+        independent certification.
       </p>
-      <h2>Feedback</h2>
+
+      <h2>What the website supports</h2>
+      <ul>
+        <li>Keyboard navigation and visible keyboard focus.</li>
+        <li>Page landmarks, headings, labels and descriptive link text.</li>
+        <li>Responsive text and layouts across common screen sizes.</li>
+        <li>Reduced motion when your device requests it.</li>
+        <li>Text-based form errors linked to the relevant fields.</li>
+        <li>Non-human illustrations that are decorative and hidden from assistive technology.</li>
+      </ul>
+
+      <h2>Known limitations</h2>
       <p>
-        If you find an accessibility barrier, please contact us and include the
-        page URL, device, browser and assistive technology used where possible.
+        External websites linked from our resources are outside our control and
+        may not meet the same accessibility standard. If we publish a document
+        that is difficult to use, ask us for the information in another
+        reasonable format.
+      </p>
+
+      <h2>Feedback and alternative formats</h2>
+      <p>
+        Use the <Link href="/contact">contact page</Link> to report a barrier or
+        request information in another format. Include the page address, the
+        problem and, if useful, the device, browser or assistive technology you
+        were using.
       </p>
     </PolicyPage>
   );

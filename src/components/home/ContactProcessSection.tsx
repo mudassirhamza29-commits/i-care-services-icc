@@ -13,7 +13,7 @@ const steps = [
   {
     title: "We review the request",
     description:
-      "We review requests as soon as possible, but this service is not monitored 24/7.",
+      "The team reviews the information and uses your preferred contact method for follow-up.",
     icon: ClipboardCheck,
   },
   {
@@ -36,8 +36,8 @@ export function ContactProcessSection() {
             A Clear First Step
           </h2>
           <p className="mt-5 text-base leading-8 text-text-secondary">
-            We do not publish case stories until they have been approved for
-            use. This section explains the contact process instead.
+            Contact is free, confidential within safeguarding limits and kept
+            separate from emergency and crisis routes.
           </p>
         </AnimatedSection>
 

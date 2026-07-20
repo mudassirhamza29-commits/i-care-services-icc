@@ -1,11 +1,17 @@
 import Link from "next/link";
 
+import {
+  SupportVisual,
+  type SupportVisualVariant,
+} from "@/components/shared/SupportVisual";
+
 interface PageHeroProps {
   title: string;
   subtitle: string;
   eyebrow?: string;
   accentColor?: string;
   breadcrumb?: string;
+  visualVariant?: SupportVisualVariant;
 }
 
 export function PageHero({
@@ -14,6 +20,7 @@ export function PageHero({
   eyebrow = "I-Care Services CIC",
   accentColor = "#F4845F",
   breadcrumb,
+  visualVariant = "community",
 }: PageHeroProps) {
   return (
     <section className="relative isolate overflow-hidden bg-navy text-white">
@@ -31,7 +38,7 @@ export function PageHero({
         className="absolute right-[20%] top-12 h-24 w-24 rounded-[60%_40%_45%_55%]"
         style={{ backgroundColor: `${accentColor}40` }}
       />
-      <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 sm:py-24 md:grid-cols-[minmax(0,1fr)_18rem] lg:grid-cols-[minmax(0,1fr)_22rem] lg:px-8 lg:py-28">
         <div className="max-w-4xl">
           {breadcrumb && (
             <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/65">
@@ -57,6 +64,11 @@ export function PageHero({
             {subtitle}
           </p>
         </div>
+        <SupportVisual
+          variant={visualVariant}
+          accentColor={accentColor}
+          className="mx-auto hidden md:block"
+        />
       </div>
     </section>
   );

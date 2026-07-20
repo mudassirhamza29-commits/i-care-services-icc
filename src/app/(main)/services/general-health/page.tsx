@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "General Health Support",
   description: "Plain-English health access information and signposting.",
+  alternates: { canonical: "/services/general-health" },
 };
 
 export default function GeneralHealthPage() {

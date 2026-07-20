@@ -6,6 +6,7 @@ import type { ZodError, ZodType } from "zod";
 const MIN_SUBMIT_MS = 2500;
 const WINDOW_MS = 15 * 60 * 1000;
 const MAX_REQUESTS = 5;
+const MAX_BODY_BYTES = 20_000;
 const buckets = new Map<string, { count: number; resetAt: number }>();
 
 export function clientKey(request: NextRequest) {
@@ -41,6 +42,48 @@ export async function parseAndValidate<T extends { startedAt: number }>(
   request: NextRequest,
   schema: ZodType<T>,
 ) {
+  const fetchSite = request.headers.get("sec-fetch-site");
+  if (fetchSite === "cross-site") {
+    return {
+      response: NextResponse.json(
+        { error: "Cross-site submissions are not accepted." },
+        { status: 403 },
+      ),
+    };
+  }
+
+  const origin = request.headers.get("origin");
+  const host = request.headers.get("host");
+  if (origin && host) {
+    try {
+      if (new URL(origin).host !== host) {
+        return {
+          response: NextResponse.json(
+            { error: "Cross-site submissions are not accepted." },
+            { status: 403 },
+          ),
+        };
+      }
+    } catch {
+      return {
+        response: NextResponse.json(
+          { error: "Invalid request origin." },
+          { status: 403 },
+        ),
+      };
+    }
+  }
+
+  const contentLength = Number(request.headers.get("content-length") ?? 0);
+  if (Number.isFinite(contentLength) && contentLength > MAX_BODY_BYTES) {
+    return {
+      response: NextResponse.json(
+        { error: "Submission is too large." },
+        { status: 413 },
+      ),
+    };
+  }
+
   const rateLimited = rateLimit(request);
   if (rateLimited) return { response: rateLimited };
 

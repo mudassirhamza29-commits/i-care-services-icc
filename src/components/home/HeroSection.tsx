@@ -8,6 +8,7 @@ import { fadeInUp, slideInRight, staggerContainer } from "@/lib/animations";
 import { CRISIS_NOTICE } from "@/lib/constants";
 
 const trustPoints = [
+  "Free to access",
   "Confidential within safeguarding limits",
   "Self-referral and professional routes",
   "Company number 16861714",

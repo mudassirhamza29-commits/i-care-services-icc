@@ -24,18 +24,13 @@ export async function POST(request: NextRequest) {
       reference,
       submittedAt: new Date().toISOString(),
       payload: data,
-      metadata: {
-        organisation: data.organisation,
-        serviceArea: data.serviceArea,
-      },
+      metadata: {},
     });
 
     auditSubmission("professional_referral.delivered", {
       reference,
       provider: delivery.provider,
       status: String(delivery.status),
-      organisation: data.organisation,
-      serviceArea: data.serviceArea,
     });
 
     return NextResponse.json({ ok: true, reference });
@@ -44,8 +39,6 @@ export async function POST(request: NextRequest) {
     auditSubmission("professional_referral.delivery_failed", {
       reference,
       code: publicError.code,
-      organisation: data.organisation,
-      serviceArea: data.serviceArea,
     });
 
     return NextResponse.json(

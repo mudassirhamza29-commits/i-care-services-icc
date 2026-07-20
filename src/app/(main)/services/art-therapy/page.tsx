@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Creative Wellbeing Support",
   description: "Creative wellbeing activities for expression, reflection and support signposting.",
+  alternates: { canonical: "/services/art-therapy" },
 };
 
 export default function ArtTherapyPage() {

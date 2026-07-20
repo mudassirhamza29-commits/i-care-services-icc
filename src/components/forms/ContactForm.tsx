@@ -1,11 +1,12 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useState } from "react";
 import { CheckCircle2, LoaderCircle } from "lucide-react";
-import { useForm, type UseFormRegisterReturn } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { CrisisNotice } from "@/components/shared/CrisisNotice";
+import { Consent, Field } from "@/components/forms/FormControls";
 import { contactSchema, type ContactSubmission } from "@/lib/formSchemas";
 import { SERVICES } from "@/lib/constants";
 
@@ -24,7 +25,7 @@ const subjects = [
 ];
 
 export function ContactForm() {
-  const [sent, setSent] = useState(false);
+  const [reference, setReference] = useState<string | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
   const [startedAt] = useState(() => Date.now());
   const {
@@ -44,6 +45,7 @@ export function ContactForm() {
   });
   const message = watch("message") ?? "";
   const isEmergency = watch("isEmergency");
+  const contactMethod = watch("contactMethod");
 
   const onSubmit = async (data: ContactData) => {
     setFormError(null);
@@ -53,20 +55,22 @@ export function ContactForm() {
       body: JSON.stringify(data),
     });
 
-    if (!response.ok) {
-      const payload = (await response.json().catch(() => null)) as {
-        error?: string;
-      } | null;
+    const payload = (await response.json().catch(() => null)) as {
+      reference?: string;
+      error?: string;
+    } | null;
+
+    if (!response.ok || !payload?.reference) {
       setFormError(
         payload?.error ?? "We could not send your message. Please try again.",
       );
       return;
     }
 
-    setSent(true);
+    setReference(payload.reference);
   };
 
-  if (sent) {
+  if (reference) {
     return (
       <div
         className="flex min-h-[570px] flex-col items-center justify-center rounded-[2rem] bg-white p-8 text-center shadow-sm"
@@ -80,6 +84,9 @@ export function ContactForm() {
           Your message has been received. We will use your preferred contact
           method to follow up. This service is not monitored 24/7, so urgent
           issues should use the emergency and crisis routes.
+        </p>
+        <p className="mt-4 rounded-full bg-cream-dark px-4 py-2 text-sm font-extrabold text-purple">
+          Reference: {reference}
         </p>
       </div>
     );
@@ -127,7 +134,13 @@ export function ContactForm() {
           </select>
         </Field>
         <Field label="Contact detail" help="Enter the phone number or email address we should use." error={errors.contactDetail?.message}>
-          <input {...register("contactDetail")} autoComplete="email tel" className={inputClass} aria-required="true" />
+          <input
+            {...register("contactDetail")}
+            autoComplete={contactMethod === "Email" ? "email" : "tel"}
+            inputMode={contactMethod === "Email" ? "email" : "tel"}
+            className={inputClass}
+            aria-required="true"
+          />
         </Field>
         <Field label="Subject" error={errors.subject?.message}>
           <select {...register("subject")} className={inputClass} aria-required="true">
@@ -167,7 +180,7 @@ export function ContactForm() {
           </span>
         </Field>
         <Consent
-          label="I consent to I-Care Services CIC using this information to respond to my enquiry. I understand this form is not monitored 24/7 and data storage timeframes will be published in the data protection policy once finalised."
+          label="I explicitly consent to I-Care Services CIC using this information, including any service-area information that may reveal health or wellbeing needs, to respond to my enquiry. I understand this form is not monitored 24/7 and information is handled as explained in the Privacy Policy."
           register={register("consent")}
           error={errors.consent?.message}
         />
@@ -181,65 +194,4 @@ export function ContactForm() {
       </button>
     </form>
   );
-}
-
-function Field({
-  label,
-  error,
-  help,
-  children,
-}: {
-  label: string;
-  error?: string;
-  help?: string;
-  children: React.ReactNode;
-}) {
-  const id = useId();
-  const helpId = `${id}-help`;
-  const errorId = `${id}-error`;
-  return (
-    <label className="block text-sm font-bold text-navy">
-      {label} <span className="font-normal">(required)</span>
-      {help ? <span id={helpId} className="mt-1 block text-xs font-medium leading-5 text-text-secondary">{help}</span> : null}
-      <span className="block [&>*]:w-full">
-        {children}
-      </span>
-      <ErrorText id={errorId} message={error} />
-    </label>
-  );
-}
-
-function Consent({
-  label,
-  register,
-  error,
-}: {
-  label: string;
-  register: UseFormRegisterReturn;
-  error?: string;
-}) {
-  return (
-    <label className="block">
-      <span className="flex items-start gap-3">
-        <input
-          type="checkbox"
-          {...register}
-          className="mt-1 h-4 w-4 accent-purple"
-          aria-required="true"
-        />
-        <span className="text-sm leading-6 text-text-secondary">
-          {label} <span className="font-semibold">(required)</span>
-        </span>
-      </span>
-      <ErrorText message={error} />
-    </label>
-  );
-}
-
-function ErrorText({ message, id }: { message?: string; id?: string }) {
-  return message ? (
-    <span id={id} className="mt-1.5 block text-sm font-semibold text-coral">
-      {message}
-    </span>
-  ) : null;
 }

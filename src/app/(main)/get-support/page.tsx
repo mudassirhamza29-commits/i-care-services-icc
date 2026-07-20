@@ -17,7 +17,7 @@ const accessOptions = [
   {
     icon: Phone,
     title: "Speak to Someone Now",
-    body: "Call the team using the published contact number. Opening hours are being confirmed and the service is not monitored 24/7.",
+    body: "Call the team using the published contact number. If nobody is available, use email or the first-contact form. This is not an emergency line.",
     label: CONTACT_INFO.phone,
     href: "tel:+442080400433",
     button: "bg-orange text-navy",
@@ -64,8 +64,8 @@ export default function GetSupportPage() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {[
               [LockKeyhole, "Confidential with safeguarding exceptions"],
-              [PoundSterling, "No cost to enquire"],
-              [Clock3, "Response time pending confirmation"],
+              [PoundSterling, "Free to access"],
+              [Clock3, "Choose phone, email or form"],
               [Handshake, "Non-Judgmental"],
             ].map(([Icon, label]) => {
               const PillIcon = Icon as typeof LockKeyhole;
@@ -117,7 +117,7 @@ export default function GetSupportPage() {
           <AnimatedSection variant="staggerContainer" className="mt-12 grid gap-6 md:grid-cols-3">
             {[
               ["We Receive Your Request", "Your form is sent through the configured secure submission route."],
-              ["Review & Follow-Up", "We review requests as soon as possible, but this service is not monitored 24/7."],
+              ["Review & Follow-Up", "The team reviews the first-contact information and follows up using your preferred method."],
               ["Next Steps", "We agree what information is needed and what support options may fit."],
             ].map(([title, body], index) => (
               <article key={title} className="rounded-3xl border border-white/10 bg-white/5 p-7 text-center">

@@ -7,7 +7,6 @@ export const metadata: Metadata = {
   title: "Cookie Policy",
   description:
     "How I-Care Services uses cookies, current cookie categories, consent choices and how to change preferences.",
-  robots: { index: false, follow: false },
   alternates: {
     canonical: "/cookies",
   },
@@ -29,7 +28,7 @@ export const metadata: Metadata = {
 export default function CookiesPage() {
   return (
     <PolicyPage title="Cookie Policy" subtitle="How this website uses cookies">
-      <p>Last reviewed: 21 June 2026.</p>
+      <p>Last reviewed: 20 July 2026.</p>
 
       <h2>What cookies are</h2>
       <p>
@@ -122,10 +121,7 @@ export default function CookiesPage() {
         For more information about how personal information is handled, read the{" "}
         <Link href="/privacy-policy">Privacy Policy</Link>.
       </p>
-      <p>
-        This page is general website information and is not a legal compliance
-        statement.
-      </p>
+      <p>This page is reviewed before any new cookie or optional provider is enabled.</p>
     </PolicyPage>
   );
 }

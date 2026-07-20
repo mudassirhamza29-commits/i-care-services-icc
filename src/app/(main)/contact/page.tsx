@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CalendarDays, Mail, Phone, XCircle } from "lucide-react";
+import { Mail, MessageSquareText, Phone, ShieldAlert } from "lucide-react";
 
 import { ContactForm } from "@/components/forms/ContactForm";
 import { PageHero } from "@/components/shared/PageHero";
@@ -34,7 +34,7 @@ export default function ContactPage() {
                 icon: Phone,
                 title: "Call Us",
                 detail: CONTACT_INFO.phone,
-                sub: "Opening hours are being confirmed",
+                sub: "For non-emergency enquiries and support",
                 label: "Call Now",
                 href: "tel:+442080400433",
                 style: "bg-orange text-navy",
@@ -86,31 +86,29 @@ export default function ContactPage() {
         <div className="mx-auto max-w-4xl px-4 py-20 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center">
             <h2 className="font-heading text-4xl font-extrabold text-navy">
-              Contact Availability
+              Before You Contact Us
             </h2>
-            <div className="mt-9 overflow-hidden rounded-3xl bg-white text-left shadow-sm">
-              {[
-                ["Phone line", "Opening hours are being confirmed", CalendarDays, "text-purple"],
-                ["Appointments", "Availability is confirmed during first contact", CalendarDays, "text-orange"],
-                ["Out of hours", "Not monitored 24/7", XCircle, "text-coral"],
-                ["Emergency support", "Use emergency and crisis routes", XCircle, "text-coral"],
-              ].map(([day, hours, Icon, color], index) => {
-                const HoursIcon = Icon as typeof CalendarDays;
-                return (
-                  <div
-                    key={day as string}
-                    className={`flex items-center justify-between gap-4 p-5 ${
-                      index ? "border-t border-cream-dark" : ""
-                    }`}
-                  >
-                    <span className="font-bold text-navy">{day as string}</span>
-                    <span className="flex items-center gap-2 text-right text-text-secondary">
-                      {hours as string}
-                      <HoursIcon size={18} className={color as string} />
-                    </span>
-                  </div>
-                );
-              })}
+            <div className="mt-9 grid gap-4 text-left sm:grid-cols-2">
+              <div className="rounded-3xl bg-white p-6 shadow-sm">
+                <MessageSquareText className="text-purple" aria-hidden="true" />
+                <h3 className="mt-4 font-heading text-lg font-extrabold text-navy">
+                  Keep online messages brief
+                </h3>
+                <p className="mt-2 text-sm leading-7 text-text-secondary">
+                  Share only enough information for first contact. Sensitive
+                  details can be discussed later through a staffed process.
+                </p>
+              </div>
+              <div className="rounded-3xl bg-white p-6 shadow-sm">
+                <ShieldAlert className="text-coral" aria-hidden="true" />
+                <h3 className="mt-4 font-heading text-lg font-extrabold text-navy">
+                  Use crisis routes for urgent risk
+                </h3>
+                <p className="mt-2 text-sm leading-7 text-text-secondary">
+                  This website and support service are not monitored 24/7 and
+                  must not be used for emergencies.
+                </p>
+              </div>
             </div>
             <p className="mt-6 font-semibold leading-7 text-text-secondary">
               This website and our support service are not an emergency service

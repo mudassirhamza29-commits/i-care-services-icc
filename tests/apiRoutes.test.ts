@@ -67,3 +67,35 @@ test("contact API validates and delivers to webhook", async () => {
   setEnv("ALLOW_INSECURE_SUBMISSION_WEBHOOK", previousAllow);
   setEnv("NODE_ENV", previousNodeEnv);
 });
+
+test("contact API rejects cross-site submissions", async () => {
+  const request = new NextRequest("https://icare.example/api/contact", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Origin: "https://attacker.example",
+      Host: "icare.example",
+      "Sec-Fetch-Site": "cross-site",
+    },
+    body: "{}",
+  });
+
+  const response = await contactPost(request);
+  assert.equal(response.status, 403);
+});
+
+test("contact API rejects oversized submissions", async () => {
+  const request = new NextRequest("https://icare.example/api/contact", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Content-Length": "20001",
+      Origin: "https://icare.example",
+      Host: "icare.example",
+    },
+    body: "{}",
+  });
+
+  const response = await contactPost(request);
+  assert.equal(response.status, 413);
+});

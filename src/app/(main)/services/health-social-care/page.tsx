@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Health & Social Care Support",
   description: "Guidance and signposting for health and social care services.",
+  alternates: { canonical: "/services/health-social-care" },
 };
 
 export default function HealthSocialCarePage() {
@@ -53,7 +54,7 @@ export default function HealthSocialCarePage() {
       ]}
       faqs={[
         { question: "Do I need a GP referral?", answer: "You can use the contact routes shown on this website to ask about support. We will explain the most appropriate next step." },
-        { question: "Is the service free?", answer: "Access details are explained before support begins." },
+        { question: "Is the service free?", answer: "Yes. Support provided by I-Care Services CIC is free to access." },
         { question: "How quickly will you respond?", answer: "We review requests as soon as possible, but this service is not monitored 24/7." },
       ]}
       isSensitive={false}

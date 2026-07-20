@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
 
-import { NEWS_POSTS } from "@/lib/news";
 import { SERVICES } from "@/lib/constants";
+import { SITE_URL } from "@/lib/site";
 
-const baseUrl = "https://i-care-services-icc.vercel.app";
+const baseUrl = SITE_URL;
 
 const staticRoutes = [
   "",
@@ -13,6 +13,14 @@ const staticRoutes = [
   "/for-professionals",
   "/resources",
   "/contact",
+  "/team",
+  "/privacy-policy",
+  "/cookies",
+  "/accessibility-statement",
+  "/safeguarding",
+  "/complaints",
+  "/terms",
+  "/data-protection",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -30,12 +38,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.8,
-    })),
-    ...NEWS_POSTS.map((post) => ({
-      url: `${baseUrl}/news/${post.slug}`,
-      lastModified: now,
-      changeFrequency: "yearly" as const,
-      priority: 0.5,
     })),
   ];
 }

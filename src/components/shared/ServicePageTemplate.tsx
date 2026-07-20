@@ -15,6 +15,7 @@ import {
 import { CTABanner } from "@/components/home/CTABanner";
 import { CrisisNotice } from "@/components/shared/CrisisNotice";
 import { PageHero } from "@/components/shared/PageHero";
+import type { SupportVisualVariant } from "@/components/shared/SupportVisual";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SERVICES } from "@/lib/constants";
 import { fadeInUp } from "@/lib/animations";
@@ -61,6 +62,13 @@ export function ServicePageTemplate({
   confidentialityNote,
 }: ServicePageTemplateProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const visualVariant: SupportVisualVariant = slug.includes("housing")
+    ? "housing"
+    : slug.includes("health")
+      ? "health"
+      : slug.includes("art") || slug.includes("mental")
+        ? "wellbeing"
+        : "community";
   const relatedServices = SERVICES.filter((service) => service.slug !== slug).slice(
     0,
     3,
@@ -73,6 +81,7 @@ export function ServicePageTemplate({
         subtitle={description}
         eyebrow="Community support"
         accentColor={color}
+        visualVariant={visualVariant}
       />
 
       {isSensitive ? (

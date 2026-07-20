@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Housing Support",
   description: "Practical housing guidance, signposting and first-contact support.",
+  alternates: { canonical: "/services/housing-support" },
 };
 
 export default function HousingSupportPage() {

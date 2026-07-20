@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { CookieConsent } from "@/components/cookies/CookieConsent";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { SITE_URL } from "@/lib/site";
 
 import "./globals.css";
 
@@ -14,16 +15,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://i-care-services-icc.vercel.app"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "I-Care Services CIC | Community Support",
     template: "%s | I-Care Services CIC",
   },
   description:
     "Community-based health, welfare, housing and family support.",
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     type: "website",
     url: "/",
@@ -71,7 +69,9 @@ export default function RootLayout({
           Skip to main content
         </a>
         <Navbar />
-        {children}
+        <main id="main-content" tabIndex={-1} className="flex-1 outline-none">
+          {children}
+        </main>
         <Footer />
         <CookieConsent />
       </body>

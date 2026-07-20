@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Mental Health Support",
   description: "Mental health information, wellbeing guidance and crisis signposting.",
+  alternates: { canonical: "/services/mental-health" },
 };
 
 export default function MentalHealthPage() {

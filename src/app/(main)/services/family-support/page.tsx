@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Family Support",
   description: "Family support information, practical guidance and signposting.",
+  alternates: { canonical: "/services/family-support" },
 };
 
 export default function FamilySupportPage() {

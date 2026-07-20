@@ -23,8 +23,8 @@ const features = [
     icon: HandHeart,
   },
   {
-    title: "Access Policy Under Review",
-    description: "We explain any access limits clearly before support begins.",
+    title: "Free to Access",
+    description: "There is no charge for support provided by I-Care Services CIC.",
     icon: Sparkles,
   },
 ];

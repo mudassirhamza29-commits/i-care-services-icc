@@ -51,6 +51,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  poweredByHeader: false,
   outputFileTracingRoot: process.cwd(),
   images: {
     domains: [],

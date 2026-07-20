@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Sexual Health Support",
   description: "Inclusive sexual health information and signposting with clear safeguarding limits.",
+  alternates: { canonical: "/services/sexual-health" },
 };
 
 export default function SexualHealthPage() {

@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   title: "Professional Referrals",
   description:
     "First-contact referral information for professionals, including consent checks and emergency boundaries.",
+  alternates: { canonical: "/for-professionals" },
 };
 
 const professionalTypes = [
@@ -59,7 +60,7 @@ const referralBenefits = [
   "Updates provided where consent and data-sharing allow",
   "Confidential support within safeguarding limits",
   "Not an emergency or 24/7 monitored pathway",
-  "Response time to be confirmed by the organisation",
+  "Free first-contact and referral route",
 ];
 
 export default function ForProfessionalsPage() {

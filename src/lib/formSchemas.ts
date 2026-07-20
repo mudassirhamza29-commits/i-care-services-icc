@@ -42,19 +42,44 @@ function blockEmergencySubmission<T extends { isEmergency: "No" | "Yes" }>(
   }
 }
 
+function validateContactDetail<
+  T extends { contactMethod: "Phone" | "Email"; contactDetail: string },
+>(data: T, ctx: z.RefinementCtx) {
+  const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.contactDetail);
+  const isPhone = /^[+()\d\s-]{7,}$/.test(data.contactDetail);
+
+  if (data.contactMethod === "Email" && !isEmail) {
+    ctx.addIssue({
+      code: "custom",
+      path: ["contactDetail"],
+      message: "Please enter a valid email address",
+    });
+  }
+
+  if (data.contactMethod === "Phone" && !isPhone) {
+    ctx.addIssue({
+      code: "custom",
+      path: ["contactDetail"],
+      message: "Please enter a valid phone number",
+    });
+  }
+}
+
 export const contactSchema = antiSpamSchema
   .extend({
     ...minimumContactFields,
     subject: z.string().trim().min(1, "Please select a subject"),
   })
-  .superRefine(blockEmergencySubmission);
+  .superRefine(blockEmergencySubmission)
+  .superRefine(validateContactDetail);
 
 export const selfReferralSchema = antiSpamSchema
   .extend({
     ...minimumContactFields,
     preferredName: z.string().trim().max(80).optional(),
   })
-  .superRefine(blockEmergencySubmission);
+  .superRefine(blockEmergencySubmission)
+  .superRefine(validateContactDetail);
 
 export const professionalReferralSchema = antiSpamSchema
   .extend({
@@ -78,6 +103,7 @@ export const professionalReferralSchema = antiSpamSchema
     clientConsent: z.enum(["Yes", "No", "Client lacks capacity"], {
       error: "Please confirm the consent position",
     }),
+    authorityBasis: z.string().trim().max(300).optional(),
     professionalDeclaration: z.literal(true, {
       error: "Confirmation is required",
     }),
@@ -85,7 +111,21 @@ export const professionalReferralSchema = antiSpamSchema
       error: "Confirmation is required",
     }),
   })
-  .superRefine(blockEmergencySubmission);
+  .superRefine(blockEmergencySubmission)
+  .superRefine(validateContactDetail)
+  .superRefine((data, ctx) => {
+    if (
+      data.clientConsent !== "Yes" &&
+      (!data.authorityBasis || data.authorityBasis.length < 10)
+    ) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["authorityBasis"],
+        message:
+          "Please briefly state the lawful or safeguarding basis considered",
+      });
+    }
+  });
 
 export type ContactSubmission = z.infer<typeof contactSchema>;
 export type SelfReferralSubmission = z.infer<typeof selfReferralSchema>;

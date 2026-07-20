@@ -37,6 +37,7 @@ export function Footer() {
                 alt=""
                 width={673}
                 height={673}
+                sizes="64px"
                 className="h-full w-full object-contain"
               />
             </span>

@@ -6,6 +6,7 @@ import { useForm, type UseFormRegisterReturn } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { CrisisNotice } from "@/components/shared/CrisisNotice";
+import { Consent, ErrorText as Error, Field } from "@/components/forms/FormControls";
 import { SERVICES } from "@/lib/constants";
 import {
   professionalReferralSchema,
@@ -38,6 +39,8 @@ export function ProfessionalReferralForm() {
   });
   const reason = watch("reason") ?? "";
   const isEmergency = watch("isEmergency");
+  const clientConsent = watch("clientConsent");
+  const contactMethod = watch("contactMethod");
 
   const onSubmit = async (data: FormData) => {
     setFormError(null);
@@ -112,7 +115,13 @@ export function ProfessionalReferralForm() {
             </select>
           </Field>
           <Field label="Contact detail" help="Enter the phone number or email address we should use." error={errors.contactDetail?.message}>
-            <input {...register("contactDetail")} autoComplete="email tel" className={inputClass} aria-required="true" />
+            <input
+              {...register("contactDetail")}
+              autoComplete={contactMethod === "Email" ? "email" : "tel"}
+              inputMode={contactMethod === "Email" ? "email" : "tel"}
+              className={inputClass}
+              aria-required="true"
+            />
           </Field>
           <Field label="Client name or initials" required={false} help="Optional. Use initials if that is more appropriate at first contact.">
             <input {...register("clientName")} className={inputClass} />
@@ -151,12 +160,27 @@ export function ProfessionalReferralForm() {
           <RadioRow values={["Yes", "No", "Client lacks capacity"]} register={register("clientConsent")} />
           <Error message={errors.clientConsent?.message} />
         </fieldset>
+        {clientConsent && clientConsent !== "Yes" ? (
+          <Field
+            label="Basis for making this referral without consent"
+            help="Briefly state the safeguarding, vital-interests or other lawful basis considered. Do not include clinical or incident details here."
+            error={errors.authorityBasis?.message}
+            className="mt-6"
+          >
+            <textarea
+              rows={3}
+              maxLength={300}
+              {...register("authorityBasis")}
+              className={inputClass}
+              aria-required="true"
+            />
+          </Field>
+        ) : null}
       </FormSection>
       <FormSection title="Professional Declarations">
         <p className="mb-5 text-sm leading-6 text-text-secondary">
-          Confidentiality applies within safeguarding limits. Retention periods
-          are being finalised and will be published in the data protection
-          policy.
+          Confidentiality applies within safeguarding limits. Only the minimum
+          information needed for first contact should be submitted here.
         </p>
         <Consent label="I confirm I am making this referral in a professional capacity and in good faith." register={register("professionalDeclaration")} error={errors.professionalDeclaration?.message} />
         <Consent label="I confirm consent or another lawful basis has been considered, and that this form is not being used for an emergency." register={register("consentDeclaration")} error={errors.consentDeclaration?.message} />
@@ -181,35 +205,6 @@ function FormSection({ title, children }: { title: string; children: React.React
   );
 }
 
-function Field({
-  label,
-  children,
-  error,
-  help,
-  required = true,
-  className = "",
-}: {
-  label: string;
-  children: React.ReactNode;
-  error?: string;
-  help?: string;
-  required?: boolean;
-  className?: string;
-}) {
-  return (
-    <label className={`block text-sm font-bold text-navy ${className}`}>
-      {label} {required ? <span className="font-normal">(required)</span> : null}
-      {help ? <span className="mt-1 block text-xs font-medium leading-5 text-text-secondary">{help}</span> : null}
-      {children}
-      <Error message={error} />
-    </label>
-  );
-}
-
-function Error({ message }: { message?: string }) {
-  return message ? <span className="mt-1.5 block text-sm font-semibold text-coral">{message}</span> : null;
-}
-
 function RadioRow({ values, register }: { values: string[]; register: UseFormRegisterReturn }) {
   return (
     <div className="mt-3 flex flex-wrap gap-3">
@@ -220,27 +215,5 @@ function RadioRow({ values, register }: { values: string[]; register: UseFormReg
         </label>
       ))}
     </div>
-  );
-}
-
-function Consent({
-  label,
-  register,
-  error,
-}: {
-  label: string;
-  register: UseFormRegisterReturn;
-  error?: string;
-}) {
-  return (
-    <label className="mb-4 block">
-      <span className="flex gap-3">
-        <input type="checkbox" {...register} className="mt-1 accent-purple" aria-required="true" />
-        <span className="text-sm leading-6 text-text-secondary">
-          {label} <span className="font-semibold">(required)</span>
-        </span>
-      </span>
-      <Error message={error} />
-    </label>
   );
 }

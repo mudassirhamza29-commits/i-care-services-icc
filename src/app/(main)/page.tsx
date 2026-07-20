@@ -27,6 +27,7 @@ export const metadata: Metadata = {
   title: "Community Support",
   description:
     "Confidential, person-centred support across health, housing, mental wellbeing, family support and social care.",
+  alternates: { canonical: "/" },
 };
 
 export default function HomePage() {
