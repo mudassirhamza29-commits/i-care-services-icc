@@ -31,10 +31,10 @@ export const metadata: Metadata = {
       "Community-based health, welfare, housing and family support.",
     images: [
       {
-        url: "/brand/i-care-logo.png",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "I-Care Services CIC logo",
+        alt: "I-Care Services CIC community support",
       },
     ],
   },
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "I-Care Services CIC | Community Support",
     description:
       "Community-based health, welfare, housing and family support.",
-    images: ["/brand/i-care-logo.png"],
+    images: ["/opengraph-image"],
   },
   icons: {
     icon: "/icon.png",
@@ -69,7 +69,11 @@ export default function RootLayout({
           Skip to main content
         </a>
         <Navbar />
-        <main id="main-content" tabIndex={-1} className="flex-1 outline-none">
+        <main
+          id="main-content"
+          tabIndex={-1}
+          className="flex-1 overflow-x-clip outline-none"
+        >
           {children}
         </main>
         <Footer />

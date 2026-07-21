@@ -1,11 +1,15 @@
 import {
   ClipboardCheck,
   FileHeart,
+  FileLock2,
   FolderSearch,
   HeartPulse,
   House,
   Mail,
+  Network,
+  Newspaper,
   Palette,
+  Send,
   ShieldCheck,
   type LucideIcon,
 } from "lucide-react";
@@ -17,7 +21,11 @@ export type SupportVisualVariant =
   | "wellbeing"
   | "resources"
   | "contact"
-  | "team";
+  | "team"
+  | "services"
+  | "professional"
+  | "news"
+  | "policy";
 
 const visualIcons: Record<
   SupportVisualVariant,
@@ -30,6 +38,10 @@ const visualIcons: Record<
   resources: [FolderSearch, ClipboardCheck, FileHeart],
   contact: [Mail, ClipboardCheck, ShieldCheck],
   team: [FileHeart, ClipboardCheck, ShieldCheck],
+  services: [Network, ClipboardCheck, ShieldCheck],
+  professional: [Send, ClipboardCheck, FileLock2],
+  news: [Newspaper, FileHeart, ShieldCheck],
+  policy: [FileLock2, ClipboardCheck, ShieldCheck],
 };
 
 interface SupportVisualProps {

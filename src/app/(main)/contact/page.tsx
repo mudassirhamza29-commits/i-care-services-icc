@@ -16,6 +16,7 @@ export default function ContactPage() {
         title="Contact Us"
         subtitle="We're here to listen. Reach out in whatever way feels right for you."
         breadcrumb="Contact Us"
+        visualVariant="contact"
       />
 
       <section className="bg-white">

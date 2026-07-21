@@ -33,6 +33,7 @@ export default async function NewsArticlePage({
         eyebrow={post.category}
         accentColor={post.color}
         breadcrumb="News"
+        visualVariant="news"
       />
       <article className="bg-white">
         <div className="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">

@@ -70,6 +70,7 @@ export default function ForProfessionalsPage() {
         title="For Professionals"
         subtitle="Referral pathways for professionals supporting people who may benefit from community-based help"
         eyebrow="Professional referrals"
+        visualVariant="professional"
       />
 
       <section className="bg-white">

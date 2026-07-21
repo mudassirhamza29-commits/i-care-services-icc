@@ -19,6 +19,7 @@ import type { SupportVisualVariant } from "@/components/shared/SupportVisual";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SERVICES } from "@/lib/constants";
 import { fadeInUp } from "@/lib/animations";
+import type { ServiceSlug } from "@/types";
 
 interface OfferItem {
   title: string;
@@ -37,7 +38,7 @@ interface FAQ {
 }
 
 interface ServicePageTemplateProps {
-  slug: string;
+  slug: ServiceSlug;
   title: string;
   color: string;
   description: string;
@@ -82,6 +83,7 @@ export function ServicePageTemplate({
         eyebrow="Community support"
         accentColor={color}
         visualVariant={visualVariant}
+        serviceSlug={slug}
       />
 
       {isSensitive ? (

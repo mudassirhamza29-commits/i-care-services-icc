@@ -31,7 +31,10 @@ export default function AccessibilityStatementPage() {
         <li>Responsive text and layouts across common screen sizes.</li>
         <li>Reduced motion when your device requests it.</li>
         <li>Text-based form errors linked to the relevant fields.</li>
-        <li>Non-human illustrations that are decorative and hidden from assistive technology.</li>
+        <li>
+          Decorative illustrations are hidden from assistive technology, while
+          meaningful service illustrations have descriptive labels.
+        </li>
       </ul>
 
       <h2>Known limitations</h2>

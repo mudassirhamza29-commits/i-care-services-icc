@@ -4,33 +4,13 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
-  Brain,
-  HandHelping,
-  HeartHandshake,
-  HeartPulse,
-  House,
-  Landmark,
-  Palette,
   ShieldCheck,
-  UsersRound,
 } from "lucide-react";
 
+import { ServiceIllustration } from "@/components/shared/ServiceIllustration";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SERVICES } from "@/lib/constants";
 import { fadeInUp } from "@/lib/animations";
-import type { ServiceIconName } from "@/types";
-
-const serviceIcons = {
-  HeartHandshake,
-  Landmark,
-  House,
-  HeartPulse,
-  Brain,
-  UsersRound,
-  ShieldCheck,
-  Palette,
-  HandHelping,
-} satisfies Record<ServiceIconName, typeof HeartHandshake>;
 
 export function ServicesGrid() {
   return (
@@ -54,8 +34,6 @@ export function ServicesGrid() {
           className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
         >
           {SERVICES.map((service) => {
-            const Icon = serviceIcons[service.icon];
-
             return (
               <motion.article
                 key={service.id}
@@ -63,51 +41,40 @@ export function ServicesGrid() {
                 className="interactive-card group overflow-hidden rounded-[1.75rem] border border-cream-dark bg-white hover:-translate-y-1.5"
               >
                 <div className="relative aspect-[16/9] overflow-hidden bg-cream-dark">
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background: `radial-gradient(circle at 25% 20%, ${service.color}33, transparent 34%), radial-gradient(circle at 78% 72%, ${service.color}22, transparent 32%), linear-gradient(135deg, #FAF8F4, #F0ECE4)`,
-                    }}
+                  <ServiceIllustration
+                    slug={service.slug}
+                    title={service.title}
+                    accentColor={service.color}
+                    className="h-full w-full transition-transform duration-500 group-hover:scale-[1.03]"
                   />
-                  <div
-                    className="absolute left-6 top-6 flex h-16 w-16 items-center justify-center rounded-3xl bg-white shadow-sm"
-                    style={{ color: service.color }}
+                  {service.isSensitive ? (
+                    <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-navy/90 px-3 py-1 text-xs font-bold text-white backdrop-blur">
+                      <ShieldCheck size={14} aria-hidden="true" />
+                      Safe Space
+                    </span>
+                  ) : null}
+                </div>
+                <div className="flex min-h-64 flex-col p-6">
+                  <h3 className="font-heading text-xl font-extrabold text-navy">
+                    {service.title}
+                  </h3>
+                  <p className="mt-3 line-clamp-3 flex-1 text-sm leading-7 text-text-secondary">
+                    {service.description}
+                  </p>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="interactive-button mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-purple px-5 py-2.5 text-sm font-bold text-white hover:bg-orange hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple"
+                    aria-label={`Learn more about ${service.title}`}
                   >
-                    <Icon size={32} aria-hidden="true" />
-                  </div>
-                  <div
-                    className="absolute -bottom-8 right-6 h-28 w-28 rounded-full border-[24px]"
-                    style={{ borderColor: `${service.color}33` }}
-                    aria-hidden="true"
-                  />
-                {service.isSensitive ? (
-                  <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-navy/90 px-3 py-1 text-xs font-bold text-white backdrop-blur">
-                    <ShieldCheck size={14} aria-hidden="true" />
-                    Safe Space
-                  </span>
-                ) : null}
-              </div>
-              <div className="flex min-h-64 flex-col p-6">
-                <h3 className="font-heading text-xl font-extrabold text-navy">
-                  {service.title}
-                </h3>
-                <p className="mt-3 line-clamp-3 flex-1 text-sm leading-7 text-text-secondary">
-                  {service.description}
-                </p>
-                <Link
-                  href={`/services/${service.slug}`}
-                  className="interactive-button mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-purple px-5 py-2.5 text-sm font-bold text-white hover:bg-orange hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple"
-                  aria-label={`Learn more about ${service.title}`}
-                >
-                  Learn about {service.title}
-                  <ArrowUpRight
-                    size={17}
-                    className="transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1"
-                    aria-hidden="true"
-                  />
-                </Link>
-              </div>
-            </motion.article>
+                    Learn about {service.title}
+                    <ArrowUpRight
+                      size={17}
+                      className="transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1"
+                      aria-hidden="true"
+                    />
+                  </Link>
+                </div>
+              </motion.article>
             );
           })}
         </AnimatedSection>

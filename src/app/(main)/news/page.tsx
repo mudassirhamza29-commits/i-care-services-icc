@@ -19,6 +19,7 @@ export default function NewsPage() {
         title="News & Updates"
         subtitle="Reviewed updates will be published here after approval"
         eyebrow="From our community"
+        visualVariant="news"
       />
 
       <section className="bg-cream">

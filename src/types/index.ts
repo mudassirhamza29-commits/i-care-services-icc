@@ -11,10 +11,21 @@ export type ServiceIconName =
   | "Palette"
   | "HandHelping";
 
+export type ServiceSlug =
+  | "health-social-care"
+  | "welfare-support"
+  | "housing-support"
+  | "general-health"
+  | "mental-health"
+  | "family-support"
+  | "sexual-health"
+  | "art-therapy"
+  | "additional-support";
+
 export interface Service {
   id: number;
   title: string;
-  slug: string;
+  slug: ServiceSlug;
   description: string;
   icon: ServiceIconName;
   color: string;

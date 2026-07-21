@@ -4,6 +4,8 @@ import {
   SupportVisual,
   type SupportVisualVariant,
 } from "@/components/shared/SupportVisual";
+import { ServiceIllustration } from "@/components/shared/ServiceIllustration";
+import type { ServiceSlug } from "@/types";
 
 interface PageHeroProps {
   title: string;
@@ -12,6 +14,7 @@ interface PageHeroProps {
   accentColor?: string;
   breadcrumb?: string;
   visualVariant?: SupportVisualVariant;
+  serviceSlug?: ServiceSlug;
 }
 
 export function PageHero({
@@ -21,6 +24,7 @@ export function PageHero({
   accentColor = "#F4845F",
   breadcrumb,
   visualVariant = "community",
+  serviceSlug,
 }: PageHeroProps) {
   return (
     <section className="relative isolate overflow-hidden bg-navy text-white">
@@ -64,11 +68,23 @@ export function PageHero({
             {subtitle}
           </p>
         </div>
-        <SupportVisual
-          variant={visualVariant}
-          accentColor={accentColor}
-          className="mx-auto hidden md:block"
-        />
+        {serviceSlug ? (
+          <div className="mx-auto hidden w-full overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl backdrop-blur-sm md:block">
+            <ServiceIllustration
+              slug={serviceSlug}
+              title={title}
+              accentColor={accentColor}
+              className="h-auto w-full rounded-3xl"
+              decorative
+            />
+          </div>
+        ) : (
+          <SupportVisual
+            variant={visualVariant}
+            accentColor={accentColor}
+            className="mx-auto hidden md:block"
+          />
+        )}
       </div>
     </section>
   );

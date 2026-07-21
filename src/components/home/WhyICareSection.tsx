@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ClipboardCheck, HandHeart, HeartHandshake, ShieldCheck, Sparkles } from "lucide-react";
+import { HandHeart, HeartHandshake, ShieldCheck, Sparkles } from "lucide-react";
 
+import { SupportVisual } from "@/components/shared/SupportVisual";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { fadeInUp } from "@/lib/animations";
 
@@ -34,17 +35,8 @@ export function WhyICareSection() {
     <section className="overflow-hidden bg-cream-dark">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16 lg:px-8 lg:py-28">
         <AnimatedSection variant="slideInLeft" className="relative">
-          <div className="interactive-card relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-white">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_22%,rgba(244,132,95,0.26),transparent_30%),radial-gradient(circle_at_80%_72%,rgba(91,63,166,0.20),transparent_30%),linear-gradient(135deg,#FAF8F4,#F0ECE4)]" />
-            <div className="absolute left-10 top-10 rounded-3xl bg-white p-5 shadow-sm">
-              <ClipboardCheck className="text-purple" size={40} aria-hidden="true" />
-              <p className="mt-3 text-sm font-extrabold text-navy">First contact</p>
-            </div>
-            <div className="absolute bottom-12 right-12 rounded-3xl bg-navy p-5 text-white shadow-sm">
-              <ShieldCheck className="text-orange" size={40} aria-hidden="true" />
-              <p className="mt-3 text-sm font-extrabold">Safeguarding limits</p>
-            </div>
-            <div className="absolute left-[42%] top-[38%] h-24 w-24 rounded-full border-[18px] border-orange/40" aria-hidden="true" />
+          <div className="interactive-card relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-navy p-6">
+            <SupportVisual variant="community" className="mx-auto h-full" />
           </div>
           <div className="absolute -bottom-6 left-6 rounded-3xl bg-white p-5 shadow-[var(--shadow-hover)]">
             <p className="font-heading text-3xl font-black text-purple">1:1</p>

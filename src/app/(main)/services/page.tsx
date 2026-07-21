@@ -4,37 +4,17 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
-  Brain,
   Check,
-  HeartHandshake,
-  HeartPulse,
   HandHelping,
-  House,
-  Landmark,
   LockKeyhole,
-  Palette,
-  ShieldCheck,
-  UsersRound,
 } from "lucide-react";
 
 import { CTABanner } from "@/components/home/CTABanner";
 import { PageHero } from "@/components/shared/PageHero";
+import { ServiceIllustration } from "@/components/shared/ServiceIllustration";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { DELIVERY_TYPES, SERVICES } from "@/lib/constants";
 import { fadeInUp } from "@/lib/animations";
-import type { ServiceIconName } from "@/types";
-
-const serviceIcons = {
-  HeartHandshake,
-  Landmark,
-  House,
-  HeartPulse,
-  Brain,
-  UsersRound,
-  ShieldCheck,
-  Palette,
-  HandHelping,
-} satisfies Record<ServiceIconName, typeof HeartHandshake>;
 
 const trustPoints = [
   "Free to access",
@@ -67,6 +47,7 @@ export default function ServicesPage() {
         title="Our Services"
         subtitle="Specialist support across every area of your life"
         eyebrow="Support that meets you where you are"
+        visualVariant="services"
       />
 
       <section className="bg-white">
@@ -100,7 +81,6 @@ export default function ServicesPage() {
             className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
           >
             {SERVICES.map((service) => {
-              const Icon = serviceIcons[service.icon];
               const deliveryTypes = DELIVERY_TYPES.slice(
                 0,
                 service.isSensitive ? 3 : 2,
@@ -117,16 +97,18 @@ export default function ServicesPage() {
                       className="h-3"
                       style={{ backgroundColor: service.color }}
                     />
+                    <div className="aspect-[16/9] overflow-hidden border-b border-cream-dark">
+                      <ServiceIllustration
+                        slug={service.slug}
+                        title={service.title}
+                        accentColor={service.color}
+                        className="h-full w-full transition-transform duration-500 group-hover:scale-[1.03]"
+                      />
+                    </div>
                     <div className="flex flex-1 flex-col p-7">
                       <div className="flex items-start justify-between gap-4">
-                        <span
-                          className="flex h-14 w-14 items-center justify-center rounded-2xl"
-                          style={{
-                            backgroundColor: `${service.color}1F`,
-                            color: service.color,
-                          }}
-                        >
-                          <Icon size={27} aria-hidden="true" />
+                        <span className="text-xs font-extrabold uppercase tracking-[0.16em] text-purple">
+                          Support service
                         </span>
                         {service.isSensitive && (
                           <span className="flex items-center gap-1.5 rounded-full bg-coral/10 px-3 py-1.5 text-xs font-extrabold text-coral">

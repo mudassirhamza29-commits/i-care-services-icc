@@ -5,13 +5,13 @@ import {
   HandHeart,
   HeartHandshake,
   LockKeyhole,
-  HandHelping,
   Sparkles,
   UsersRound,
 } from "lucide-react";
 
 import { CTABanner } from "@/components/home/CTABanner";
 import { PageHero } from "@/components/shared/PageHero";
+import { SupportVisual } from "@/components/shared/SupportVisual";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { DELIVERY_TYPES } from "@/lib/constants";
 
@@ -170,17 +170,9 @@ export default function AboutPage() {
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
             <AnimatedSection
               variant="slideInLeft"
-              className="relative min-h-80 overflow-hidden rounded-[2rem] bg-cream"
+              className="relative overflow-hidden rounded-[2rem] bg-navy p-6"
             >
-              <div className="absolute left-[12%] top-[14%] h-48 w-48 rounded-[56%_44%_62%_38%] bg-orange" />
-              <div className="absolute bottom-[12%] right-[10%] h-52 w-52 rounded-[40%_60%_46%_54%] bg-purple" />
-              <div className="absolute left-[36%] top-[34%] flex h-32 w-32 items-center justify-center rounded-full border-[22px] border-white/70">
-                <HeartHandshake
-                  className="text-navy"
-                  size={36}
-                  aria-hidden="true"
-                />
-              </div>
+              <SupportVisual variant="services" className="mx-auto" />
             </AnimatedSection>
             <AnimatedSection variant="slideInRight">
               <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-coral">
@@ -230,13 +222,9 @@ export default function AboutPage() {
             </AnimatedSection>
             <AnimatedSection
               variant="slideInRight"
-              className="relative min-h-80 overflow-hidden rounded-[2rem] bg-navy lg:order-2"
+              className="relative overflow-hidden rounded-[2rem] bg-navy p-6 lg:order-2"
             >
-              <div className="absolute -left-16 bottom-4 h-64 w-64 rounded-full border-[48px] border-purple" />
-              <div className="absolute right-[8%] top-[13%] h-44 w-44 rounded-[62%_38%_45%_55%] bg-coral" />
-              <div className="absolute bottom-[18%] right-[28%] flex h-24 w-24 items-center justify-center rounded-full bg-white text-purple shadow-xl">
-                <HandHelping size={34} aria-hidden="true" />
-              </div>
+              <SupportVisual variant="contact" className="mx-auto" />
             </AnimatedSection>
           </div>
         </div>

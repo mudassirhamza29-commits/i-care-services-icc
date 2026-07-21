@@ -11,7 +11,7 @@ interface PolicyPageProps {
 export function PolicyPage({ title, subtitle, children }: PolicyPageProps) {
   return (
     <>
-      <PageHero title={title} subtitle={subtitle} />
+      <PageHero title={title} subtitle={subtitle} visualVariant="policy" />
       <div className="bg-white">
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
           <div className="mb-8 rounded-2xl border border-purple/20 bg-cream-dark p-5 text-sm font-semibold leading-6 text-navy">
