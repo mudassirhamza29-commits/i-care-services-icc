@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { HandHeart, HeartHandshake, ShieldCheck, Sparkles } from "lucide-react";
 
-import { SupportVisual } from "@/components/shared/SupportVisual";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { fadeInUp } from "@/lib/animations";
 
@@ -35,8 +35,18 @@ export function WhyICareSection() {
     <section className="overflow-hidden bg-cream-dark">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16 lg:px-8 lg:py-28">
         <AnimatedSection variant="slideInLeft" className="relative">
-          <div className="interactive-card relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-navy p-6">
-            <SupportVisual variant="community" className="mx-auto h-full" />
+          <div className="interactive-card group relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-navy">
+            <Image
+              src="/images/home/why-i-care.webp"
+              alt="A confidential one-to-one support conversation with one person listening attentively"
+              fill
+              sizes="(min-width: 1024px) 46vw, 100vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-navy/20 via-transparent to-transparent"
+            />
           </div>
           <div className="absolute -bottom-6 left-6 rounded-3xl bg-white p-5 shadow-[var(--shadow-hover)]">
             <p className="font-heading text-3xl font-black text-purple">1:1</p>
