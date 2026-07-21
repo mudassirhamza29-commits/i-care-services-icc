@@ -1,5 +1,4 @@
-import { ClipboardCheck, MessageCircle, ShieldAlert } from "lucide-react";
-
+import { ProcessPathway } from "@/components/graphics/ProcessPathway";
 import { CrisisNotice } from "@/components/shared/CrisisNotice";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
@@ -8,19 +7,16 @@ const steps = [
     title: "Tell us the basics",
     description:
       "Use the first-contact form, phone or email. Please keep public form details brief.",
-    icon: MessageCircle,
   },
   {
     title: "We review the request",
     description:
       "The team reviews the information and uses your preferred contact method for follow-up.",
-    icon: ClipboardCheck,
   },
   {
     title: "Emergency routes stay separate",
     description:
       "Immediate danger and urgent crisis support should use the listed emergency routes.",
-    icon: ShieldAlert,
   },
 ];
 
@@ -41,23 +37,8 @@ export function ContactProcessSection() {
           </p>
         </AnimatedSection>
 
-        <AnimatedSection
-          variant="staggerContainer"
-          className="mt-12 grid gap-5 md:grid-cols-3"
-        >
-          {steps.map(({ title, description, icon: Icon }) => (
-            <article key={title} className="interactive-card rounded-3xl bg-white p-7">
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-purple/10 text-purple">
-                <Icon size={24} aria-hidden="true" />
-              </span>
-              <h3 className="mt-5 font-heading text-xl font-extrabold text-navy">
-                {title}
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-text-secondary">
-                {description}
-              </p>
-            </article>
-          ))}
+        <AnimatedSection className="mt-12">
+          <ProcessPathway steps={steps} />
         </AnimatedSection>
 
         <AnimatedSection className="mt-10">

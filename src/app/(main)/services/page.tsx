@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -10,6 +9,8 @@ import {
   LockKeyhole,
 } from "lucide-react";
 
+import { GraphicScene } from "@/components/graphics/GraphicScene";
+import { ProcessPathway } from "@/components/graphics/ProcessPathway";
 import { CTABanner } from "@/components/home/CTABanner";
 import { PageHero } from "@/components/shared/PageHero";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
@@ -98,18 +99,7 @@ export default function ServicesPage() {
                       style={{ backgroundColor: service.color }}
                     />
                     <div className="relative aspect-[16/9] overflow-hidden border-b border-cream-dark">
-                      <Image
-                        src={service.image}
-                        alt={service.imageAlt}
-                        fill
-                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                        style={{ objectPosition: service.imagePosition }}
-                      />
-                      <span
-                        aria-hidden="true"
-                        className="absolute inset-0 bg-gradient-to-t from-navy/15 via-transparent to-transparent"
-                      />
+                      <GraphicScene variant={service.graphic} mode="card" className="h-full rounded-none border-0 shadow-none" />
                     </div>
                     <div className="flex flex-1 flex-col p-7">
                       <div className="flex items-start justify-between gap-4">
@@ -190,31 +180,8 @@ export default function ServicesPage() {
               How It Works
             </h2>
           </AnimatedSection>
-          <AnimatedSection
-            variant="staggerContainer"
-            className="relative mt-12 grid gap-5 md:grid-cols-4"
-          >
-            <div
-              aria-hidden="true"
-              className="absolute left-[12.5%] right-[12.5%] top-8 hidden border-t-2 border-dashed border-purple/25 md:block"
-            />
-            {process.map((step, index) => (
-              <motion.article
-                key={step.title}
-                variants={fadeInUp}
-                className="relative rounded-3xl bg-white p-6 text-center shadow-sm"
-              >
-                <span className="relative z-10 mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-purple font-heading text-lg font-extrabold text-white ring-8 ring-cream-dark">
-                  {index + 1}
-                </span>
-                <h3 className="mt-6 font-heading text-lg font-extrabold text-navy">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-text-secondary">
-                  {step.description}
-                </p>
-              </motion.article>
-            ))}
+          <AnimatedSection className="mt-12">
+            <ProcessPathway steps={process} />
           </AnimatedSection>
         </div>
       </section>

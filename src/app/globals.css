@@ -9,6 +9,12 @@
   --color-cream-dark: #eaf7f4;
   --color-text-primary: #1a1a2e;
   --color-text-secondary: #3f4357;
+  --color-teal: #2a7f6f;
+  --color-sky: #5f8fb4;
+  --color-lavender: #8c7ab8;
+  --color-stable-green: #4f7a65;
+  --color-amber: #c98235;
+  --color-plum: #7b4f6b;
   --font-heading: var(--font-inter), sans-serif;
   --font-body: var(--font-inter), sans-serif;
   --radius-sm: 8px;
@@ -25,6 +31,12 @@
   --color-cream-dark: #eaf7f4;
   --color-text-primary: #1a1a2e;
   --color-text-secondary: #3f4357;
+  --color-teal: #2a7f6f;
+  --color-sky: #5f8fb4;
+  --color-lavender: #8c7ab8;
+  --color-stable-green: #4f7a65;
+  --color-amber: #c98235;
+  --color-plum: #7b4f6b;
   --font-heading: var(--font-inter), sans-serif;
   --font-body: var(--font-inter), sans-serif;
   --radius-sm: 8px;
@@ -119,6 +131,18 @@ button {
 
 .route-transition {
   animation: route-fade-slide 120ms ease-out both;
+}
+
+.graphic-scene {
+  background-size: 18px 18px, auto;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+@media (hover: hover) {
+  .group:hover .graphic-scene {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+  }
 }
 
 @keyframes route-fade-slide {

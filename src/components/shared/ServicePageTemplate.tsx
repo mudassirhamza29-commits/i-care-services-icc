@@ -2,21 +2,25 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
   Check,
   ChevronDown,
   CircleDot,
+  ClipboardCheck,
+  FileCheck,
   HandHeart,
   LockKeyhole,
+  MessageCircle,
+  Route,
 } from "lucide-react";
 
 import { CTABanner } from "@/components/home/CTABanner";
+import { GraphicScene } from "@/components/graphics/GraphicScene";
+import { ProcessPathway } from "@/components/graphics/ProcessPathway";
 import { CrisisNotice } from "@/components/shared/CrisisNotice";
 import { PageHero } from "@/components/shared/PageHero";
-import type { SupportVisualVariant } from "@/components/shared/SupportVisual";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SERVICES } from "@/lib/constants";
 import { fadeInUp } from "@/lib/animations";
@@ -51,6 +55,8 @@ interface ServicePageTemplateProps {
   confidentialityNote?: string;
 }
 
+const offerIcons = [HandHeart, ClipboardCheck, Route, MessageCircle, FileCheck] as const;
+
 export function ServicePageTemplate({
   slug,
   title,
@@ -64,18 +70,12 @@ export function ServicePageTemplate({
   confidentialityNote,
 }: ServicePageTemplateProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const visualVariant: SupportVisualVariant = slug.includes("housing")
-    ? "housing"
-    : slug.includes("health")
-      ? "health"
-      : slug.includes("art") || slug.includes("mental")
-        ? "wellbeing"
-        : "community";
   const relatedServices = SERVICES.filter((service) => service.slug !== slug).slice(
     0,
     3,
   );
   const currentService = SERVICES.find((service) => service.slug === slug);
+  const resolvedColor = currentService?.color ?? color;
 
   return (
     <>
@@ -83,11 +83,8 @@ export function ServicePageTemplate({
         title={title}
         subtitle={description}
         eyebrow="Community support"
-        accentColor={color}
-        visualVariant={visualVariant}
-        serviceImage={currentService?.image}
-        serviceImageAlt={currentService?.imageAlt}
-        serviceImagePosition={currentService?.imagePosition}
+        accentColor={resolvedColor}
+        visualVariant={currentService?.graphic ?? slug}
       />
 
       {isSensitive ? (
@@ -103,7 +100,7 @@ export function ServicePageTemplate({
           <AnimatedSection className="max-w-2xl">
             <p
               className="text-sm font-extrabold uppercase tracking-[0.2em]"
-              style={{ color }}
+              style={{ color: resolvedColor }}
             >
               Practical help
             </p>
@@ -115,9 +112,10 @@ export function ServicePageTemplate({
             variant="staggerContainer"
             className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
           >
-            {whatWeOffer.map((offer) => {
+            {whatWeOffer.map((offer, index) => {
               const titleText = offer.title;
               const descriptionText = offer.description;
+              const OfferIcon = offerIcons[index % offerIcons.length];
 
               return (
                 <motion.article
@@ -127,9 +125,9 @@ export function ServicePageTemplate({
                 >
                   <span
                     className="flex h-12 w-12 items-center justify-center rounded-2xl"
-                    style={{ backgroundColor: `${color}1F`, color }}
+                    style={{ backgroundColor: `${resolvedColor}1F`, color: resolvedColor }}
                   >
-                    <HandHeart size={24} aria-hidden="true" />
+                    <OfferIcon size={24} aria-hidden="true" />
                   </span>
                   <h3 className="mt-5 font-heading text-lg font-extrabold text-navy">
                     {titleText}
@@ -188,27 +186,11 @@ export function ServicePageTemplate({
               What To Expect
             </h2>
           </AnimatedSection>
-          <AnimatedSection
-            variant="staggerContainer"
-            className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4"
-          >
-            {whatToExpect.map((item) => (
-              <motion.article
-                key={item.step}
-                variants={fadeInUp}
-                className="rounded-3xl border border-white/10 bg-white/5 p-6"
-              >
-                <span className="font-heading text-4xl font-extrabold text-orange">
-                  {String(item.step).padStart(2, "0")}
-                </span>
-                <h3 className="mt-5 font-heading text-lg font-extrabold">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-white/65">
-                  {item.description}
-                </p>
-              </motion.article>
-            ))}
+          <AnimatedSection className="mt-10">
+            <ProcessPathway
+              steps={whatToExpect.map(({ title, description }) => ({ title, description }))}
+              accent={resolvedColor}
+            />
           </AnimatedSection>
         </div>
       </section>
@@ -343,14 +325,7 @@ export function ServicePageTemplate({
                 className="interactive-card group overflow-hidden rounded-3xl border border-cream-dark bg-cream/40"
               >
                 <div className="relative aspect-[16/9] overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.imageAlt}
-                    fill
-                    sizes="(min-width: 768px) 33vw, 100vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                    style={{ objectPosition: service.imagePosition }}
-                  />
+                  <GraphicScene variant={service.graphic} mode="card" className="h-full rounded-none border-0 shadow-none" />
                 </div>
                 <div className="p-6">
                   <CircleDot

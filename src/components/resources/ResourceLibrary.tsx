@@ -4,6 +4,9 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 
+import { GraphicScene } from "@/components/graphics/GraphicScene";
+import type { GraphicVariant } from "@/types";
+
 type Category = "All Resources" | "Health" | "Housing" | "Mental Health" | "Welfare";
 interface Resource { title: string; type: string; category: Exclude<Category, "All Resources">; description: string; }
 
@@ -23,6 +26,7 @@ const resources: Resource[] = [
 ];
 const categories: Category[] = ["All Resources", "Health", "Housing", "Mental Health", "Welfare"];
 const colors: Record<Resource["category"], string> = { Health: "bg-orange/15 text-coral", Housing: "bg-coral/10 text-coral", "Mental Health": "bg-purple/10 text-purple", Welfare: "bg-navy/10 text-navy" };
+const categoryGraphics: Record<Resource["category"], GraphicVariant> = { Health: "general-health", Housing: "housing-support", "Mental Health": "mental-health", Welfare: "welfare-support" };
 
 export function ResourceLibrary() {
   const [active, setActive] = useState<Category>("All Resources");
@@ -32,10 +36,11 @@ export function ResourceLibrary() {
       <div className="flex flex-wrap justify-center gap-2" role="tablist" aria-label="Resource categories">{categories.map((category)=><button key={category} role="tab" aria-selected={active === category} onClick={()=>setActive(category)} className={`relative px-4 py-3 text-sm font-bold ${active === category ? "text-navy after:absolute after:inset-x-3 after:bottom-0 after:h-0.5 after:bg-orange" : "text-text-secondary"}`}>{category}</button>)}</div>
       <motion.div layout className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         <AnimatePresence mode="popLayout">
-          {visible.map((resource)=><motion.article layout key={resource.title} initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: .96 }} className="interactive-card flex flex-col rounded-3xl border border-cream-dark bg-white p-6">
-            <div className="flex flex-wrap gap-2"><span className={`rounded-full px-3 py-1 text-xs font-bold ${colors[resource.category]}`}>{resource.category}</span><span className="rounded-full bg-cream-dark px-3 py-1 text-xs font-bold text-text-secondary">{resource.type}</span></div>
+          {visible.map((resource)=><motion.article layout key={resource.title} initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: .96 }} className="interactive-card group flex flex-col overflow-hidden rounded-3xl border border-cream-dark bg-white">
+            <GraphicScene variant={categoryGraphics[resource.category]} mode="card" className="aspect-[16/9] rounded-none border-0 shadow-none" />
+            <div className="flex flex-1 flex-col p-6"><div className="flex flex-wrap gap-2"><span className={`rounded-full px-3 py-1 text-xs font-bold ${colors[resource.category]}`}>{resource.category}</span><span className="rounded-full bg-cream-dark px-3 py-1 text-xs font-bold text-text-secondary">{resource.type}</span></div>
             <h3 className="mt-5 font-heading text-xl font-extrabold text-navy">{resource.title}</h3><p className="mt-3 flex-1 text-sm leading-7 text-text-secondary">{resource.description}</p>
-            <Link href="/contact" className="interactive-button mt-4 inline-flex w-fit rounded-full border-2 border-navy px-4 py-2 text-sm font-bold text-navy">Ask for guidance</Link>
+            <Link href="/contact" className="interactive-button mt-4 inline-flex w-fit rounded-full border-2 border-navy px-4 py-2 text-sm font-bold text-navy">Ask for guidance</Link></div>
           </motion.article>)}
         </AnimatePresence>
       </motion.div>

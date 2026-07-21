@@ -1,16 +1,5 @@
 import type { LucideIcon } from "lucide-react";
 
-export type ServiceIconName =
-  | "HeartHandshake"
-  | "Landmark"
-  | "House"
-  | "HeartPulse"
-  | "Brain"
-  | "UsersRound"
-  | "ShieldCheck"
-  | "Palette"
-  | "HandHelping";
-
 export type ServiceSlug =
   | "health-social-care"
   | "welfare-support"
@@ -22,15 +11,41 @@ export type ServiceSlug =
   | "art-therapy"
   | "additional-support";
 
+export type GraphicVariant =
+  | "home"
+  | "community"
+  | "services"
+  | "get-support"
+  | "professional"
+  | "resources"
+  | "contact"
+  | "about"
+  | "team"
+  | "news"
+  | "health-social-care"
+  | "welfare-support"
+  | "housing-support"
+  | "general-health"
+  | "mental-health"
+  | "family-support"
+  | "sexual-health"
+  | "art-therapy"
+  | "additional-support"
+  | "privacy"
+  | "cookies"
+  | "accessibility"
+  | "safeguarding"
+  | "complaints"
+  | "terms"
+  | "data-protection"
+  | "not-found";
+
 export interface Service {
   id: number;
   title: string;
   slug: ServiceSlug;
   description: string;
-  image: string;
-  imageAlt: string;
-  imagePosition?: string;
-  icon: ServiceIconName;
+  graphic: GraphicVariant;
   color: string;
   isSensitive: boolean;
 }

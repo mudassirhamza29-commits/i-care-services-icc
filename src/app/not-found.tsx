@@ -1,9 +1,13 @@
 import Link from "next/link";
 
+import { GraphicScene } from "@/components/graphics/GraphicScene";
+
 export default function NotFound() {
   return (
     <main className="bg-cream" id="main-content">
-      <div className="mx-auto flex min-h-[70vh] max-w-3xl flex-col items-center justify-center px-4 py-20 text-center sm:px-6 lg:px-8">
+      <div className="mx-auto grid min-h-[70vh] max-w-6xl items-center gap-10 px-4 py-20 sm:px-6 md:grid-cols-2 lg:px-8">
+        <GraphicScene variant="not-found" mode="hero" />
+        <div className="text-center md:text-left">
         <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-purple">
           Page not found
         </p>
@@ -22,11 +26,13 @@ export default function NotFound() {
             Go home
           </Link>
           <Link
-            href="/contact"
+            href="/services"
             className="interactive-button rounded-full border-2 border-purple px-6 py-3 font-extrabold text-purple"
           >
-            Contact us
+            View services
           </Link>
+          <Link href="/get-support" className="interactive-button rounded-full border-2 border-navy px-6 py-3 font-extrabold text-navy">Get support</Link>
+        </div>
         </div>
       </div>
     </main>

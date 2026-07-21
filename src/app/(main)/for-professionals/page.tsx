@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 
 import { ProfessionalReferralForm } from "@/components/forms/ProfessionalReferralForm";
+import { ProcessPathway } from "@/components/graphics/ProcessPathway";
 import { CrisisNotice } from "@/components/shared/CrisisNotice";
 import { PageHero } from "@/components/shared/PageHero";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
@@ -62,6 +63,13 @@ const referralBenefits = [
   "Not an emergency or 24/7 monitored pathway",
   "Free first-contact and referral route",
 ];
+
+const referralSteps = [
+  { title: "Identify the need", description: "Clarify the community-support need and keep emergency routes separate." },
+  { title: "Check consent", description: "Record the person's consent position or the lawful basis for contact." },
+  { title: "Send first contact", description: "Use the professional referral form with the minimum necessary information." },
+  { title: "Review and next step", description: "I-Care reviews the request and follows the agreed contact route." },
+] as const;
 
 export default function ForProfessionalsPage() {
   return (
@@ -133,6 +141,16 @@ export default function ForProfessionalsPage() {
               ))}
             </ul>
           </AnimatedSection>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+          <AnimatedSection className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-purple">Consent-aware pathway</p>
+            <h2 className="mt-4 font-heading text-4xl font-extrabold text-navy sm:text-5xl">From Identified Need to Next Step</h2>
+          </AnimatedSection>
+          <AnimatedSection className="mt-12"><ProcessPathway steps={referralSteps} /></AnimatedSection>
         </div>
       </section>
 

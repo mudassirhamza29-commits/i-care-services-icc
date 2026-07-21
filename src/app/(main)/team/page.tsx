@@ -12,9 +12,10 @@ import {
 
 import { CTABanner } from "@/components/home/CTABanner";
 import { PageHero } from "@/components/shared/PageHero";
-import { SupportVisual } from "@/components/shared/SupportVisual";
+import { GraphicScene } from "@/components/graphics/GraphicScene";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { Button } from "@/components/ui/Button";
+import { GRAPHIC_ACCENTS } from "@/lib/graphics";
 
 export const metadata: Metadata = {
   title: "Our Team",
@@ -30,6 +31,7 @@ const teamFunctions = [
       "Receives enquiries, listens to what matters, records the minimum information needed and helps identify a suitable next step.",
     support: ["Initial enquiries", "Referral coordination", "Follow-up planning"],
     icon: ClipboardCheck,
+    accent: GRAPHIC_ACCENTS.orange,
   },
   {
     title: "Health & Social Care Navigation",
@@ -37,6 +39,7 @@ const teamFunctions = [
       "Helps people understand health and social care routes, prepare questions and connect with appropriate services.",
     support: ["NHS navigation", "Care pathways", "Health advocacy"],
     icon: HeartPulse,
+    accent: GRAPHIC_ACCENTS.teal,
   },
   {
     title: "Housing & Welfare Guidance",
@@ -44,6 +47,7 @@ const teamFunctions = [
       "Offers practical guidance with housing concerns, welfare systems, forms and routes to specialist advice.",
     support: ["Housing options", "Benefits guidance", "Specialist signposting"],
     icon: House,
+    accent: GRAPHIC_ACCENTS.green,
   },
   {
     title: "Mental Wellbeing Support",
@@ -51,6 +55,7 @@ const teamFunctions = [
       "Provides one-to-one mental health first aid, an initial needs and safety assessment, and referral to appropriate services. Psychology and counselling are provided by third parties.",
     support: ["Mental health first aid", "Initial assessment", "Referral coordination"],
     icon: FileHeart,
+    accent: GRAPHIC_ACCENTS.lavender,
   },
   {
     title: "Family & Safeguarding Support",
@@ -58,6 +63,7 @@ const teamFunctions = [
       "Supports families to understand options while keeping consent, safety and safeguarding responsibilities clear.",
     support: ["Family guidance", "Safe next steps", "Safeguarding routes"],
     icon: ShieldCheck,
+    accent: GRAPHIC_ACCENTS.coral,
   },
   {
     title: "Creative Wellbeing & Outreach",
@@ -65,6 +71,7 @@ const teamFunctions = [
       "Uses accessible creative activities and community engagement to encourage reflection, confidence and connection.",
     support: ["Creative activities", "Community outreach", "Inclusive engagement"],
     icon: Palette,
+    accent: GRAPHIC_ACCENTS.sky,
   },
 ] as const;
 
@@ -105,7 +112,7 @@ export default function TeamPage() {
 
             <AnimatedSection variant="slideInRight">
               <div className="rounded-[2rem] bg-navy p-6 shadow-[var(--shadow-hover)]">
-                <SupportVisual variant="team" className="mx-auto" />
+                <GraphicScene variant="team" mode="card" className="mx-auto" />
               </div>
             </AnimatedSection>
           </div>
@@ -128,13 +135,13 @@ export default function TeamPage() {
             </AnimatedSection>
 
             <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {teamFunctions.map(({ title, description, support, icon: Icon }) => (
+              {teamFunctions.map(({ title, description, support, icon: Icon, accent }) => (
                 <AnimatedSection
                   key={title}
                   variant="scaleIn"
                   className="interactive-card flex h-full flex-col rounded-[2rem] border border-white bg-white p-7"
                 >
-                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-purple/10 text-purple">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl" style={{ backgroundColor: `${accent}1F`, color: accent }}>
                     <Icon size={28} aria-hidden="true" />
                   </span>
                   <h3 className="mt-5 font-heading text-xl font-extrabold text-navy">
