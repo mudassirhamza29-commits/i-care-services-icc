@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Newspaper } from "lucide-react";
 
-import { GraphicScene } from "@/components/graphics/GraphicScene";
 import { PageHero } from "@/components/shared/PageHero";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { Button } from "@/components/ui/Button";
@@ -26,7 +25,6 @@ export default function NewsPage() {
       <section className="bg-cream">
         <div className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8 lg:py-28">
           <AnimatedSection>
-            <GraphicScene variant="news" mode="hero" className="mx-auto mb-10 max-w-2xl" />
             <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-orange text-navy">
               <Newspaper size={30} aria-hidden="true" />
             </span>

@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 
 import { PageHero } from "@/components/shared/PageHero";
-import type { GraphicVariant } from "@/types";
 
 interface PolicyPageProps {
   title: string;
@@ -10,20 +9,9 @@ interface PolicyPageProps {
 }
 
 export function PolicyPage({ title, subtitle, children }: PolicyPageProps) {
-  const policyGraphics: Record<string, GraphicVariant> = {
-    "Privacy Policy": "privacy",
-    "Cookie Policy": "cookies",
-    "Accessibility Statement": "accessibility",
-    Safeguarding: "safeguarding",
-    Complaints: "complaints",
-    "Website Terms": "terms",
-    "Data Protection": "data-protection",
-  };
-  const graphic = policyGraphics[title] ?? "privacy";
-
   return (
     <>
-      <PageHero title={title} subtitle={subtitle} visualVariant={graphic} compact />
+      <PageHero title={title} subtitle={subtitle} visualVariant="policy" />
       <div className="bg-white">
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
           <div className="mb-8 rounded-2xl border border-purple/20 bg-cream-dark p-5 text-sm font-semibold leading-6 text-navy">

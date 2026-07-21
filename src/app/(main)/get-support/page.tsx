@@ -48,7 +48,7 @@ export default function GetSupportPage() {
         title="Get Support"
         subtitle="Taking the first step is the hardest part. We make everything else easy."
         breadcrumb="Get Support"
-        visualVariant="get-support"
+        visualVariant="contact"
       />
 
       <section className="bg-cream">

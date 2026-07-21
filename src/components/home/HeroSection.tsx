@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, Languages, ShieldAlert } from "lucide-react";
+import { Check, HeartHandshake, Languages, ShieldAlert, ShieldCheck } from "lucide-react";
 
-import { GraphicScene } from "@/components/graphics/GraphicScene";
 import { Button } from "@/components/ui/Button";
 import { fadeInUp, slideInRight, staggerContainer } from "@/lib/animations";
 import { CRISIS_NOTICE, SUPPORTED_LANGUAGES_TEXT } from "@/lib/constants";
@@ -103,13 +102,40 @@ export function HeroSection() {
           variants={slideInRight}
           initial={false}
           animate="visible"
-          className="relative min-h-[22rem] lg:min-h-[460px]"
+          className="relative hidden min-h-[460px] lg:block"
           aria-hidden="true"
         >
-          <GraphicScene variant="home" mode="hero" className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-white/15" />
-          <div className="absolute bottom-1 right-3 rounded-2xl border border-white/20 bg-navy/90 px-5 py-3 shadow-xl backdrop-blur">
-            <p className="font-heading text-xl font-black text-orange">9 connected routes</p>
-            <p className="text-xs font-semibold text-white/75">One clear place to start</p>
+          <div className="absolute right-0 top-8 w-80 rounded-[2rem] border border-white/15 bg-white/12 p-5 shadow-[var(--shadow-hover)] backdrop-blur-xl">
+            <div className="flex items-center gap-3">
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange text-navy">
+                <HeartHandshake size={24} />
+              </span>
+              <div>
+                <p className="text-3xl font-black text-white">First</p>
+                <p className="text-sm font-semibold text-white/72">
+                  Contact Support
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="absolute left-8 top-40 w-64 rounded-[2rem] border border-white/15 bg-white/12 p-5 shadow-[var(--shadow-hover)] backdrop-blur-xl">
+            <div className="flex items-center gap-3">
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-purple text-white">
+                <ShieldCheck size={24} />
+              </span>
+              <div>
+                <p className="text-3xl font-black text-white">Confidential</p>
+                <p className="text-sm font-semibold text-white/72">
+                  Within Safeguarding Limits
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="absolute bottom-10 right-12 w-56 rounded-[2rem] border border-white/15 bg-white/12 p-5 shadow-[var(--shadow-hover)] backdrop-blur-xl">
+            <p className="text-3xl font-black text-white">9</p>
+            <p className="text-sm font-semibold text-white/72">
+              Connected Services
+            </p>
           </div>
         </motion.div>
       </div>

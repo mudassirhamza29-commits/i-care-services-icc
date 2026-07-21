@@ -5,14 +5,13 @@ import {
   HandHeart,
   HeartHandshake,
   LockKeyhole,
-  Network,
   Sparkles,
+  UsersRound,
 } from "lucide-react";
 
 import { CTABanner } from "@/components/home/CTABanner";
 import { PageHero } from "@/components/shared/PageHero";
-import { GraphicScene } from "@/components/graphics/GraphicScene";
-import { ProcessPathway } from "@/components/graphics/ProcessPathway";
+import { SupportVisual } from "@/components/shared/SupportVisual";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { DELIVERY_TYPES } from "@/lib/constants";
 
@@ -37,7 +36,7 @@ const values = [
   {
     title: "Inclusion",
     description: "Everyone is welcomed, respected and supported without judgement.",
-    icon: Network,
+    icon: UsersRound,
   },
   {
     title: "Careful Practice",
@@ -69,7 +68,6 @@ export default function AboutPage() {
       <PageHero
         title="About I-Care Services CIC"
         subtitle="A community-rooted hub built on compassion, trust, and practical support"
-        visualVariant="about"
       />
 
       <section className="bg-white">
@@ -174,7 +172,7 @@ export default function AboutPage() {
               variant="slideInLeft"
               className="relative overflow-hidden rounded-[2rem] bg-navy p-6"
             >
-              <GraphicScene variant="services" mode="card" className="mx-auto" />
+              <SupportVisual variant="services" className="mx-auto" />
             </AnimatedSection>
             <AnimatedSection variant="slideInRight">
               <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-coral">
@@ -187,7 +185,19 @@ export default function AboutPage() {
                 We begin by listening carefully, understanding the whole
                 situation and agreeing a plan that reflects your priorities.
               </p>
-              <ProcessPathway steps={processSteps.map((title) => ({ title }))} columns={2} className="mt-8" />
+              <ol className="mt-8 grid gap-3 sm:grid-cols-2">
+                {processSteps.map((step, index) => (
+                  <li
+                    key={step}
+                    className="flex items-center gap-3 rounded-2xl bg-cream px-4 py-4 font-heading text-sm font-bold text-navy"
+                  >
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-purple text-xs text-white">
+                      {index + 1}
+                    </span>
+                    {step}
+                  </li>
+                ))}
+              </ol>
             </AnimatedSection>
           </div>
 
@@ -214,7 +224,7 @@ export default function AboutPage() {
               variant="slideInRight"
               className="relative overflow-hidden rounded-[2rem] bg-navy p-6 lg:order-2"
             >
-              <GraphicScene variant="contact" mode="card" className="mx-auto" />
+              <SupportVisual variant="contact" className="mx-auto" />
             </AnimatedSection>
           </div>
         </div>

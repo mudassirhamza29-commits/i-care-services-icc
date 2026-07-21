@@ -1,28 +1,33 @@
 import Link from "next/link";
+import Image from "next/image";
 
-import { GraphicScene } from "@/components/graphics/GraphicScene";
-import { graphicAccent } from "@/lib/graphics";
-import type { GraphicVariant } from "@/types";
+import {
+  SupportVisual,
+  type SupportVisualVariant,
+} from "@/components/shared/SupportVisual";
 interface PageHeroProps {
   title: string;
   subtitle: string;
   eyebrow?: string;
   accentColor?: string;
   breadcrumb?: string;
-  visualVariant?: GraphicVariant;
-  compact?: boolean;
+  visualVariant?: SupportVisualVariant;
+  serviceImage?: string;
+  serviceImageAlt?: string;
+  serviceImagePosition?: string;
 }
 
 export function PageHero({
   title,
   subtitle,
   eyebrow = "I-Care Services CIC",
-  accentColor,
+  accentColor = "#F4845F",
   breadcrumb,
   visualVariant = "community",
-  compact = false,
+  serviceImage,
+  serviceImageAlt,
+  serviceImagePosition,
 }: PageHeroProps) {
-  const resolvedAccent = accentColor ?? graphicAccent(visualVariant);
   return (
     <section className="relative isolate overflow-hidden bg-navy text-white">
       <div
@@ -32,14 +37,14 @@ export function PageHero({
       <div
         aria-hidden="true"
         className="absolute -bottom-44 right-[8%] h-96 w-96 rounded-full border-[70px]"
-        style={{ borderColor: `${resolvedAccent}26` }}
+        style={{ borderColor: `${accentColor}26` }}
       />
       <div
         aria-hidden="true"
         className="absolute right-[20%] top-12 h-24 w-24 rounded-[60%_40%_45%_55%]"
-        style={{ backgroundColor: `${resolvedAccent}40` }}
+        style={{ backgroundColor: `${accentColor}40` }}
       />
-      <div className={`relative mx-auto grid max-w-7xl items-center px-4 sm:px-6 lg:px-8 ${compact ? "gap-7 py-12 sm:py-14 md:grid-cols-[minmax(0,1fr)_14rem]" : "gap-10 py-20 sm:py-24 md:grid-cols-[minmax(0,1fr)_20rem] lg:grid-cols-[minmax(0,1fr)_minmax(28rem,0.9fr)] lg:py-28"}`}>
+      <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 sm:py-24 md:grid-cols-[minmax(0,1fr)_18rem] lg:grid-cols-[minmax(0,1fr)_22rem] lg:px-8 lg:py-28">
         <div className="max-w-4xl">
           {breadcrumb && (
             <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/65">
@@ -54,18 +59,40 @@ export function PageHero({
           )}
           <p
             className="text-sm font-extrabold uppercase tracking-[0.2em]"
-            style={{ color: resolvedAccent }}
+            style={{ color: accentColor }}
           >
             {eyebrow}
           </p>
-          <h1 className={`mt-5 font-heading font-extrabold leading-[1.05] tracking-[-0.045em] ${compact ? "text-4xl sm:text-5xl" : "text-5xl sm:text-6xl lg:text-7xl"}`}>
+          <h1 className="mt-5 font-heading text-5xl font-extrabold leading-[1.05] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
             {title}
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/75 sm:text-xl sm:leading-9">
             {subtitle}
           </p>
         </div>
-        <GraphicScene variant={visualVariant} mode={compact ? "spot" : "hero"} className="mx-auto" />
+        {serviceImage ? (
+          <div className="relative mx-auto aspect-[16/9] w-full overflow-hidden rounded-[2rem] border-4 border-white/10 bg-white/10 shadow-2xl">
+            <Image
+              src={serviceImage}
+              alt={serviceImageAlt ?? ""}
+              fill
+              loading="eager"
+              sizes="(min-width: 1024px) 352px, (min-width: 768px) 288px, calc(100vw - 2rem)"
+              className="object-cover"
+              style={{ objectPosition: serviceImagePosition }}
+            />
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-navy/35 via-transparent to-transparent"
+            />
+          </div>
+        ) : (
+          <SupportVisual
+            variant={visualVariant}
+            accentColor={accentColor}
+            className="mx-auto hidden md:block"
+          />
+        )}
       </div>
     </section>
   );

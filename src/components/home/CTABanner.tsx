@@ -14,9 +14,6 @@ export function CTABanner() {
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-navy via-navy to-purple" />
         <div className="absolute -left-24 -top-24 z-0 h-64 w-64 rounded-full border-[44px] border-orange/20" />
         <div className="absolute -bottom-28 right-10 z-0 h-72 w-72 rounded-[44%_56%_60%_40%] bg-coral/18" />
-        <div aria-hidden="true" className="absolute bottom-0 right-[8%] z-0 hidden h-[78%] w-44 rounded-t-[6rem] border-[18px] border-orange/18 border-b-0 lg:block">
-          <span className="absolute bottom-0 left-1/2 h-[88%] w-[58%] -translate-x-1/2 rounded-t-[4rem] bg-white/8" />
-        </div>
         <div className="relative z-10 mx-auto max-w-3xl">
           <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-orange">
             We are here to listen

@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Mail, MessageSquareText, Phone, ShieldAlert } from "lucide-react";
 
 import { ContactForm } from "@/components/forms/ContactForm";
-import { GraphicScene } from "@/components/graphics/GraphicScene";
 import { PageHero } from "@/components/shared/PageHero";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { CONTACT_INFO } from "@/lib/constants";
@@ -77,11 +76,7 @@ export default function ContactPage() {
       </section>
 
       <section className="bg-cream">
-        <div className="mx-auto grid max-w-7xl items-start gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[0.65fr_1fr] lg:px-8 lg:py-24">
-          <AnimatedSection variant="slideInLeft" className="hidden lg:block">
-            <GraphicScene variant="contact" mode="hero" />
-            <p className="mt-5 text-sm font-semibold leading-6 text-text-secondary">Choose phone, email or the secure first-contact form. Emergency routes remain separate.</p>
-          </AnimatedSection>
+        <div className="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
           <AnimatedSection>
             <ContactForm />
           </AnimatedSection>
