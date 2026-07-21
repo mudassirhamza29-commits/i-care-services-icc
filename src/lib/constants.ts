@@ -7,6 +7,9 @@ export const SERVICES: Service[] = [
     slug: "health-social-care",
     description:
       "Practical information and advocacy to help people understand health and social care routes.",
+    image: "/images/services/health-social-care.webp",
+    imageAlt:
+      "Hands reviewing a care plan with a calendar and organised support notes",
     icon: "HeartHandshake",
     color: "#F4845F",
     isSensitive: false,
@@ -17,6 +20,9 @@ export const SERVICES: Service[] = [
     slug: "welfare-support",
     description:
       "Clear support with benefits, forms, entitlements and the systems that affect everyday wellbeing.",
+    image: "/images/services/welfare-support.webp",
+    imageAlt:
+      "A welfare support desk with forms, a calculator and a hand completing paperwork",
     icon: "Landmark",
     color: "#5B3FA6",
     isSensitive: false,
@@ -27,6 +33,9 @@ export const SERVICES: Service[] = [
     slug: "housing-support",
     description:
       "Early guidance for housing concerns, tenancy challenges and routes towards safer, stable accommodation.",
+    image: "/images/services/housing-support.webp",
+    imageAlt:
+      "House keys beside an organised tenancy folder in a welcoming home setting",
     icon: "House",
     color: "#E8574A",
     isSensitive: false,
@@ -37,6 +46,9 @@ export const SERVICES: Service[] = [
     slug: "general-health",
     description:
       "Accessible health information, advocacy and support to help people make informed choices about their care.",
+    image: "/images/services/general-health.webp",
+    imageAlt:
+      "A calm health planning desk with a wellbeing journal, water and health essentials",
     icon: "HeartPulse",
     color: "#F4845F",
     isSensitive: false,
@@ -47,6 +59,9 @@ export const SERVICES: Service[] = [
     slug: "mental-health",
     description:
       "One-to-one mental health first aid, initial needs assessment and referral to appropriate support.",
+    image: "/images/services/mental-health.webp",
+    imageAlt:
+      "A private and calm support room prepared for a confidential conversation",
     icon: "Brain",
     color: "#5B3FA6",
     isSensitive: true,
@@ -57,6 +72,9 @@ export const SERVICES: Service[] = [
     slug: "family-support",
     description:
       "A calm, non-judgemental space for families navigating pressure, change, conflict or caring responsibilities.",
+    image: "/images/services/family-support.webp",
+    imageAlt:
+      "Hands arranging a shared family calendar and home planning materials",
     icon: "UsersRound",
     color: "#E8574A",
     isSensitive: true,
@@ -67,6 +85,9 @@ export const SERVICES: Service[] = [
     slug: "sexual-health",
     description:
       "Private, inclusive information and support focused on safety, dignity, healthy relationships and wellbeing.",
+    image: "/images/services/sexual-health.webp",
+    imageAlt:
+      "Private health information materials with a shield symbol and inclusive ribbon",
     icon: "ShieldCheck",
     color: "#F4845F",
     isSensitive: true,
@@ -77,6 +98,9 @@ export const SERVICES: Service[] = [
     slug: "art-therapy",
     description:
       "Person-centred creative activities for emotional expression, reflection and wellbeing.",
+    image: "/images/services/art-therapy.webp",
+    imageAlt:
+      "Hands painting in a sketchbook surrounded by watercolours and art materials",
     icon: "Palette",
     color: "#5B3FA6",
     isSensitive: false,
@@ -87,6 +111,9 @@ export const SERVICES: Service[] = [
     slug: "additional-support",
     description:
       "Flexible guidance for needs that do not fit neatly within a single service.",
+    image: "/images/services/additional-support.webp",
+    imageAlt:
+      "Hands organising community support folders beside a laptop, telephone and route cards",
     icon: "HandHelping",
     color: "#F4845F",
     isSensitive: false,

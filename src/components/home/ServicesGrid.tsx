@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
   ShieldCheck,
 } from "lucide-react";
 
-import { ServiceIllustration } from "@/components/shared/ServiceIllustration";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SERVICES } from "@/lib/constants";
 import { fadeInUp } from "@/lib/animations";
@@ -41,11 +41,17 @@ export function ServicesGrid() {
                 className="interactive-card group overflow-hidden rounded-[1.75rem] border border-cream-dark bg-white hover:-translate-y-1.5"
               >
                 <div className="relative aspect-[16/9] overflow-hidden bg-cream-dark">
-                  <ServiceIllustration
-                    slug={service.slug}
-                    title={service.title}
-                    accentColor={service.color}
-                    className="h-full w-full transition-transform duration-500 group-hover:scale-[1.03]"
+                  <Image
+                    src={service.image}
+                    alt={service.imageAlt}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    style={{ objectPosition: service.imagePosition }}
+                  />
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-gradient-to-t from-navy/20 via-transparent to-transparent"
                   />
                   {service.isSensitive ? (
                     <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-navy/90 px-3 py-1 text-xs font-bold text-white backdrop-blur">

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -11,7 +12,6 @@ import {
 
 import { CTABanner } from "@/components/home/CTABanner";
 import { PageHero } from "@/components/shared/PageHero";
-import { ServiceIllustration } from "@/components/shared/ServiceIllustration";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { DELIVERY_TYPES, SERVICES } from "@/lib/constants";
 import { fadeInUp } from "@/lib/animations";
@@ -97,12 +97,18 @@ export default function ServicesPage() {
                       className="h-3"
                       style={{ backgroundColor: service.color }}
                     />
-                    <div className="aspect-[16/9] overflow-hidden border-b border-cream-dark">
-                      <ServiceIllustration
-                        slug={service.slug}
-                        title={service.title}
-                        accentColor={service.color}
-                        className="h-full w-full transition-transform duration-500 group-hover:scale-[1.03]"
+                    <div className="relative aspect-[16/9] overflow-hidden border-b border-cream-dark">
+                      <Image
+                        src={service.image}
+                        alt={service.imageAlt}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                        style={{ objectPosition: service.imagePosition }}
+                      />
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-0 bg-gradient-to-t from-navy/15 via-transparent to-transparent"
                       />
                     </div>
                     <div className="flex flex-1 flex-col p-7">

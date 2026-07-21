@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
@@ -74,6 +75,7 @@ export function ServicePageTemplate({
     0,
     3,
   );
+  const currentService = SERVICES.find((service) => service.slug === slug);
 
   return (
     <>
@@ -83,7 +85,9 @@ export function ServicePageTemplate({
         eyebrow="Community support"
         accentColor={color}
         visualVariant={visualVariant}
-        serviceSlug={slug}
+        serviceImage={currentService?.image}
+        serviceImageAlt={currentService?.imageAlt}
+        serviceImagePosition={currentService?.imagePosition}
       />
 
       {isSensitive ? (
@@ -336,26 +340,38 @@ export function ServicePageTemplate({
               <motion.article
                 key={service.slug}
                 variants={fadeInUp}
-                className="interactive-card rounded-3xl border border-cream-dark bg-cream/40 p-6"
+                className="interactive-card group overflow-hidden rounded-3xl border border-cream-dark bg-cream/40"
               >
-                <CircleDot
-                  size={28}
-                  style={{ color: service.color }}
-                  aria-hidden="true"
-                />
-                <h3 className="mt-5 font-heading text-xl font-extrabold text-navy">
-                  {service.title}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-text-secondary">
-                  {service.description}
-                </p>
-                <Link
-                  href={`/services/${service.slug}`}
-                  className="mt-5 inline-flex items-center gap-2 font-bold text-purple"
-                >
-                  Explore service
-                  <ArrowRight size={17} aria-hidden="true" />
-                </Link>
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.imageAlt}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    style={{ objectPosition: service.imagePosition }}
+                  />
+                </div>
+                <div className="p-6">
+                  <CircleDot
+                    size={28}
+                    style={{ color: service.color }}
+                    aria-hidden="true"
+                  />
+                  <h3 className="mt-5 font-heading text-xl font-extrabold text-navy">
+                    {service.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-text-secondary">
+                    {service.description}
+                  </p>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="mt-5 inline-flex items-center gap-2 font-bold text-purple"
+                  >
+                    Explore service
+                    <ArrowRight size={17} aria-hidden="true" />
+                  </Link>
+                </div>
               </motion.article>
             ))}
           </AnimatedSection>

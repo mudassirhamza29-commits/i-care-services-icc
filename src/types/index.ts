@@ -27,6 +27,9 @@ export interface Service {
   title: string;
   slug: ServiceSlug;
   description: string;
+  image: string;
+  imageAlt: string;
+  imagePosition?: string;
   icon: ServiceIconName;
   color: string;
   isSensitive: boolean;

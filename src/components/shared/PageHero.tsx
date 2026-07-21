@@ -1,12 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import {
   SupportVisual,
   type SupportVisualVariant,
 } from "@/components/shared/SupportVisual";
-import { ServiceIllustration } from "@/components/shared/ServiceIllustration";
-import type { ServiceSlug } from "@/types";
-
 interface PageHeroProps {
   title: string;
   subtitle: string;
@@ -14,7 +12,9 @@ interface PageHeroProps {
   accentColor?: string;
   breadcrumb?: string;
   visualVariant?: SupportVisualVariant;
-  serviceSlug?: ServiceSlug;
+  serviceImage?: string;
+  serviceImageAlt?: string;
+  serviceImagePosition?: string;
 }
 
 export function PageHero({
@@ -24,7 +24,9 @@ export function PageHero({
   accentColor = "#F4845F",
   breadcrumb,
   visualVariant = "community",
-  serviceSlug,
+  serviceImage,
+  serviceImageAlt,
+  serviceImagePosition,
 }: PageHeroProps) {
   return (
     <section className="relative isolate overflow-hidden bg-navy text-white">
@@ -68,14 +70,20 @@ export function PageHero({
             {subtitle}
           </p>
         </div>
-        {serviceSlug ? (
-          <div className="mx-auto hidden w-full overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl backdrop-blur-sm md:block">
-            <ServiceIllustration
-              slug={serviceSlug}
-              title={title}
-              accentColor={accentColor}
-              className="h-auto w-full rounded-3xl"
-              decorative
+        {serviceImage ? (
+          <div className="relative mx-auto aspect-[16/9] w-full overflow-hidden rounded-[2rem] border-4 border-white/10 bg-white/10 shadow-2xl">
+            <Image
+              src={serviceImage}
+              alt={serviceImageAlt ?? ""}
+              fill
+              loading="eager"
+              sizes="(min-width: 1024px) 352px, (min-width: 768px) 288px, calc(100vw - 2rem)"
+              className="object-cover"
+              style={{ objectPosition: serviceImagePosition }}
+            />
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-navy/35 via-transparent to-transparent"
             />
           </div>
         ) : (
