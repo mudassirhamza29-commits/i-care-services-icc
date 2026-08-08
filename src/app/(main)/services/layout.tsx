@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "How We Help",
   description:
-    "Explore free community support across health, welfare, housing, wellbeing, family and related needs.",
+    "Start with what is happening and find free community support for health, care, housing, money, wellbeing, family life and related needs.",
   alternates: { canonical: "/services" },
 };
 
