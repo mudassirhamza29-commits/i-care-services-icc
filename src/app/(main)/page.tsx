@@ -9,6 +9,21 @@ const ServicesGrid = dynamic(() =>
 const StatsSection = dynamic(() =>
   import("@/components/home/StatsSection").then((module) => module.StatsSection),
 );
+const LanguageSection = dynamic(() =>
+  import("@/components/home/LanguageSection").then(
+    (module) => module.LanguageSection,
+  ),
+);
+const CommunitySupportSection = dynamic(() =>
+  import("@/components/home/CommunitySupportSection").then(
+    (module) => module.CommunitySupportSection,
+  ),
+);
+const StoriesSection = dynamic(() =>
+  import("@/components/home/StoriesSection").then(
+    (module) => module.StoriesSection,
+  ),
+);
 const WhyICareSection = dynamic(() =>
   import("@/components/home/WhyICareSection").then(
     (module) => module.WhyICareSection,
@@ -24,9 +39,9 @@ const CTABanner = dynamic(() =>
 );
 
 export const metadata: Metadata = {
-  title: "Community Support",
+  title: "How Can I Help? | Community Support",
   description:
-    "Confidential, person-centred support across health, housing, mental wellbeing, family support and social care.",
+    "Free, welcoming community support across health, housing, money, mental wellbeing, family life and social care.",
   alternates: { canonical: "/" },
 };
 
@@ -36,8 +51,11 @@ export default function HomePage() {
       <HeroSection />
       <ServicesGrid />
       <StatsSection />
+      <LanguageSection />
+      <CommunitySupportSection />
       <WhyICareSection />
       <ContactProcessSection />
+      <StoriesSection />
       <CTABanner />
     </>
   );

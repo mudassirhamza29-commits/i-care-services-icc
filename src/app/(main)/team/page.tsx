@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   ArrowRight,
   ClipboardCheck,
@@ -12,12 +13,11 @@ import {
 
 import { CTABanner } from "@/components/home/CTABanner";
 import { PageHero } from "@/components/shared/PageHero";
-import { SupportVisual } from "@/components/shared/SupportVisual";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Our Team",
+  title: "People Who Care",
   description:
     "Meet the service areas and professional functions that support people through I-Care Services CIC.",
   alternates: { canonical: "/team" },
@@ -72,11 +72,13 @@ export default function TeamPage() {
   return (
     <>
       <PageHero
-        title="Our Team"
-        subtitle="A coordinated team bringing together practical support, careful listening and specialist signposting"
-        eyebrow="People and practice behind I-Care"
+        title="People Who Care"
+        subtitle="Trained professionals, pastoral care professionals and dedicated volunteers, united by careful listening"
+        eyebrow="Approachable, skilled and community-focused"
         visualVariant="team"
         breadcrumb="Our Team"
+        serviceImage="/images/community/inclusive-community.webp"
+        serviceImageAlt="An illustrative inclusive community gathering with people talking in small groups"
       />
 
       <div>
@@ -86,14 +88,15 @@ export default function TeamPage() {
               <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-purple">
                 One connected team
               </p>
-              <h2 className="mt-4 font-heading text-4xl font-extrabold tracking-[-0.04em] text-navy sm:text-5xl">
-                The Right Support Starts With the Right Conversation
+              <h2 className="mt-4 font-heading text-5xl font-semibold tracking-[-0.04em] text-navy sm:text-6xl">
+                Support from people who listen first
               </h2>
               <p className="mt-6 text-base leading-8 text-text-secondary sm:text-lg">
-                I-Care Services CIC brings together staff and support functions
-                covering health and social care navigation, housing, welfare,
-                mental wellbeing, family support, creative wellbeing and
-                community outreach. Individual names and photographs are not
+                Our support is provided by trained professionals in health and
+                social care, pastoral care professionals and dedicated
+                volunteers. Together, they help people navigate health,
+                housing, welfare, mental wellbeing, family life and community
+                support. Individual names and photographs are not currently
                 published on this website.
               </p>
               <p className="mt-4 leading-8 text-text-secondary">
@@ -104,9 +107,21 @@ export default function TeamPage() {
             </AnimatedSection>
 
             <AnimatedSection variant="slideInRight">
-              <div className="rounded-[2rem] bg-navy p-6 shadow-[var(--shadow-hover)]">
-                <SupportVisual variant="team" className="mx-auto" />
-              </div>
+              <figure className="overflow-hidden rounded-[2rem] bg-navy shadow-[var(--shadow-hover)]">
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src="/images/community/hero-community.webp"
+                    alt="A diverse community group sharing a supportive conversation"
+                    fill
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="px-6 py-4 text-sm font-semibold leading-6 text-white/75">
+                  Illustrative community image. Individual I-Care staff are not
+                  shown on this website.
+                </figcaption>
+              </figure>
             </AnimatedSection>
           </div>
         </section>
@@ -117,8 +132,8 @@ export default function TeamPage() {
               <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-purple">
                 How we work
               </p>
-              <h2 className="mt-4 font-heading text-4xl font-extrabold text-navy sm:text-5xl">
-                Support Functions Across Our Services
+              <h2 className="mt-4 font-heading text-5xl font-semibold text-navy sm:text-6xl">
+                Different skills, one caring team
               </h2>
               <p className="mt-5 leading-8 text-text-secondary">
                 These role-based areas explain how the team supports people

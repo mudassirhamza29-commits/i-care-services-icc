@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Newsreader } from "next/font/google";
 
 import { CookieConsent } from "@/components/cookies/CookieConsent";
 import { Footer } from "@/components/layout/Footer";
@@ -11,6 +11,12 @@ import "./globals.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-newsreader",
   display: "swap",
 });
 
@@ -64,7 +70,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} flex min-h-screen flex-col`}>
+      <body className={`${inter.variable} ${newsreader.variable} flex min-h-screen flex-col`}>
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>

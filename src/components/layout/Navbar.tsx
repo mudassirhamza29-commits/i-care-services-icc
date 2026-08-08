@@ -173,16 +173,24 @@ export function Navbar() {
           </Link>
         </div>
 
-        <button
-          type="button"
-          className="interactive-button flex h-11 w-11 items-center justify-center rounded-full border border-cream-dark bg-white text-navy shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple xl:hidden"
-          aria-expanded={isMenuOpen}
-          aria-controls="mobile-navigation"
-          aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-          onClick={() => setIsMenuOpen((open) => !open)}
-        >
-          {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="flex items-center gap-2 xl:hidden">
+          <Link
+            href="/get-support"
+            className="interactive-button rounded-full bg-orange px-4 py-2.5 text-sm font-extrabold text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple"
+          >
+            Get Support
+          </Link>
+          <button
+            type="button"
+            className="interactive-button flex h-11 w-11 items-center justify-center rounded-full border border-cream-dark bg-white text-navy shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
+            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            onClick={() => setIsMenuOpen((open) => !open)}
+          >
+            {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence initial={false}>

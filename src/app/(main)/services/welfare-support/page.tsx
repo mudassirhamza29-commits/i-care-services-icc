@@ -2,7 +2,7 @@ import { ServicePageTemplate } from "@/components/shared/ServicePageTemplate";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Welfare Support",
+  title: "Welfare & Money",
   description: "Guidance with benefits, welfare concerns and practical next steps.",
   alternates: { canonical: "/services/welfare-support" },
 };
@@ -11,9 +11,9 @@ export default function WelfareSupportPage() {
   return (
     <ServicePageTemplate
       slug="welfare-support"
-      title="Welfare Support"
+      title="Welfare & Money"
       color="#5B3FA6"
-      description="Clear guidance with benefits, appeals and urgent welfare concerns when finances feel uncertain."
+      description="Money worries can affect everything. We can help you understand your options, organise your finances and find appropriate support."
       whatWeOffer={[
         {
           title: "Benefits Checks",
@@ -31,14 +31,14 @@ export default function WelfareSupportPage() {
             "Support organising decision letters, timelines and evidence before seeking formal appeal advice where needed.",
         },
         {
-          title: "Debt Guidance",
+          title: "Budget Management",
           description:
-            "Practical signposting around priority bills, support routes and free specialist debt advice services.",
+            "Simple support to organise income, priority bills and everyday spending, with referral to free specialist debt advice when needed.",
         },
         {
-          title: "Emergency Welfare Signposting",
+          title: "Pension and Emergency Welfare Support",
           description:
-            "Help identifying urgent welfare routes when essential needs cannot wait.",
+            "Help understanding pension-support routes and finding urgent welfare help when essential needs cannot wait.",
         },
       ]}
       whoIsItFor={["People unsure which benefits they can claim", "Anyone facing benefit reductions or sanctions", "Individuals and families in financial crisis"]}

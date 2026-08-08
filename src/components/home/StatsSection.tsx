@@ -1,22 +1,20 @@
-import { Building2, ClipboardList, LockKeyhole, ShieldAlert } from "lucide-react";
+import { HandHeart, Languages, LockKeyhole, ShieldAlert } from "lucide-react";
 
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { SERVICES } from "@/lib/constants";
-
 const trustItems = [
   {
-    title: "Confirmed CIC Status",
-    label: "Community Interest Company",
-    icon: Building2,
+    title: "Free support",
+    label: "No charge for support provided by I-Care",
+    icon: HandHeart,
   },
   {
-    title: `${SERVICES.length} Support Areas`,
-    label: "Listed from current services",
-    icon: ClipboardList,
+    title: "Your language",
+    label: "Tell us which language feels most comfortable",
+    icon: Languages,
   },
   {
-    title: "Referral Routes",
-    label: "Self-referral and professional referral",
+    title: "Start your way",
+    label: "Contact us yourself or ask a professional to refer",
     icon: LockKeyhole,
   },
   {
@@ -42,7 +40,7 @@ export function StatsSection() {
               <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-orange text-navy">
                 <Icon size={23} aria-hidden="true" />
               </span>
-              <h2 className="mt-4 font-heading text-2xl font-extrabold tracking-tight text-orange">
+              <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-orange">
                 {title}
               </h2>
               <p className="mt-2 text-sm font-semibold leading-6 text-white/72">

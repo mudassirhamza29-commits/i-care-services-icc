@@ -6,7 +6,7 @@ export const SERVICES: Service[] = [
     title: "Health & Social Care",
     slug: "health-social-care",
     description:
-      "Practical information and advocacy to help people understand health and social care routes.",
+      "Help understanding care, community services and how to access the support that may be available.",
     image: "/images/services/health-social-care.webp",
     imageAlt:
       "Hands reviewing a care plan with a calendar and organised support notes",
@@ -16,10 +16,10 @@ export const SERVICES: Service[] = [
   },
   {
     id: 2,
-    title: "Welfare Support",
+    title: "Welfare & Money",
     slug: "welfare-support",
     description:
-      "Clear support with benefits, forms, entitlements and the systems that affect everyday wellbeing.",
+      "Friendly guidance with benefits, budgeting, pensions and money worries that affect everyday life.",
     image: "/images/services/welfare-support.webp",
     imageAlt:
       "A welfare support desk with forms, a calculator and a hand completing paperwork",
@@ -29,10 +29,10 @@ export const SERVICES: Service[] = [
   },
   {
     id: 3,
-    title: "Housing Support",
+    title: "Housing & Legal Support",
     slug: "housing-support",
     description:
-      "Early guidance for housing concerns, tenancy challenges and routes towards safer, stable accommodation.",
+      "Early help with housing worries, eviction risk, appeals and routes to appropriate legal advice.",
     image: "/images/services/housing-support.webp",
     imageAlt:
       "House keys beside an organised tenancy folder in a welcoming home setting",
@@ -55,7 +55,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: 5,
-    title: "Mental Health",
+    title: "Mental Health & Wellbeing",
     slug: "mental-health",
     description:
       "One-to-one mental health first aid, initial needs assessment and referral to appropriate support.",
@@ -122,13 +122,14 @@ export const SERVICES: Service[] = [
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
-  { label: "Get Support", href: "/get-support" },
   {
-    label: "Services",
+    label: "How We Help",
     href: "/services",
     children: SERVICES.map(({ title, slug }) => ({ title, slug })),
   },
-  { label: "Professionals", href: "/for-professionals" },
+  { label: "Support Groups", href: "/support-groups" },
+  { label: "About Us", href: "/about" },
+  { label: "Our Team", href: "/team" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
 ];
@@ -171,6 +172,10 @@ export const DELIVERY_TYPES = [
 ] as const;
 
 export const SUPPORTED_LANGUAGES = [
+  "English",
+  "Somali",
+  "Swahili",
+  "Hindi",
   "Arabic",
   "Urdu",
   "Pashto",
@@ -178,4 +183,4 @@ export const SUPPORTED_LANGUAGES = [
 ] as const;
 
 export const SUPPORTED_LANGUAGES_TEXT =
-  "Arabic, Urdu, Pashto and Punjabi";
+  "English, Somali, Swahili, Hindi, Arabic, Urdu, Pashto and Punjabi";

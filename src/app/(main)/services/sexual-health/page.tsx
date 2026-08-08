@@ -13,7 +13,7 @@ export default function SexualHealthPage() {
       slug="sexual-health"
       title="Sexual Health"
       color="#F4845F"
-      description="Inclusive, judgement-free information and support focused on safety, dignity and healthy relationships."
+      description="Your health deserves privacy, respect and honest information. We offer a judgement-free first conversation and appropriate healthcare referral."
       whatWeOffer={[
         {
           title: "Sexual Health Information",
@@ -21,19 +21,19 @@ export default function SexualHealthPage() {
             "Respectful information that helps people understand questions, concerns and possible next steps.",
         },
         {
-          title: "STI Testing and Clinic Signposting",
+          title: "HIV/AIDS Support",
           description:
-            "Guidance towards appropriate testing, clinic or official health information routes.",
+            "Respectful information, listening and signposting for people affected by HIV or AIDS, without judgement or assumptions.",
         },
         {
-          title: "Relationship Support Signposting",
+          title: "Rapid HIV Testing Access",
           description:
-            "Support identifying safe, respectful routes for relationship concerns or difficult conversations.",
+            "Help finding an appropriate provider for rapid HIV testing and understanding where to access qualified healthcare advice.",
         },
         {
-          title: "LGBTQ+ Information Routes",
+          title: "Specialist and LGBTQ+ Routes",
           description:
-            "Signposting to inclusive information and services, with final wording pending organisational confirmation.",
+            "Inclusive information and referral to appropriate sexual-health, relationship and LGBTQ+ community services.",
         },
         {
           title: "Contraception Information",

@@ -9,7 +9,7 @@
   --color-cream-dark: #eaf7f4;
   --color-text-primary: #1a1a2e;
   --color-text-secondary: #3f4357;
-  --font-heading: var(--font-inter), sans-serif;
+  --font-heading: var(--font-newsreader), Georgia, serif;
   --font-body: var(--font-inter), sans-serif;
   --radius-sm: 8px;
   --radius-md: 16px;
@@ -25,7 +25,7 @@
   --color-cream-dark: #eaf7f4;
   --color-text-primary: #1a1a2e;
   --color-text-secondary: #3f4357;
-  --font-heading: var(--font-inter), sans-serif;
+  --font-heading: var(--font-newsreader), Georgia, serif;
   --font-body: var(--font-inter), sans-serif;
   --radius-sm: 8px;
   --radius-md: 16px;
@@ -50,6 +50,21 @@ body {
   font-family: var(--font-body);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+.soft-noise {
+  background-image: radial-gradient(rgba(26, 26, 46, 0.055) 0.7px, transparent 0.7px);
+  background-size: 10px 10px;
 }
 
 button,

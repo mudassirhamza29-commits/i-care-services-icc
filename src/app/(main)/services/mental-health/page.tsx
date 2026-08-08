@@ -2,7 +2,7 @@ import { ServicePageTemplate } from "@/components/shared/ServicePageTemplate";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mental Health Support",
+  title: "Mental Health & Wellbeing",
   description:
     "One-to-one mental health first aid, initial assessment, referral and third-party psychology or counselling routes.",
   alternates: { canonical: "/services/mental-health" },
@@ -12,9 +12,9 @@ export default function MentalHealthPage() {
   return (
     <ServicePageTemplate
       slug="mental-health"
-      title="Mental Health Support"
+      title="Mental Health & Wellbeing"
       color="#5B3FA6"
-      description="One-to-one mental health first aid that helps assess immediate needs and connect people with appropriate support."
+      description="You do not have to wait until things become unbearable. Start with a private conversation, an initial needs check and a clear route to appropriate support."
       whatWeOffer={[
         {
           title: "One-to-One Mental Health First Aid",
@@ -37,9 +37,9 @@ export default function MentalHealthPage() {
             "Psychology and counselling are not delivered directly by I-Care Services CIC. Where appropriate, we help people access independent third-party providers.",
         },
         {
-          title: "Crisis Signposting",
+          title: "Holistic Wellbeing Routes",
           description:
-            "Clear emergency and crisis routes when immediate or urgent support is needed.",
+            "Signposting to suitable wellbeing, primary-care, specialist or functional-health professionals where appropriate, plus clear crisis routes when urgent help is needed.",
         },
       ]}
       whoIsItFor={["Anyone living with anxiety, low mood or the effects of trauma", "People feeling overwhelmed or unsure where to seek help", "Anyone who may benefit from an initial mental health first-aid conversation and referral"]}

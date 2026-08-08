@@ -21,14 +21,14 @@ export default function HealthSocialCarePage() {
             "Help understanding appointments, letters, services and the questions to ask when speaking with health teams.",
         },
         {
-          title: "Social Care Process Guidance",
+          title: "Community Care Services",
           description:
-            "Plain-English information about social care routes, assessments and what evidence may be useful.",
+            "Plain-English help understanding community care services, assessments and what information may be useful.",
         },
         {
-          title: "Care Coordination",
+          title: "Care Packages and Coordination",
           description:
-            "Support to organise information and make conversations between services easier to follow.",
+            "Help understanding possible care-package routes and making conversations between services easier to follow.",
         },
         {
           title: "Health Advocacy",
@@ -36,9 +36,9 @@ export default function HealthSocialCarePage() {
             "Help preparing what you want to say so your concerns, preferences and questions are clearly heard.",
         },
         {
-          title: "Appropriate Signposting",
+          title: "Community Resources and Signposting",
           description:
-            "Guidance towards relevant services when another route is better placed to help.",
+            "Connection to useful community resources and relevant services when another route is better placed to help.",
         },
       ]}
       whoIsItFor={[

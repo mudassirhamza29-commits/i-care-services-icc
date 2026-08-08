@@ -2,7 +2,7 @@ import { ServicePageTemplate } from "@/components/shared/ServicePageTemplate";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Housing Support",
+  title: "Housing & Legal Support",
   description: "Practical housing guidance, signposting and first-contact support.",
   alternates: { canonical: "/services/housing-support" },
 };
@@ -11,9 +11,9 @@ export default function HousingSupportPage() {
   return (
     <ServicePageTemplate
       slug="housing-support"
-      title="Housing Support"
+      title="Housing & Legal Support"
       color="#E8574A"
-      description="Early, practical housing guidance to help you protect your home and move towards safe accommodation."
+      description="Worried about losing your home? We can help you understand your options and connect you with appropriate housing or legal support."
       whatWeOffer={[
         {
           title: "Homelessness Prevention",
@@ -26,19 +26,19 @@ export default function HousingSupportPage() {
             "Help understanding housing applications, evidence requests and communication with housing teams.",
         },
         {
-          title: "Landlord Dispute Guidance",
+          title: "Support Before Legal Proceedings",
           description:
-            "Support organising the facts, records and questions before contacting appropriate housing advice routes.",
+            "Help organising notices, records and questions before you contact an appropriate housing or legal advice service.",
         },
         {
-          title: "Temporary Accommodation Support",
+          title: "Appeals and Advocacy",
           description:
-            "Guidance for people trying to understand temporary accommodation processes and available signposting.",
+            "Practical help preparing your questions, documents and voice for housing reviews or appeals, without acting as legal representation.",
         },
         {
-          title: "Housing Pathway Planning",
+          title: "Legal-Service Signposting",
           description:
-            "A clear look at possible next steps, documents to gather and services that may need to be involved.",
+            "Referral or signposting to an appropriate regulated legal or specialist housing service when formal advice is needed.",
         },
       ]}
       whoIsItFor={["People at risk of homelessness or eviction", "Tenants experiencing landlord disputes", "Anyone living in unsafe or unsuitable accommodation"]}

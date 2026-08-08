@@ -1,27 +1,26 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Check, HeartHandshake, Languages, ShieldAlert, ShieldCheck } from "lucide-react";
+import { ArrowRight, Check, MessageCircle, ShieldAlert } from "lucide-react";
 
 import { Button } from "@/components/ui/Button";
 import { fadeInUp, slideInRight, staggerContainer } from "@/lib/animations";
-import { CRISIS_NOTICE, SUPPORTED_LANGUAGES_TEXT } from "@/lib/constants";
+import { CRISIS_NOTICE } from "@/lib/constants";
 
 const trustPoints = [
   "Free to access",
+  "No referral needed",
   "Confidential within safeguarding limits",
-  "Self-referral and professional routes",
-  "Company number 16861714",
 ];
 
 export function HeroSection() {
   return (
-    <section className="relative isolate flex min-h-[calc(100svh-5rem)] items-center overflow-hidden bg-navy text-white">
-      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_18%_18%,rgba(244,132,95,0.28),transparent_30%),radial-gradient(circle_at_78%_22%,rgba(91,63,166,0.24),transparent_28%),linear-gradient(135deg,#2E3250_0%,#242844_56%,#5B3FA6_100%)]" />
-      <div className="absolute -right-24 top-24 -z-10 h-80 w-80 rounded-full border-[48px] border-orange/20" />
-      <div className="absolute bottom-8 left-1/2 -z-10 h-56 w-56 rounded-[40%_60%_58%_42%] bg-coral/20 blur-sm" />
+    <section className="soft-noise relative isolate overflow-hidden bg-[#fffaf2]">
+      <div aria-hidden="true" className="absolute -left-24 top-28 h-64 w-64 rounded-full bg-orange/18 blur-2xl" />
+      <div aria-hidden="true" className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-purple/12 blur-2xl" />
 
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
+      <div className="mx-auto grid min-h-[calc(100svh-5rem)] max-w-[90rem] items-center gap-12 px-4 py-14 sm:px-6 sm:py-18 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-20">
         <motion.div
           variants={staggerContainer}
           initial={false}
@@ -30,60 +29,53 @@ export function HeroSection() {
         >
           <motion.p
             variants={fadeInUp}
-            className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-bold text-white shadow-sm backdrop-blur"
+            className="mb-6 inline-flex items-center gap-2 rounded-full bg-purple/10 px-4 py-2 text-sm font-extrabold text-purple"
           >
-            <span className="h-2 w-2 rounded-full bg-orange" />
-            Community support that meets you where you are
+            <MessageCircle size={17} aria-hidden="true" />
+            A welcoming place to start
           </motion.p>
           <motion.h1
             variants={fadeInUp}
-            className="font-heading text-[clamp(3.4rem,8vw,5rem)] font-black leading-[0.95] tracking-[-0.06em] text-white"
+            className="font-heading text-[clamp(4.2rem,10vw,7.7rem)] font-semibold leading-[0.84] tracking-[-0.065em] text-navy"
           >
-            Everyone Deserves Support.
+            How Can
+            <span className="block text-purple">I Help?</span>
           </motion.h1>
           <motion.p
             variants={fadeInUp}
-            className="mt-5 max-w-2xl text-xl font-medium leading-8 text-white/88 sm:text-2xl"
+            className="mt-7 max-w-xl text-xl font-semibold leading-8 text-navy sm:text-2xl sm:leading-9"
           >
-            You&apos;re Not Alone.
+            Whatever you&apos;re going through, you don&apos;t have to figure it
+            out alone.
           </motion.p>
           <motion.p
             variants={fadeInUp}
-            className="mt-5 inline-flex items-center gap-2 rounded-full border border-orange/40 bg-orange/20 px-4 py-2 text-sm font-extrabold italic text-orange backdrop-blur"
+            className="mt-5 max-w-2xl text-base leading-8 text-text-secondary sm:text-lg"
           >
-            <Languages size={17} aria-hidden="true" />
-            We speak your language: {SUPPORTED_LANGUAGES_TEXT}
+            Sometimes you just need someone to listen, explain your options,
+            or help you find the right practical, emotional, health or
+            community support.
           </motion.p>
-          <motion.p
-            variants={fadeInUp}
-            className="mt-7 max-w-2xl text-base leading-8 text-white/78 sm:text-lg"
-          >
-            I-Care Services CIC is a community support hub offering
-            confidential, person-centred support across health, housing, mental
-            wellbeing, family, and more.
-          </motion.p>
-          <motion.div
-            variants={fadeInUp}
-            className="mt-8 flex flex-col gap-3 sm:flex-row"
-          >
-            <Button href="/get-support" className="px-7 py-3.5 text-base">
-              Get Support Today
+          <motion.div variants={fadeInUp} className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button href="/get-support" className="gap-2 px-7 py-3.5 text-base">
+              Find Support
+              <ArrowRight size={18} aria-hidden="true" />
             </Button>
             <Button
-              href="/services"
-              className="border-2 border-white bg-transparent px-7 py-3.5 text-base text-white hover:bg-white hover:text-navy"
+              href="/contact"
+              className="border-2 border-navy bg-transparent px-7 py-3.5 text-base text-navy hover:bg-navy hover:text-white"
             >
-              Explore Services
+              Talk to Us
             </Button>
           </motion.div>
           <motion.ul
             variants={fadeInUp}
-            className="mt-8 flex flex-col gap-3 text-sm font-semibold text-white/86 sm:flex-row sm:flex-wrap sm:gap-x-6"
+            className="mt-8 flex flex-col gap-3 text-sm font-bold text-text-secondary sm:flex-row sm:flex-wrap sm:gap-x-5"
           >
             {trustPoints.map((point) => (
               <li key={point} className="flex items-center gap-2">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-orange text-navy">
-                  <Check size={13} strokeWidth={3} aria-hidden="true" />
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-orange text-navy">
+                  <Check size={14} strokeWidth={3} aria-hidden="true" />
                 </span>
                 {point}
               </li>
@@ -91,9 +83,9 @@ export function HeroSection() {
           </motion.ul>
           <motion.p
             variants={fadeInUp}
-            className="mt-6 flex max-w-2xl items-start gap-2 rounded-2xl border border-white/15 bg-white/10 p-4 text-sm font-semibold leading-6 text-white/82"
+            className="mt-6 flex max-w-xl items-start gap-2 text-xs font-semibold leading-5 text-text-secondary"
           >
-            <ShieldAlert className="mt-0.5 shrink-0 text-orange" size={18} aria-hidden="true" />
+            <ShieldAlert className="mt-0.5 shrink-0 text-coral" size={16} aria-hidden="true" />
             {CRISIS_NOTICE}
           </motion.p>
         </motion.div>
@@ -102,41 +94,24 @@ export function HeroSection() {
           variants={slideInRight}
           initial={false}
           animate="visible"
-          className="relative hidden min-h-[460px] lg:block"
-          aria-hidden="true"
+          className="relative"
         >
-          <div className="absolute right-0 top-8 w-80 rounded-[2rem] border border-white/15 bg-white/12 p-5 shadow-[var(--shadow-hover)] backdrop-blur-xl">
-            <div className="flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange text-navy">
-                <HeartHandshake size={24} />
-              </span>
-              <div>
-                <p className="text-3xl font-black text-white">First</p>
-                <p className="text-sm font-semibold text-white/72">
-                  Contact Support
-                </p>
-              </div>
-            </div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem_2rem_5rem_2rem] bg-cream-dark shadow-[0_28px_80px_rgba(26,26,46,0.18)] sm:aspect-[5/4] lg:aspect-[4/5] xl:aspect-[5/4]">
+            <Image
+              src="/images/community/hero-community.webp"
+              alt="A diverse group of adults having a supportive conversation in a welcoming community room"
+              fill
+              priority
+              sizes="(min-width: 1024px) 54vw, 100vw"
+              className="object-cover"
+            />
+            <span aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-navy/22 via-transparent to-transparent" />
           </div>
-          <div className="absolute left-8 top-40 w-64 rounded-[2rem] border border-white/15 bg-white/12 p-5 shadow-[var(--shadow-hover)] backdrop-blur-xl">
-            <div className="flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-purple text-white">
-                <ShieldCheck size={24} />
-              </span>
-              <div>
-                <p className="text-3xl font-black text-white">Confidential</p>
-                <p className="text-sm font-semibold text-white/72">
-                  Within Safeguarding Limits
-                </p>
-              </div>
-            </div>
+          <div className="absolute -bottom-6 left-4 max-w-64 rounded-3xl bg-white p-5 shadow-[var(--shadow-hover)] sm:left-8">
+            <p className="font-heading text-2xl font-semibold text-navy">People first.</p>
+            <p className="mt-1 text-sm font-semibold leading-6 text-text-secondary">We listen before we decide what the next step should be.</p>
           </div>
-          <div className="absolute bottom-10 right-12 w-56 rounded-[2rem] border border-white/15 bg-white/12 p-5 shadow-[var(--shadow-hover)] backdrop-blur-xl">
-            <p className="text-3xl font-black text-white">9</p>
-            <p className="text-sm font-semibold text-white/72">
-              Connected Services
-            </p>
-          </div>
+          <div aria-hidden="true" className="absolute -right-5 -top-5 -z-10 h-32 w-32 rounded-full bg-orange" />
         </motion.div>
       </div>
     </section>

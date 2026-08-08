@@ -8,6 +8,7 @@ import { CONTACT_INFO, SERVICES } from "@/lib/constants";
 const companyLinks = [
   { label: "About us", href: "/about" },
   { label: "Our team", href: "/team" },
+  { label: "Support groups", href: "/support-groups" },
   { label: "Get support", href: "/get-support" },
   { label: "Refer a client", href: "/for-professionals" },
   { label: "Resources", href: "/resources" },
@@ -46,8 +47,8 @@ export function Footer() {
             </span>
           </div>
           <p className="mt-5 max-w-sm text-sm leading-7 text-white/75">
-            A community-based support hub helping people find practical
-            guidance, compassionate care and a clearer way forward.
+            A welcoming community support hub where people can be heard,
+            understand their options and find a clearer way forward.
           </p>
           <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-orange">
             {CONTACT_INFO.legalName}
