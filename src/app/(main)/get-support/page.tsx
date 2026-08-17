@@ -10,6 +10,7 @@ import {
 
 import { SelfReferralForm } from "@/components/forms/SelfReferralForm";
 import { CrisisNotice } from "@/components/shared/CrisisNotice";
+import { EmailSupportActions } from "@/components/shared/EmailSupportActions";
 import { PageHero } from "@/components/shared/PageHero";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { CONTACT_INFO, SUPPORTED_LANGUAGES_TEXT } from "@/lib/constants";
@@ -35,7 +36,7 @@ const accessOptions = [
     icon: Mail,
     title: "Send Us a Message",
     body: `Prefer to write? Email us at ${CONTACT_INFO.email}. This inbox is not monitored for emergencies.`,
-    label: CONTACT_INFO.email,
+    label: "Email Support",
     href: `mailto:${CONTACT_INFO.email}`,
     button: "bg-purple text-white",
   },
@@ -94,7 +95,11 @@ export default function GetSupportPage() {
                 <Icon size={32} className="text-coral" />
                 <h3 className="mt-5 font-heading text-2xl font-extrabold text-navy">{title}</h3>
                 <p className="mt-4 flex-1 leading-7 text-text-secondary">{body}</p>
-                <a href={href} className={`interactive-button mt-7 rounded-full px-5 py-3 text-center text-sm font-extrabold ${button}`}>{label}</a>
+                {href.startsWith("mailto:") ? (
+                  <EmailSupportActions className="mt-7" />
+                ) : (
+                  <a href={href} className={`interactive-button mt-7 rounded-full px-5 py-3 text-center text-sm font-extrabold ${button}`}>{label}</a>
+                )}
               </article>
             ))}
           </AnimatedSection>

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Mail, MessageSquareText, Phone, ShieldAlert } from "lucide-react";
 
 import { ContactForm } from "@/components/forms/ContactForm";
+import { EmailSupportActions } from "@/components/shared/EmailSupportActions";
 import { PageHero } from "@/components/shared/PageHero";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { CONTACT_INFO } from "@/lib/constants";
@@ -63,12 +64,16 @@ export default function ContactPage() {
                   {card.detail}
                 </p>
                 <p className="mt-2 text-sm text-text-secondary">{card.sub}</p>
-                <a
-                  href={card.href}
-                  className={`interactive-button mt-6 rounded-full px-5 py-3 text-sm font-extrabold ${card.style}`}
-                >
-                  {card.label}
-                </a>
+                {card.href.startsWith("mailto:") ? (
+                  <EmailSupportActions className="mt-6" />
+                ) : (
+                  <a
+                    href={card.href}
+                    className={`interactive-button mt-6 rounded-full px-5 py-3 text-sm font-extrabold ${card.style}`}
+                  >
+                    {card.label}
+                  </a>
+                )}
               </motion.article>
             ))}
           </AnimatedSection>
