@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 
 import { CONTACT_INFO, NAV_LINKS } from "@/lib/constants";
 
@@ -15,6 +15,7 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const servicesMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const updateScrollState = () => setHasScrolled(window.scrollY > 12);
@@ -40,6 +41,20 @@ export function Navbar() {
 
     window.addEventListener("keydown", closeOnEscape);
     return () => window.removeEventListener("keydown", closeOnEscape);
+  }, []);
+
+  useEffect(() => {
+    const closeOutsideServices = (event: PointerEvent) => {
+      if (
+        servicesMenuRef.current &&
+        !servicesMenuRef.current.contains(event.target as Node)
+      ) {
+        setIsServicesOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", closeOutsideServices);
+    return () => document.removeEventListener("pointerdown", closeOutsideServices);
   }, []);
 
   useEffect(() => {
@@ -86,18 +101,28 @@ export function Navbar() {
         <div className="hidden items-center gap-5 xl:flex">
           {NAV_LINKS.map((link) =>
             link.children ? (
-              <div key={link.href} className="relative flex h-20 items-center">
+              <div
+                key={link.href}
+                ref={servicesMenuRef}
+                className="relative flex h-20 items-center"
+                onMouseEnter={() => setIsServicesOpen(true)}
+                onMouseLeave={() => setIsServicesOpen(false)}
+                onBlur={(event) => {
+                  if (!event.currentTarget.contains(event.relatedTarget)) {
+                    setIsServicesOpen(false);
+                  }
+                }}
+              >
                 <button
                   type="button"
                   aria-haspopup="menu"
                   aria-expanded={isServicesOpen}
                   aria-controls="services-menu"
-                  onClick={() => setIsServicesOpen((open) => !open)}
-                  onFocus={() => setIsServicesOpen(true)}
-                  className={`nav-link flex items-center gap-1 py-2 text-sm font-bold ${
-                    isActive(link.href)
-                      ? "text-purple after:scale-x-100"
-                      : "text-text-secondary hover:text-navy"
+                  onClick={() => setIsServicesOpen(true)}
+                  className={`flex min-h-11 items-center gap-2 whitespace-nowrap rounded-full px-4 py-2 text-sm font-extrabold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple ${
+                    isActive(link.href) || isServicesOpen
+                      ? "bg-purple/10 text-purple"
+                      : "text-text-secondary hover:bg-cream hover:text-navy"
                   }`}
                 >
                   {link.label}
@@ -112,31 +137,48 @@ export function Navbar() {
                 <div
                   id="services-menu"
                   role="menu"
-                  onMouseEnter={() => setIsServicesOpen(true)}
-                  onMouseLeave={() => setIsServicesOpen(false)}
-                  className={`absolute left-1/2 top-[calc(100%-4px)] w-76 -translate-x-1/2 rounded-2xl border border-cream-dark bg-white p-2 shadow-[var(--shadow-hover)] transition-all duration-200 ${
+                  aria-label="How We Help"
+                  className={`absolute left-1/2 top-[calc(100%-5px)] w-[42rem] -translate-x-1/2 overflow-hidden rounded-[1.75rem] border border-cream-dark bg-white p-3 shadow-[var(--shadow-hover)] transition-all duration-200 ${
                     isServicesOpen
                       ? "pointer-events-auto visible translate-y-0 opacity-100"
                       : "pointer-events-none invisible translate-y-2 opacity-0"
                   }`}
                 >
-                  <Link
-                    href="/services"
-                    role="menuitem"
-                    className="block rounded-xl px-4 py-2.5 text-sm font-extrabold text-purple transition-colors hover:bg-cream-dark focus-visible:bg-cream-dark focus-visible:outline-none"
-                  >
-                    All services
-                  </Link>
-                  {link.children.map((service) => (
+                  <div className="flex items-center justify-between gap-6 rounded-[1.25rem] bg-navy px-5 py-4 text-white">
+                    <div>
+                      <p className="font-heading text-xl font-semibold">
+                        How can we help today?
+                      </p>
+                      <p className="mt-1 text-xs leading-5 text-white/70">
+                        Choose an area, or view every support option.
+                      </p>
+                    </div>
                     <Link
-                      key={service.slug}
-                      href={`/services/${service.slug}`}
+                      href="/services"
                       role="menuitem"
-                      className="block rounded-xl px-4 py-2.5 text-sm font-semibold text-text-secondary transition-colors hover:bg-cream-dark hover:text-purple focus-visible:bg-cream-dark focus-visible:text-purple focus-visible:outline-none"
+                      className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full bg-orange px-4 py-2 text-sm font-extrabold text-navy transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
                     >
-                      {service.title}
+                      View all support
+                      <ArrowRight size={16} aria-hidden="true" />
                     </Link>
-                  ))}
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 p-2">
+                    {link.children.map((service) => (
+                      <Link
+                        key={service.slug}
+                        href={`/services/${service.slug}`}
+                        role="menuitem"
+                        className="group flex min-h-14 items-center justify-between gap-3 rounded-xl bg-cream/55 px-4 py-3 text-sm font-bold text-navy transition-colors hover:bg-purple/10 hover:text-purple focus-visible:bg-purple/10 focus-visible:text-purple focus-visible:outline-2 focus-visible:outline-purple"
+                      >
+                        {service.title}
+                        <ArrowRight
+                          size={15}
+                          className="shrink-0 text-purple transition-transform group-hover:translate-x-1"
+                          aria-hidden="true"
+                        />
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             ) : (
