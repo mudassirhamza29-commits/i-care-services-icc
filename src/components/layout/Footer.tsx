@@ -121,12 +121,6 @@ export function Footer() {
               {CONTACT_INFO.email}
             </a>
           </address>
-          <a
-            href={`https://${CONTACT_INFO.website}`}
-            className="mt-5 inline-block text-sm font-semibold text-orange hover:text-white"
-          >
-            {CONTACT_INFO.website}
-          </a>
           <p className="mt-5 flex gap-2 text-xs font-semibold leading-5 text-white/65">
             <ShieldAlert size={16} className="mt-0.5 shrink-0 text-orange" aria-hidden="true" />
             Not an emergency service and not monitored 24/7.

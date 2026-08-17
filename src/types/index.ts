@@ -48,7 +48,6 @@ export interface ContactInfo {
   registeredOffice: string;
   phone: string;
   email: string;
-  website: string;
   regNumber: string;
 }
 
