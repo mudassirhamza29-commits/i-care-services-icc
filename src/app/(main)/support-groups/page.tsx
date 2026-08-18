@@ -53,8 +53,8 @@ export default function SupportGroupsPage() {
         subtitle="Connection, shared experience and a place where you do not have to explain everything from the beginning"
         eyebrow="You are welcome here"
         accentColor="#F4A261"
-        serviceImage="/images/community/peer-support.webp"
-        serviceImageAlt="A diverse group of adults listening to one another in a welcoming community space"
+        serviceImage="/images/community/peer-support-table.webp"
+        serviceImageAlt="Hands of peer-support participants gathered around a shared table with notebooks and refreshments"
       />
 
       <section className="bg-white">
@@ -88,8 +88,8 @@ export default function SupportGroupsPage() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-24">
           <AnimatedSection variant="slideInLeft" className="relative aspect-[4/3] overflow-hidden rounded-[2rem_5rem_2rem_2rem] shadow-[var(--shadow-hover)]">
             <Image
-              src="/images/community/inclusive-community.webp"
-              alt="People from different cultures connecting at an inclusive community gathering"
+              src="/images/community/inclusive-activity-table.webp"
+              alt="Hands sharing information cards and creative materials at an accessible community table"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"

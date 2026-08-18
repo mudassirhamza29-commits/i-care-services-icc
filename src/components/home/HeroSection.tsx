@@ -98,8 +98,8 @@ export function HeroSection() {
         >
           <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem_2rem_5rem_2rem] bg-cream-dark shadow-[0_28px_80px_rgba(26,26,46,0.18)] sm:aspect-[5/4] lg:aspect-[4/5] xl:aspect-[5/4]">
             <Image
-              src="/images/community/hero-community.webp"
-              alt="A diverse group of adults having a supportive conversation in a welcoming community room"
+              src="/images/community/community-support-table.webp"
+              alt="Hands gathered around a community support table with a route sheet, notebooks and refreshments"
               fill
               priority
               sizes="(min-width: 1024px) 54vw, 100vw"

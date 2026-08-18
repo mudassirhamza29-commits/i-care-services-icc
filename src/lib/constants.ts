@@ -72,7 +72,7 @@ export const SERVICES: Service[] = [
     slug: "family-support",
     description:
       "A calm, non-judgemental space for families navigating pressure, change, conflict or caring responsibilities.",
-    image: "/images/services/family-support.webp",
+    image: "/images/services/family-planning-table.webp",
     imageAlt:
       "Hands arranging a shared family calendar and home planning materials",
     icon: "UsersRound",

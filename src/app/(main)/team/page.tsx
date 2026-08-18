@@ -77,8 +77,8 @@ export default function TeamPage() {
         eyebrow="Approachable, skilled and community-focused"
         visualVariant="team"
         breadcrumb="Our Team"
-        serviceImage="/images/community/inclusive-community.webp"
-        serviceImageAlt="An illustrative inclusive community gathering with people talking in small groups"
+        serviceImage="/images/community/team-support-plan.webp"
+        serviceImageAlt="Team members reviewing an anonymised support plan, calendar and referral cards"
       />
 
       <div>
@@ -110,16 +110,16 @@ export default function TeamPage() {
               <figure className="overflow-hidden rounded-[2rem] bg-navy shadow-[var(--shadow-hover)]">
                 <div className="relative aspect-[4/3]">
                   <Image
-                    src="/images/community/hero-community.webp"
-                    alt="A diverse community group sharing a supportive conversation"
+                    src="/images/community/team-support-plan.webp"
+                    alt="Team members reviewing an anonymised support plan, calendar and referral cards"
                     fill
                     sizes="(min-width: 1024px) 40vw, 100vw"
                     className="object-cover"
                   />
                 </div>
                 <figcaption className="px-6 py-4 text-sm font-semibold leading-6 text-white/75">
-                  Illustrative community image. Individual I-Care staff are not
-                  shown on this website.
+                  Illustrative team-planning image. Individual I-Care staff are
+                  not shown on this website.
                 </figcaption>
               </figure>
             </AnimatedSection>

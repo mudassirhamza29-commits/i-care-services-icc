@@ -15,8 +15,8 @@ export function LanguageSection() {
         <AnimatedSection variant="slideInLeft" className="relative">
           <div className="relative aspect-[4/3] overflow-hidden rounded-[5rem_2rem_2rem_2rem] shadow-[var(--shadow-hover)]">
             <Image
-              src="/images/community/languages-conversation.webp"
-              alt="People from different backgrounds talking together around a community table"
+              src="/images/community/communication-choice-table.webp"
+              alt="Hands using communication symbol cards, a telephone and a notebook around a community table"
               fill
               sizes="(min-width: 1024px) 52vw, 100vw"
               className="object-cover"

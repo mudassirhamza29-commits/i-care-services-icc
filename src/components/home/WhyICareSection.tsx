@@ -37,8 +37,8 @@ export function WhyICareSection() {
         <AnimatedSection variant="slideInLeft" className="relative">
           <div className="interactive-card group relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-navy">
             <Image
-              src="/images/home/why-i-care.webp"
-              alt="A confidential one-to-one support conversation with one person listening attentively"
+              src="/images/home/support-route-review.webp"
+              alt="Two people reviewing a simple support route with a phone, notebook and refreshments nearby"
               fill
               sizes="(min-width: 1024px) 46vw, 100vw"
               className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"

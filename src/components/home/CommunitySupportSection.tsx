@@ -55,8 +55,8 @@ export function CommunitySupportSection() {
           </AnimatedSection>
           <AnimatedSection variant="slideInRight" className="relative aspect-[4/3] overflow-hidden rounded-[2rem_5rem_2rem_2rem] shadow-[var(--shadow-hover)]">
             <Image
-              src="/images/community/peer-support.webp"
-              alt="A diverse peer-support group listening to one another in a community room"
+              src="/images/community/peer-support-table.webp"
+              alt="Hands of peer-support participants around a shared table with notebooks, refreshments and accessible seating"
               fill
               sizes="(min-width: 1024px) 54vw, 100vw"
               className="object-cover"
@@ -67,8 +67,8 @@ export function CommunitySupportSection() {
         <div className="overflow-hidden rounded-[2.5rem] bg-navy text-white">
           <div className="relative min-h-80 lg:min-h-[30rem]">
             <Image
-              src="/images/community/inclusive-community.webp"
-              alt="An inclusive community gathering with people from different cultures talking in small groups"
+              src="/images/community/inclusive-activity-table.webp"
+              alt="Hands sharing information cards and creative materials at an accessible community table"
               fill
               sizes="100vw"
               className="object-cover"
