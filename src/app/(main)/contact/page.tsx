@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MessageSquareText, Phone, ShieldAlert } from "lucide-react";
+import Link from "next/link";
+import { Mail, MapPin, MessageSquareText, Phone, ShieldAlert } from "lucide-react";
 
 import { ContactForm } from "@/components/forms/ContactForm";
 import { EmailSupportActions } from "@/components/shared/EmailSupportActions";
@@ -19,6 +20,24 @@ export default function ContactPage() {
         breadcrumb="Contact Us"
         visualVariant="contact"
       />
+
+      <section className="bg-cream-dark px-4 py-8 sm:px-6 lg:px-8">
+        <AnimatedSection className="mx-auto flex max-w-5xl flex-col gap-5 rounded-3xl bg-white p-6 shadow-sm sm:flex-row sm:items-center">
+          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-purple/10 text-purple">
+            <MapPin size={23} aria-hidden="true" />
+          </span>
+          <div className="flex-1">
+            <h2 className="font-heading text-xl font-extrabold text-navy">London and beyond</h2>
+            <p className="mt-1 text-sm leading-6 text-text-secondary">
+              Enquiries from other counties and cities are considered case by
+              case, subject to capacity, suitability and practical limits.
+            </p>
+          </div>
+          <Link href="/community#catchment-area" className="font-bold text-purple underline decoration-purple/35 underline-offset-4">
+            Check the catchment guidance
+          </Link>
+        </AnimatedSection>
+      </section>
 
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">

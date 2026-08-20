@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "People Who Care",
   description:
-    "Meet the service areas and professional functions that support people through I-Care Services CIC.",
+    "Social care professionals, a pastoral care leader and trained dedicated volunteers supporting people through I-Care Services CIC.",
   alternates: { canonical: "/team" },
 };
 
@@ -73,7 +73,7 @@ export default function TeamPage() {
     <>
       <PageHero
         title="People Who Care"
-        subtitle="Trained professionals, pastoral care professionals and dedicated volunteers, united by careful listening"
+        subtitle="Social care professionals, a pastoral care leader and trained dedicated volunteers, united by careful listening"
         eyebrow="Approachable, skilled and community-focused"
         visualVariant="team"
         breadcrumb="Our Team"
@@ -92,12 +92,16 @@ export default function TeamPage() {
                 Support from people who listen first
               </h2>
               <p className="mt-6 text-base leading-8 text-text-secondary sm:text-lg">
-                Our support is provided by trained professionals in health and
-                social care, pastoral care professionals and dedicated
-                volunteers. Together, they help people navigate health,
-                housing, welfare, mental wellbeing, family life and community
-                support. Individual names and photographs are not currently
-                published on this website.
+                Our team brings together social care professionals, a pastoral
+                care leader and trained dedicated volunteers. Together, they
+                help people navigate health, housing, welfare, mental
+                wellbeing, family life and community support. Individual names
+                and photographs are not currently published on this website.
+              </p>
+              <p className="mt-4 leading-8 text-text-secondary">
+                Community religious support is also available for people who
+                want faith, belief or spiritual wellbeing to be part of the
+                conversation, always without pressure or judgement.
               </p>
               <p className="mt-4 leading-8 text-text-secondary">
                 Where a need falls outside our role, the team explains that
@@ -186,7 +190,7 @@ export default function TeamPage() {
               <p className="mx-auto mt-5 max-w-2xl leading-8 text-text-secondary">
                 You do not need to know which team function is right for you.
                 Start with a short enquiry and we will help clarify the next
-                step. Support is free to access.
+                step. The initial consultation is free and impartial.
               </p>
               <Button href="/get-support" className="mt-7 gap-2">
                 Get Support

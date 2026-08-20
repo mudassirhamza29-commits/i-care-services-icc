@@ -9,7 +9,7 @@ import { fadeInUp, slideInRight, staggerContainer } from "@/lib/animations";
 import { CRISIS_NOTICE } from "@/lib/constants";
 
 const trustPoints = [
-  "Free to access",
+  "Free initial consultation",
   "No referral needed",
   "Confidential within safeguarding limits",
 ];

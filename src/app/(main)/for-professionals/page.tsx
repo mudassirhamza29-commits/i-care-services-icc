@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   Building2,
   GraduationCap,
   HeartPulse,
   House,
+  MapPin,
   Scale,
   Stethoscope,
 } from "lucide-react";
@@ -60,7 +62,7 @@ const referralBenefits = [
   "Updates provided where consent and data-sharing allow",
   "Confidential support within safeguarding limits",
   "Not an emergency or 24/7 monitored pathway",
-  "Free first-contact and referral route",
+  "Free initial consultation and first-contact referral route",
 ];
 
 export default function ForProfessionalsPage() {
@@ -138,6 +140,21 @@ export default function ForProfessionalsPage() {
 
       <section className="bg-cream">
         <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+          <AnimatedSection className="mb-10 flex flex-col gap-5 rounded-3xl border border-purple/20 bg-white p-6 sm:flex-row sm:items-center">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-purple/10 text-purple">
+              <MapPin size={23} aria-hidden="true" />
+            </span>
+            <div className="flex-1">
+              <h2 className="font-heading text-xl font-extrabold text-navy">Catchment and referral reach</h2>
+              <p className="mt-1 text-sm leading-6 text-text-secondary">
+                Referrals from London are welcomed. Other counties and cities
+                are considered case by case and are not guaranteed.
+              </p>
+            </div>
+            <Link href="/community#catchment-area" className="font-bold text-purple underline decoration-purple/35 underline-offset-4">
+              Read the full guidance
+            </Link>
+          </AnimatedSection>
           <AnimatedSection className="mb-10 text-center">
             <h2 className="font-heading text-4xl font-extrabold text-navy sm:text-5xl">
               Make a Referral

@@ -67,7 +67,7 @@ export default function GetSupportPage() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {[
               [LockKeyhole, "Confidential with safeguarding exceptions"],
-              [PoundSterling, "Free to access"],
+              [PoundSterling, "Free initial consultation"],
               [Languages, SUPPORTED_LANGUAGES_TEXT],
               [Handshake, "Non-Judgmental"],
             ].map(([Icon, label]) => {
@@ -80,6 +80,39 @@ export default function GetSupportPage() {
             })}
           </div>
         </AnimatedSection>
+      </section>
+
+      <section className="bg-cream-dark">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+          <AnimatedSection className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-purple">
+              Clear from the beginning
+            </p>
+            <h2 className="mt-4 font-heading text-4xl font-extrabold tracking-[-0.04em] text-navy sm:text-5xl">
+              Free Access and Clear Choices
+            </h2>
+            <p className="mt-5 leading-8 text-text-secondary">
+              Your initial consultation and guidance from I-Care Services CIC
+              are free, impartial and offered without judgement.
+            </p>
+          </AnimatedSection>
+          <AnimatedSection variant="staggerContainer" className="mx-auto mt-10 grid max-w-5xl gap-5 md:grid-cols-3">
+            {[
+              [PoundSterling, "Free initial consultation", "Start with a conversation about what is happening and what may help."],
+              [Handshake, "Impartial advice", "We explain options without judgement or pressure to choose a particular route."],
+              [LockKeyhole, "Private options when needed", "Some independent services may be private and paid. Any cost and provider relationship are explained before referral."],
+            ].map(([Icon, title, body]) => {
+              const AccessIcon = Icon as typeof PoundSterling;
+              return (
+                <article key={title as string} className="interactive-card rounded-3xl bg-white p-6">
+                  <AccessIcon size={26} className="text-purple" aria-hidden="true" />
+                  <h3 className="mt-5 font-heading text-xl font-extrabold text-navy">{title as string}</h3>
+                  <p className="mt-3 text-sm leading-7 text-text-secondary">{body as string}</p>
+                </article>
+              );
+            })}
+          </AnimatedSection>
+        </div>
       </section>
 
       <section className="bg-white">

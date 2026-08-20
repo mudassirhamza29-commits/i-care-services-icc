@@ -113,11 +113,23 @@ export function ServicesGrid() {
             <h3 className="mt-3 font-heading text-4xl font-semibold leading-tight sm:text-5xl">
               You do not have to wait until things feel unbearable.
             </h3>
-            <p className="mt-5 max-w-xl leading-8 text-white/75">
-              We offer one-to-one mental health first aid, an initial needs and
-              safety conversation, and referral to appropriate support.
-              Psychology and counselling are provided by independent third parties.
-            </p>
+            <div className="mt-6 grid max-w-xl gap-3 sm:grid-cols-2">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <h4 className="font-heading text-lg font-semibold text-orange">In-house support</h4>
+                <p className="mt-2 text-sm leading-6 text-white/72">
+                  One-to-one mental health first aid, an initial needs and
+                  safety conversation, practical support and agreed follow-up.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <h4 className="font-heading text-lg font-semibold text-orange">Referral pathways</h4>
+                <p className="mt-2 text-sm leading-6 text-white/72">
+                  Help connecting with primary care and suitable independent
+                  third-party organisations. Psychology and counselling are
+                  not delivered directly by I-Care.
+                </p>
+              </div>
+            </div>
             <Link
               href="/services/mental-health"
               className="interactive-button mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-orange px-6 py-3 font-extrabold text-navy focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange"

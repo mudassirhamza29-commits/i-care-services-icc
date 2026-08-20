@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Mental Health & Wellbeing",
   description:
-    "One-to-one mental health first aid, initial assessment, referral and third-party psychology or counselling routes.",
+    "Direct one-to-one mental health first aid and clear referral pathways to primary care and independent specialist organisations.",
   alternates: { canonical: "/services/mental-health" },
 };
 
@@ -17,9 +17,14 @@ export default function MentalHealthPage() {
       description="You do not have to wait until things become unbearable. Start with a private conversation, an initial needs check and a clear route to appropriate support."
       whatWeOffer={[
         {
-          title: "One-to-One Mental Health First Aid",
+          title: "In-House Support",
           description:
-            "A private first conversation to understand what is happening, identify immediate needs and consider safe next steps.",
+            "Delivered directly by our team: one-to-one mental health first aid, a private first conversation, an initial needs and safety check, practical emotional support and agreed follow-up.",
+        },
+        {
+          title: "Referral Pathways",
+          description:
+            "With your agreement, we can help connect you to primary care, NHS and statutory routes, or suitable independent third-party organisations for specialist support.",
         },
         {
           title: "Initial Needs and Safety Assessment",
@@ -27,14 +32,9 @@ export default function MentalHealthPage() {
             "A focused assessment of current concerns, support needs and immediate safety. This is not a diagnosis or clinical assessment.",
         },
         {
-          title: "Referral and Signposting",
-          description:
-            "Referral or signposting to an appropriate community, statutory, regulated or specialist service after the first-aid conversation.",
-        },
-        {
           title: "Third-Party Psychology and Counselling",
           description:
-            "Psychology and counselling are not delivered directly by I-Care Services CIC. Where appropriate, we help people access independent third-party providers.",
+            "Psychology and counselling are not delivered directly by I-Care Services CIC. Where appropriate, we help people access independent third-party organisations and explain any separate arrangements or costs before referral.",
         },
         {
           title: "Holistic Wellbeing Routes",

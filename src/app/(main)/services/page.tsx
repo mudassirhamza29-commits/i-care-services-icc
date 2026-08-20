@@ -21,7 +21,7 @@ import { DELIVERY_TYPES, SERVICES } from "@/lib/constants";
 import type { Service, ServiceSlug } from "@/types";
 
 const trustPoints = [
-  "Free to access",
+  "Free initial consultation",
   "Confidential within safeguarding limits",
   "Self-referral and professional routes",
 ];

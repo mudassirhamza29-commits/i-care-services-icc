@@ -58,7 +58,7 @@ export const SERVICES: Service[] = [
     title: "Mental Health & Wellbeing",
     slug: "mental-health",
     description:
-      "One-to-one mental health first aid, initial needs assessment and referral to appropriate support.",
+      "Direct one-to-one mental health first aid plus referral pathways to primary care and independent specialist support.",
     image: "/images/services/mental-health.webp",
     imageAlt:
       "A private and calm support room prepared for a confidential conversation",
@@ -97,7 +97,7 @@ export const SERVICES: Service[] = [
     title: "Creative Wellbeing Support",
     slug: "art-therapy",
     description:
-      "Person-centred creative activities for emotional expression, reflection and wellbeing.",
+      "Person-centred creative activities and Art Therapy delivered by a trained Art Therapist.",
     image: "/images/services/art-therapy.webp",
     imageAlt:
       "Hands painting in a sketchbook surrounded by watercolours and art materials",
@@ -128,6 +128,7 @@ export const NAV_LINKS: NavLink[] = [
     children: SERVICES.map(({ title, slug }) => ({ title, slug })),
   },
   { label: "Support Groups", href: "/support-groups" },
+  { label: "Community", href: "/community" },
   { label: "About Us", href: "/about" },
   { label: "Our Team", href: "/team" },
   { label: "Resources", href: "/resources" },
@@ -161,7 +162,8 @@ export const DELIVERY_TYPES = [
   "Peer Support",
   "Guidance",
   "Wellbeing Support",
-  "Mentoring",
+  "Home Visits",
+  "Peer Mentoring Support",
 ] as const;
 
 export const SUPPORTED_LANGUAGES = [

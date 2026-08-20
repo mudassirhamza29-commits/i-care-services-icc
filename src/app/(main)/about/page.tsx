@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   ArrowRight,
   Award,
@@ -230,7 +231,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-navy text-white">
+      <section id="ways-we-support" className="scroll-mt-24 bg-navy text-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
           <AnimatedSection className="text-center">
             <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-orange">
@@ -249,6 +250,33 @@ export default function AboutPage() {
                   <ArrowRight size={16} aria-hidden="true" />
                 </span>
               ))}
+            </div>
+            <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-white/15 bg-white/5 p-6">
+              <h3 className="font-heading text-2xl font-extrabold">
+                How to Contact Us
+              </h3>
+              <p className="mt-3 leading-7 text-white/75">
+                Call, email or use the first-contact form. We will explain
+                whether one-to-one support, a home visit, peer mentoring or
+                another route may be suitable and available.
+              </p>
+              <p className="mt-4 text-sm font-semibold leading-6 text-white/75">
+                You can always return to this information at{" "}
+                <Link
+                  href="/about#ways-we-support"
+                  className="text-orange underline decoration-orange/50 underline-offset-4 hover:decoration-orange"
+                >
+                  www.i-careservices.com/about#ways-we-support
+                </Link>
+                .
+              </p>
+              <Link
+                href="/contact"
+                className="interactive-button mt-6 inline-flex min-h-11 items-center gap-2 rounded-full bg-orange px-5 py-2.5 text-sm font-extrabold text-navy"
+              >
+                Contact the team
+                <ArrowRight size={16} aria-hidden="true" />
+              </Link>
             </div>
           </AnimatedSection>
         </div>

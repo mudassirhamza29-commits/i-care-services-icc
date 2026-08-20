@@ -10,6 +10,7 @@ const staticRoutes = [
   "/about",
   "/services",
   "/support-groups",
+  "/community",
   "/get-support",
   "/for-professionals",
   "/resources",

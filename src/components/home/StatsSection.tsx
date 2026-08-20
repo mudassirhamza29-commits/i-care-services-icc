@@ -3,8 +3,8 @@ import { HandHeart, Languages, LockKeyhole, ShieldAlert } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 const trustItems = [
   {
-    title: "Free support",
-    label: "No charge for support provided by I-Care",
+    title: "Free first contact",
+    label: "Free initial consultation and impartial guidance",
     icon: HandHeart,
   },
   {

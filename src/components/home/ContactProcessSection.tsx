@@ -36,8 +36,9 @@ export function ContactProcessSection() {
             A Clear First Step
           </h2>
           <p className="mt-5 text-base leading-8 text-text-secondary">
-            Contact is free, confidential within safeguarding limits and kept
-            separate from emergency and crisis routes.
+            The initial consultation is free, impartial and confidential within
+            safeguarding limits. Independent private services may have a cost,
+            which is explained before any referral is agreed.
           </p>
         </AnimatedSection>
 

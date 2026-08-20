@@ -18,6 +18,12 @@ export function StoriesSection() {
             space will only contain feedback from people who have clearly
             agreed to share their words.
           </p>
+          <p className="mx-auto mt-4 max-w-2xl leading-7 text-text-secondary">
+            When consented feedback is supplied, this section will represent
+            several community voices, including people from culturally diverse
+            and minority communities, without treating any one person as a
+            spokesperson for everyone.
+          </p>
           <p className="mx-auto mt-5 flex max-w-xl items-start justify-center gap-2 text-sm font-semibold leading-6 text-text-secondary">
             <ShieldCheck className="mt-0.5 shrink-0 text-purple" size={18} aria-hidden="true" />
             Names and identifying details will never be added without permission.

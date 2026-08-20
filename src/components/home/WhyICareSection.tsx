@@ -24,8 +24,8 @@ const features = [
     icon: HandHeart,
   },
   {
-    title: "Free to Access",
-    description: "There is no charge for support provided by I-Care Services CIC.",
+    title: "Free, Impartial First Contact",
+    description: "Your initial consultation is free, impartial and without judgement. Private options may be available where needed, with any cost explained first.",
     icon: Sparkles,
   },
 ];
@@ -68,6 +68,19 @@ export function WhyICareSection() {
               Asking for help can feel difficult. We make that first
               conversation simpler, warmer and focused on what matters to you.
             </p>
+            <p className="mt-4 text-base leading-8 text-text-secondary sm:text-lg">
+              Our community-led approach is shaped by <strong className="text-navy">I Know My Illness</strong>{" "}
+              champions: people who understand that lived experience belongs
+              alongside professional knowledge when support is planned.
+            </p>
+            <blockquote className="mt-6 rounded-3xl border-l-4 border-orange bg-white px-6 py-5 font-heading text-2xl font-semibold text-navy shadow-sm">
+              &ldquo;We come to you.&rdquo;
+              <span className="mt-2 block font-body text-sm font-semibold leading-6 text-text-secondary">
+                Home visits can help reduce social isolation when leaving home
+                or reaching services feels difficult. Availability is agreed
+                case by case.
+              </span>
+            </blockquote>
           </AnimatedSection>
 
           <AnimatedSection

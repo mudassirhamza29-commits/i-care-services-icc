@@ -1,6 +1,6 @@
 # I-Care Services CIC launch decisions
 
-Last updated: 20 July 2026
+Last updated: 20 August 2026
 
 ## Confirmed
 
@@ -9,7 +9,9 @@ Last updated: 20 July 2026
 - Registered office: 48 Bellamy Drive, Stanmore, England, HA7 2DB.
 - Public phone and email in `CONTACT_INFO` are approved.
 - All listed support services are approved.
-- Support provided by I-Care Services CIC is free to access.
+- The initial consultation and guidance delivered directly by I-Care Services
+  CIC are free and impartial. Independent private services may have a separate
+  cost, which must be explained before referral.
 - Language support is available in Arabic, Urdu, Pashto and Punjabi.
 - I-Care Services CIC provides one-to-one mental health first aid, initial
   needs and safety assessment, and referral support.
@@ -47,3 +49,14 @@ Last updated: 20 July 2026
 - Set `NEXT_PUBLIC_SITE_URL` to the approved custom HTTPS domain when connected.
 - Re-run canonical, sitemap, robots, form-delivery, accessibility and security
   checks after the custom domain is active.
+
+## Testimonials needed from the client
+
+- Supply the original, consented testimonial wording for the "What people say"
+  section. The older repository copy contains generated examples and must not
+  be published as genuine feedback.
+- For each quotation, confirm permission to publish, the approved anonymous
+  attribution and whether any identifying details need to be removed.
+- The final set should include several voices and should include consented
+  feedback from culturally diverse or minority-community service users without
+  presenting one person as representative of an entire community.

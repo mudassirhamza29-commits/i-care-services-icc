@@ -16,6 +16,31 @@ export default function GeneralHealthPage() {
       description="Accessible health guidance that helps you understand care, access the NHS and manage your wellbeing."
       whatWeOffer={[
         {
+          title: "Specialist and Holistic Health Support",
+          description:
+            "Help identifying appropriate specialist or holistic health routes and preparing questions for a suitably qualified health professional.",
+        },
+        {
+          title: "Understanding Diagnostics",
+          description:
+            "Plain-English support to understand diagnostic pathways, terminology and useful questions to take back to your qualified healthcare professional.",
+        },
+        {
+          title: "Medical Report Review",
+          description:
+            "Help reading the structure and wording of a medical report and preparing questions. We do not reinterpret results, diagnose conditions or replace clinical advice.",
+        },
+        {
+          title: "Disabilities and Health Inequalities",
+          description:
+            "Support to better understand disabilities, barriers to care and health inequalities, and to make your access needs and concerns heard.",
+        },
+        {
+          title: "General Health Check-Up / Health MOT",
+          description:
+            "Help exploring or arranging a general health check-up, sometimes called a Health MOT, through an appropriate qualified provider.",
+        },
+        {
           title: "GP Registration",
           description:
             "Help understanding registration steps, common barriers and what information a GP practice may ask for.",

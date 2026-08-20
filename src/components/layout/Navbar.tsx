@@ -198,7 +198,7 @@ export function Navbar() {
         </div>
 
         <div className="hidden shrink-0 items-center gap-3 xl:flex">
-          <span className="max-w-36 text-xs font-semibold leading-5 text-text-secondary">
+          <span className="hidden max-w-36 text-xs font-semibold leading-5 text-text-secondary 2xl:block">
             Not an emergency service
           </span>
           <Link

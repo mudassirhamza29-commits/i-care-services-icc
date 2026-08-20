@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Creative Wellbeing Support",
-  description: "Creative wellbeing activities for expression, reflection and support signposting.",
+  description: "Creative wellbeing activities and art therapy delivered by a trained Art Therapist.",
   alternates: { canonical: "/services/art-therapy" },
 };
 
@@ -15,6 +15,11 @@ export default function ArtTherapyPage() {
       color="#5B3FA6"
       description="Person-centred creative activities for emotional expression, reflection and wellbeing."
       whatWeOffer={[
+        {
+          title: "Art Therapy",
+          description:
+            "Art Therapy is delivered by a trained Art Therapist, offering a supported creative space for expression, reflection and emotional wellbeing.",
+        },
         {
           title: "Guided Creative Activities",
           description:
@@ -60,7 +65,7 @@ export default function ArtTherapyPage() {
         {
           step: 3,
           title: "Supported Expression",
-          description: "A support worker helps you reflect at your pace.",
+          description: "A trained Art Therapist helps you reflect at your pace.",
         },
         {
           step: 4,
@@ -69,6 +74,11 @@ export default function ArtTherapyPage() {
         },
       ]}
       faqs={[
+        {
+          question: "Who delivers Art Therapy?",
+          answer:
+            "Art Therapy is delivered by a trained Art Therapist. We will explain the form of support and any relevant professional or referral arrangements before it begins.",
+        },
         {
           question: "Do I need artistic experience?",
           answer:

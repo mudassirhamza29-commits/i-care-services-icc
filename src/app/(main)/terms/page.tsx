@@ -38,6 +38,23 @@ export default function TermsPage() {
         Services CIC.
       </p>
 
+      <h2>Free and private support</h2>
+      <p>
+        The initial consultation and guidance delivered directly by I-Care
+        Services CIC are free and impartial. An independent provider may offer
+        a private paid service where that is a suitable option. Any known cost,
+        provider responsibility and alternative route should be explained
+        before a referral is agreed.
+      </p>
+
+      <h2>Catchment and availability</h2>
+      <p>
+        Enquiries from London are welcomed. Requests from other counties and
+        cities are considered case by case and are not guaranteed. Availability
+        depends on capacity, the requested support, practical delivery limits
+        and suitable services in the person&apos;s area.
+      </p>
+
       <h2>Emergencies</h2>
       <p>
         This website and our support service are not an emergency service and
