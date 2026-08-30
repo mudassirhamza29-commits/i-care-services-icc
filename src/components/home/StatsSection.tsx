@@ -4,7 +4,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 const trustItems = [
   {
     title: "Free first contact",
-    label: "Free initial consultation and impartial guidance",
+    label: "We offer free, confidential, impartial advice without judgment. Private one-to-one support is available where needed.",
     icon: HandHeart,
   },
   {

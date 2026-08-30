@@ -41,7 +41,7 @@ const CTABanner = dynamic(() =>
 export const metadata: Metadata = {
   title: "How Can I Help? | Community Support",
   description:
-    "Free initial consultation and welcoming community support across health, housing, money, mental wellbeing, family life and social care.",
+    "We offer free, confidential, impartial advice without judgment. Private one-to-one support is available where needed.",
   alternates: { canonical: "/" },
 };
 

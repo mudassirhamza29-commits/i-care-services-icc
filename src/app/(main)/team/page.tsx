@@ -104,6 +104,9 @@ export default function TeamPage() {
                 conversation, always without pressure or judgement.
               </p>
               <p className="mt-4 leading-8 text-text-secondary">
+                We offer clinical support from Doctors, Nurses, and Social Workers.
+              </p>
+              <p className="mt-4 leading-8 text-text-secondary">
                 Where a need falls outside our role, the team explains that
                 boundary and helps identify an appropriate statutory,
                 regulated or specialist service.
@@ -190,7 +193,8 @@ export default function TeamPage() {
               <p className="mx-auto mt-5 max-w-2xl leading-8 text-text-secondary">
                 You do not need to know which team function is right for you.
                 Start with a short enquiry and we will help clarify the next
-                step. The initial consultation is free and impartial.
+                step. We offer free, confidential, impartial advice without
+                judgment. Private one-to-one support is available where needed.
               </p>
               <Button href="/get-support" className="mt-7 gap-2">
                 Get Support

@@ -175,7 +175,8 @@ export const SUPPORTED_LANGUAGES = [
   "Urdu",
   "Pashto",
   "Punjabi",
+  "Farsi",
 ] as const;
 
 export const SUPPORTED_LANGUAGES_TEXT =
-  "English, Somali, Swahili, Hindi, Arabic, Urdu, Pashto and Punjabi";
+  "English, Somali, Swahili, Hindi, Arabic, Urdu, Pashto, Punjabi and Farsi";

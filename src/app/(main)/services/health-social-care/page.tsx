@@ -54,7 +54,7 @@ export default function HealthSocialCarePage() {
       ]}
       faqs={[
         { question: "Do I need a GP referral?", answer: "You can use the contact routes shown on this website to ask about support. We will explain the most appropriate next step." },
-        { question: "Is the service free?", answer: "The initial consultation and guidance provided directly by I-Care Services CIC are free and impartial. If an independent private service is an appropriate option, any separate cost is explained before referral." },
+        { question: "Is the service free?", answer: "We offer free, confidential, impartial advice without judgment. Private one-to-one support is available where needed. If an independent private service is an appropriate option, any separate cost is explained before referral." },
         { question: "How quickly will you respond?", answer: "We review requests as soon as possible, but this service is not monitored 24/7." },
       ]}
       isSensitive={false}

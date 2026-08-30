@@ -40,11 +40,11 @@ export default function TermsPage() {
 
       <h2>Free and private support</h2>
       <p>
-        The initial consultation and guidance delivered directly by I-Care
-        Services CIC are free and impartial. An independent provider may offer
-        a private paid service where that is a suitable option. Any known cost,
-        provider responsibility and alternative route should be explained
-        before a referral is agreed.
+        We offer free, confidential, impartial advice without judgment. Private
+        one-to-one support is available where needed. An independent provider
+        may offer a private paid service where that is a suitable option. Any
+        known cost, provider responsibility and alternative route should be
+        explained before a referral is agreed.
       </p>
 
       <h2>Catchment and availability</h2>

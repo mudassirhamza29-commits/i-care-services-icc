@@ -67,7 +67,7 @@ export default function GetSupportPage() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {[
               [LockKeyhole, "Confidential with safeguarding exceptions"],
-              [PoundSterling, "Free initial consultation"],
+              [PoundSterling, "We offer free, confidential, impartial advice without judgment. Private one-to-one support is available where needed."],
               [Languages, SUPPORTED_LANGUAGES_TEXT],
               [Handshake, "Non-Judgmental"],
             ].map(([Icon, label]) => {
@@ -92,13 +92,13 @@ export default function GetSupportPage() {
               Free Access and Clear Choices
             </h2>
             <p className="mt-5 leading-8 text-text-secondary">
-              Your initial consultation and guidance from I-Care Services CIC
-              are free, impartial and offered without judgement.
+              We offer free, confidential, impartial advice without judgment.
+              Private one-to-one support is available where needed.
             </p>
           </AnimatedSection>
           <AnimatedSection variant="staggerContainer" className="mx-auto mt-10 grid max-w-5xl gap-5 md:grid-cols-3">
             {[
-              [PoundSterling, "Free initial consultation", "Start with a conversation about what is happening and what may help."],
+              [PoundSterling, "Free, confidential advice", "We offer free, confidential, impartial advice without judgment. Private one-to-one support is available where needed."],
               [Handshake, "Impartial advice", "We explain options without judgement or pressure to choose a particular route."],
               [LockKeyhole, "Private options when needed", "Some independent services may be private and paid. Any cost and provider relationship are explained before referral."],
             ].map(([Icon, title, body]) => {

@@ -21,7 +21,7 @@ import { DELIVERY_TYPES, SERVICES } from "@/lib/constants";
 import type { Service, ServiceSlug } from "@/types";
 
 const trustPoints = [
-  "Free initial consultation",
+  "We offer free, confidential, impartial advice without judgment. Private one-to-one support is available where needed.",
   "Confidential within safeguarding limits",
   "Self-referral and professional routes",
 ];
@@ -225,6 +225,10 @@ export default function ServicesPage() {
                 <h2 className="font-heading text-2xl font-semibold text-navy">
                   Advocacy &amp; Support Across All Services
                 </h2>
+                <p className="mt-2 leading-7 text-text-secondary">
+                  We are an advocacy service &mdash; we help raise your voice and
+                  make sure your views are heard.
+                </p>
                 <p className="mt-2 leading-7 text-text-secondary">
                   Our team can help you ask questions, explain your choices and
                   make your voice heard across every area of support.

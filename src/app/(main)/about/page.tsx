@@ -97,6 +97,17 @@ export default function AboutPage() {
                 explain safeguarding exceptions clearly and help you take the
                 next step with dignity and confidence.
               </p>
+              <p>
+                Our core belief is to help address the inequalities faced by
+                those from marginalised communities, including Black, Minority
+                Ethnic, and Asian (BMEA) communities. We recognise that cultural
+                and religious barriers remain among the main obstacles
+                preventing access to health and social care.
+              </p>
+              <p>
+                We are an advocacy service &mdash; we help raise your voice and
+                make sure your views are heard.
+              </p>
             </div>
           </AnimatedSection>
 

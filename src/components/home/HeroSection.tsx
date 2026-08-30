@@ -9,7 +9,7 @@ import { fadeInUp, slideInRight, staggerContainer } from "@/lib/animations";
 import { CRISIS_NOTICE } from "@/lib/constants";
 
 const trustPoints = [
-  "Free initial consultation",
+  "We offer free, confidential, impartial advice without judgment. Private one-to-one support is available where needed.",
   "No referral needed",
   "Confidential within safeguarding limits",
 ];

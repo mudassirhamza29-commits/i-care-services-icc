@@ -36,9 +36,8 @@ export function ContactProcessSection() {
             A Clear First Step
           </h2>
           <p className="mt-5 text-base leading-8 text-text-secondary">
-            The initial consultation is free, impartial and confidential within
-            safeguarding limits. Independent private services may have a cost,
-            which is explained before any referral is agreed.
+            We offer free, confidential, impartial advice without judgment.
+            Private one-to-one support is available where needed.
           </p>
         </AnimatedSection>
 

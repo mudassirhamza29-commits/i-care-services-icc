@@ -9,10 +9,9 @@ Last updated: 20 August 2026
 - Registered office: 48 Bellamy Drive, Stanmore, England, HA7 2DB.
 - Public phone and email in `CONTACT_INFO` are approved.
 - All listed support services are approved.
-- The initial consultation and guidance delivered directly by I-Care Services
-  CIC are free and impartial. Independent private services may have a separate
-  cost, which must be explained before referral.
-- Language support is available in Arabic, Urdu, Pashto and Punjabi.
+- We offer free, confidential, impartial advice without judgment. Private
+  one-to-one support is available where needed.
+- Language support is available in Arabic, Urdu, Pashto, Punjabi and Farsi.
 - I-Care Services CIC provides one-to-one mental health first aid, initial
   needs and safety assessment, and referral support.
 - Psychology and counselling are provided by independent third parties, not

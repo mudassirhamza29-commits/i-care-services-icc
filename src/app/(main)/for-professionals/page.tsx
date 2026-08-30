@@ -54,6 +54,21 @@ const professionalTypes = [
     "Health & Voluntary Sector",
     "Community follow-up and signposting where appropriate.",
   ],
+  [
+    Stethoscope,
+    "Clinical Practitioners",
+    "Doctors and nurses supporting people who may benefit from community guidance.",
+  ],
+  [
+    HeartPulse,
+    "Medical Professionals",
+    "Health professionals seeking a clear first-contact referral route.",
+  ],
+  [
+    Building2,
+    "Social Professionals",
+    "Professionals supporting people with social care and everyday needs.",
+  ],
 ] as const;
 
 const referralBenefits = [
@@ -62,7 +77,7 @@ const referralBenefits = [
   "Updates provided where consent and data-sharing allow",
   "Confidential support within safeguarding limits",
   "Not an emergency or 24/7 monitored pathway",
-  "Free initial consultation and first-contact referral route",
+  "We offer free, confidential, impartial advice without judgment. Private one-to-one support is available where needed.",
 ];
 
 export default function ForProfessionalsPage() {
@@ -86,6 +101,9 @@ export default function ForProfessionalsPage() {
               consent position and the most appropriate next step. Emergency
               and safeguarding concerns must always follow the relevant
               statutory pathway first.
+            </p>
+            <p className="mt-4 leading-8 text-text-secondary">
+              We offer clinical support from Doctors, Nurses, and Social Workers.
             </p>
           </AnimatedSection>
 

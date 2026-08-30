@@ -61,6 +61,10 @@ export function ServicesGrid() {
             sounds most like what is happening, or simply contact us and we
             will help you find the right door.
           </p>
+          <p className="mt-4 max-w-2xl text-base leading-8 text-text-secondary sm:text-lg">
+            We are an advocacy service &mdash; we help raise your voice and make
+            sure your views are heard.
+          </p>
         </AnimatedSection>
 
         <AnimatedSection variant="staggerContainer" className="mt-12 grid gap-6 lg:grid-cols-3">

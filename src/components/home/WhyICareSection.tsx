@@ -25,7 +25,7 @@ const features = [
   },
   {
     title: "Free, Impartial First Contact",
-    description: "Your initial consultation is free, impartial and without judgement. Private options may be available where needed, with any cost explained first.",
+    description: "We offer free, confidential, impartial advice without judgment. Private one-to-one support is available where needed.",
     icon: Sparkles,
   },
 ];
