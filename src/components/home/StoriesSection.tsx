@@ -24,9 +24,6 @@ export function StoriesSection() {
             and minority communities, without treating any one person as a
             spokesperson for everyone.
           </p>
-          <blockquote className="mx-auto mt-6 max-w-2xl rounded-3xl border border-purple/20 bg-white p-6 font-heading text-lg font-semibold text-navy shadow-sm">
-            [TESTIMONIAL PLACEHOLDER &mdash; TO BE REPLACED WITH REAL CLIENT QUOTE]
-          </blockquote>
           <p className="mx-auto mt-5 flex max-w-xl items-start justify-center gap-2 text-sm font-semibold leading-6 text-text-secondary">
             <ShieldCheck className="mt-0.5 shrink-0 text-purple" size={18} aria-hidden="true" />
             Names and identifying details will never be added without permission.
